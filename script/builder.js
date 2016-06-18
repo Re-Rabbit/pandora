@@ -19,6 +19,7 @@
  * @todo fix nunjucks paths.
  * @todo support other files, include index.ext.
  * @todo add api request and response friendly log.
+ * @fixme auto switch to default workspace.
  *
  * v1.1
  * @todo add private/public file own builder.
@@ -119,7 +120,7 @@ function gulpBuildPath(extname, workspace) {
  * @require libs
  */
 function gulpWatchPath(extname) {
-    const files = ignorename + '*.' + extname
+    const files = '*.' + extname
     return paths.map(n => `${n}/**/${files}`)
 }
 
@@ -194,6 +195,7 @@ function sassConfig() {
  * @todo fix during time
  */
 function css(done) {
+    console.log(workspace, initBuild)
     if(!workspace && initBuild) return done()
     return gulpEntrySrc(gulpBuildPath(extname.css, workspace))
 	.pipe(data(file => file.start = Date.now()))

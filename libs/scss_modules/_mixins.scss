@@ -85,7 +85,7 @@
 
 /// Theme
 
-@mixin theme-reverse($c: $global-bgColor, $bgc: $global-color) {
+@mixin theme-reverse($bgc: $global-color, $c: $global-bgColor) {
     color: $c;
     background-color: $bgc;
 }
