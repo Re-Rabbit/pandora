@@ -1,0 +1,11 @@
+////
+/// Function
+////
+
+@function computeBoxHeight($fz: 0, $lh: 0, $bd: 0, $pad: 0) {
+    @return $fz * $lh + $bd * 2 + $pad * 2;
+}
+
+@function load($cmp) {
+    @return "./components/#{$cmp}/_index";
+}
