@@ -63,3 +63,8 @@ h1,h2,h3,h4,h5 {
     &--2 { font-size: $font-size-3x; }
     &--3 { font-size: $font-size-4x; }
 }
+
+
+.text-primary {
+    color: $color-primary;
+}

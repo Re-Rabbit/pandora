@@ -1,18 +1,34 @@
 
 .button {
+    @include reset-box();
+    @include reset-theme();
+
     display: inline-block;
     box-sizing: border-box;
-    text-align: center;
-    @include auto-darken($button-color-text, $button-color-main, $button-color-border);
-    vertical-align: middle;
-    padding: 0.3em 0.5em;
+    //@include auto-darken($button-color-text, $button-color-main, $button-color-border);
+    background-color: $color-primary;
+    @include theme-reverse($color-primary);
+    padding: 0.5rem 0.8rem;
+    min-width: 5 + 2 * 0.8rem
+}
+
+.button-radius {
+    border-radius: $global-border-radius;
 }
 
 
-.button--border {
+.button-border {
+    @include reset-theme();
     @extend .button;
-    border: $border-size solid $button-color-border;
+    border: $border-size solid $color-primary;
+    color: $color-primary;
 }
+
+.button-border--default {
+    border-color: $color-gray-l;
+    color: $global-color;
+}
+
 .button--noborder {
     @extend .button;
     border: 0;
@@ -69,12 +85,19 @@
     font-size: 1.5rem;
 }
 
-.button--block {
+.button-block {
     @extend .button;
-    width: 100%;
-    @include border-radius(0);
-    border-left-width: 0;
-    border-right-width: 0;
+    @include size(100%);
+    padding: 0.8rem;
+}
+
+.button-block-container {
+    box-sizing: border-box;
+    padding: 1rem;
+}
+
+.button--white {
+    @include theme-reverse($color-white, $global-color);
 }
 
 button[disabled] {

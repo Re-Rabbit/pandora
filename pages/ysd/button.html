@@ -1,0 +1,23 @@
+{% macro buttonBlockFill(content="", hook="") %}
+<div>
+    <button type="button" class="button button-block button--white js-{{hook}}">
+        {{content}}
+    </button>
+</div>
+{% endmacro %}
+
+
+{% macro buttonBlock(content="", hook="") %}
+<div class="button-block-container">
+    <button type="button" class="button button-block button-radius js-{{hook}}">
+        {{content}}
+    </button>
+</div>
+{% endmacro %}
+
+
+{% macro buttonBorder(content="", hook="", isColor=false) %}
+<button type="button" class="button button-border js-{{hook}} {{ '' if isColor else 'button-border--default'}}">
+    {{content}}
+</button>
+{% endmacro %}

@@ -22,7 +22,9 @@ $color-primary: #15b4d0;
 //@import "notify/index";
 //@import "tips/index";
 
-
+.hide {
+    display: none;
+}
 
 
 .topbar {
@@ -34,21 +36,21 @@ $color-primary: #15b4d0;
     
 
     &__btn {
-	box-sizing: border-box;
-	padding: 0.5rem 1rem;
-	color: $color-gray;
-		   
-	&--left {
-	    @include fill(l)
-	}
-	&--right {
-	    @include fill(r)
-	}
+	      box-sizing: border-box;
+	      padding: 0.5rem 1rem;
+	      color: $color-gray;
+		    
+	      &--left {
+	          @include fill(l)
+	      }
+	      &--right {
+	          @include fill(r)
+	      }
     }
 
     &-title {
-	padding: 1rem;
-	text-align: center;
+	      padding: 1rem;
+	      text-align: center;
     }
 }
 
@@ -67,31 +69,62 @@ $color-primary: #15b4d0;
     @include fill(l);
     background: $color-white;
     padding: 3rem 0;
-    min-width: 70%;
+    min-width: 65%;
     z-index: 2;
 }
 
 .nav__item {
-    padding: 0.8rem 2rem;
+    box-sizing: border-box;
+    padding: 0.8rem 1.5rem;
 }
 
 .menu {
     box-sizing: border-box;
     padding: 1rem;
-    padding-left: 3rem;
+    padding-left: 3.5rem;
     position: relative;
 
     .ic {
-	box-sizing: border-box;
-	@include size(2.5rem);
-	@include theme-reverse($color-primary, $color-white);
-	display: inline-block;
-	padding: 0.25rem;
-	text-align: center;
-	border-radius: $global-border-radius;
+	      box-sizing: border-box;
+	      @include size(2.5rem);
+	      @include theme-reverse($color-primary, $color-white);
+	      display: inline-block;
+	      padding: 0.25rem;
+	      text-align: center;
+	      border-radius: $global-border-radius;
     }
 
     &__icon {
-	@include fill(l);
+	      @include fill(l);
+    }
+}
+
+.footer {
+    @include fill(b);
+    max-height: 3rem;
+}
+
+.footer__icon {
+    @include border-box-padding(0.5rem);
+    position: relative;
+    text-align: center;
+}
+
+.footer__text {
+    @include border-box-padding(1rem);
+    text-align: right;
+}
+
+.footer__button {
+    @include border-box-padding(0.25rem);
+}
+
+.footer__block {
+    min-height: 3rem;
+    &--right {
+        background-color: $color-primary;
+    }
+    &--left {
+        background-color: $color-white;
     }
 }
