@@ -4,156 +4,188 @@ buttonBorder
 
 {% macro field(placeholder="", name="", hook="", type="text") %}
 <div class="list-row list-pad">
-  <section class="list-control">
-    <label for="{{name}}" class="field__label field-block js-{{hook}}">
-      <input class="field" name="{{name}}" id="{{name}}" type="{{type}}" placeholder="{{placeholder}}" />
-    </label>
-  </section>
+    <section class="list-control">
+        <label for="{{name}}" class="field__label field-block js-{{hook}}">
+            <input class="field" name="{{name}}" id="{{name}}" type="{{type}}" placeholder="{{placeholder}}" />
+        </label>
+    </section>
 </div>
 {% endmacro %}
 
 {% macro fieldMsgCode(placeholder="", name="", hook="", type="text") %}
 <div class="list-row list-pad">
-  <section class="list-control">
-    <label for="{{name}}" class="field__label field-block js-{{hook}}">
-      <input class="field" name="{{name}}" id="{{name}}" type="{{type}}" placeholder="{{placeholder}}" />
-      <section class="msg-code">
-	<a class="text-primary">发送验证码</a>
-      </section>
-    </label>
-  </section>
+    <section class="list-control">
+        <label for="{{name}}" class="field__label field-block js-{{hook}}">
+            <input class="field" name="{{name}}" id="{{name}}" type="{{type}}" placeholder="{{placeholder}}" />
+            <section class="msg-code">
+	              <a class="text-primary">发送验证码</a>
+            </section>
+        </label>
+    </section>
 </div>
 {% endmacro %}
 
 {% macro area(placeholder="", name="", hook="") %}
 <div class="list-row list-pad">
-  <section class="list-control">
-    <label for="{{name}}" class="field__label field-block js-{{hook}}">
-      <textarea class="field field-area" name="{{name}}" id="{{name}}" placeholder="{{placeholder}}"></textarea>
-    </label>
-  </section>
+    <section class="list-control">
+        <label for="{{name}}" class="field__label field-block js-{{hook}}">
+            <textarea class="field field-area" name="{{name}}" id="{{name}}" placeholder="{{placeholder}}"></textarea>
+        </label>
+    </section>
 </div>
 {% endmacro %}
 
 {% macro areaLine(placeholder="", name="", label="", hook="") %}
 <div class="list-row list-pad">
-  <section class="list-control">
-    <div class="area-line row">
-      <div>
-	<span class="text-primary ion-md-create"></span>
-	<span class="text-gray">{{label}}</span>
-      </div>
-      <textarea class="field field-area" name="{{name}}" id="{{name}}" placeholder="{{placeholder}}"></textarea>
-    </div>
-  </section>
+    <section class="list-control">
+        <div class="area-line row">
+            <div>
+	              <span class="text-primary ion-md-create"></span>
+	              <span class="text-gray">{{label}}</span>
+            </div>
+            <textarea class="field field-area" name="{{name}}" id="{{name}}" placeholder="{{placeholder}}"></textarea>
+        </div>
+    </section>
 </div>
 {% endmacro %}
 
 {% macro oneLine(left="", right="", href="") %}
 <div class="list-row list-pad">
-  <section class="list-control">
-    <div class="one-line row">
-      <div class="grid">{{left}}</div>
-      <div class="grid grid-last">
-	{% if href %}
-	<a href="{{href}}" class="text-primary">{{right}}</a>
-	{% else %}
-	<span class="text-gray">{{right}}</span>
-	{% endif %}
-      </div>
-    </div>
-  </section>
+    <section class="list-control">
+        <div class="one-line row">
+            <div class="grid">{{left}}</div>
+            <div class="grid grid-last">
+	              {% if href %}
+	              <a href="{{href}}" class="text-primary">{{right}}</a>
+	              {% else %}
+	              <span class="text-gray">{{right}}</span>
+	              {% endif %}
+            </div>
+        </div>
+    </section>
 </div>
 {% endmacro %}
 
-{% macro oneLineLink(left="", href="#") %}
+{% macro oneLineLink(left="", href="#", comments="") %}
 <div class="list-row list-pad">
-  <section class="list-control">
-    <a href="{{href}}">
-      <div class="one-line row">
-	<div class="grid">{{left}}</div>
-	<div class="grid grid-last">
-	  <span class="text-gray ion-ios-arrow-forward-outline"></span>
-	</div>
-      </div>
-    </a>
-  </section>
+    <section class="list-control">
+        <a href="{{href}}">
+            <div class="one-line row">
+	              <div class="grid">
+                    {{left}}
+                    {% if comments %}
+                    <div class="muilt-line-block text-small text-gray">
+                        (<span class="">{{comments}}</span>)条
+                    </div>
+                    {% endif %}
+                </div>
+	              <div class="grid grid-last">
+	                  <span class="text-gray ion-ios-arrow-forward-outline"></span>
+	              </div>
+            </div>
+        </a>
+    </section>
 </div>
 {% endmacro %}
 
 {% macro twoLineLink(title="", small="", href="#") %}
 <div class="list-row list-pad">
-  <section class="list-control">
-    <div class="two-line row">
-      <div class="grid">
-	<div class="muilt-line-title">{{title}}</div>
-	<small>{{small}}</small>
-      </div>
-      <div class="grid grid-last">
-	<div class="two-line-ic">
-	  <span class="text-gray ion-ios-arrow-forward-outline"></span>
-	</div>
-      </div>
-    </div>
-  </section>
+    <section class="list-control">
+        <a href="{{href}}">
+            <div class="two-line row">
+                <div class="grid">
+	                  <div class="muilt-line-title">{{title}}</div>
+	                  <small>{{small}}</small>
+                </div>
+                <div class="grid grid-last">
+	                  <div class="two-line-ic">
+	                      <span class="text-gray ion-ios-arrow-forward-outline"></span>
+	                  </div>
+                </div>
+            </div>
+        </a>
+    </section>
+</div>
+{% endmacro %}
+
+{% macro addrLink(title="", small="", href="#") %}
+<div class="list-row list-pad">
+    <section class="list-control">
+        <a href="{{href}}">
+            <div class="two-line">
+                <div class="muilt-line-title text-gray">
+                    配送地址
+                </div>
+                <div class="row">
+                    <div class="grid">
+	                      <div class="muilt-line-title">{{title}}</div>
+	                      <small>{{small}}</small>
+                    </div>
+                    <div class="grid grid-last">
+	                      <div class="">
+	                          <span class="text-gray ion-ios-arrow-forward-outline"></span>
+	                      </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </section>
 </div>
 {% endmacro %}
 
 
-
 {% macro goods(name="", price="", price1="", price2="", intro="", pic="", comments="0") %}
 <div class="card">
-  
-  <div class="list-row list-pad">
-    <section class="list-control">
-      <div class="row">
-	
-	<div class="grid width--4 card-left">
-	  <div class="card-photo">
-	    <section class="photo">
-	      <img width="96" src="{{pic}}" class="img-border" />
-	    </section>
-	    <section class="text-small text-center">
-	      评价
-	      <span class="text-gray">(</span>
-	      <span class="text-gray js-count">{{comments}}</span>
-	      <span class="text-gray">条)</span>
-	    </section>
-	  </div>
-	</div>
-	
-	<div class="grid width--8 card-right">
-	  <header class="muilt-line-title">
-	    {{name}}
-	    <span class="text-gray ion-md-information-circle"></span>
-	  </header>
-	  <section class="muilt-line-title">
-	    <div class="muilt-line-block">
-	      <span class="text-primary">￥</span><span class="text-primary js-price">{{price}}</span>
-	    </div>
-	    <div class="muilt-line-block text-small">
-	      <span class="js-count">{{price1}}</span><span class="">个/箱,</span>
-	    </div>
-	    <div class="muilt-line-block text-small">
-	      <span class="">￥</span><span class="js-count">{{price2}}</span><span class="">/个</span>
-	    </div>
-	  </section>
-	  <section class="muilt-line-title">
-	    <div class="text-small text-gray">
-	      {{intro}}
-	    </div>
-	  </section>
-	  <section class="muilt-line-title">
-	    <div class="muilt-btn-group text-small">
-	      {{buttonBorder("加入购物车", "add")}}
-	      {{buttonBorder("立即下单", "submit", true)}}
-	    </div>
-	  </section>
-	</div>
-	
-      </div>
-    </section>
-  </div>
+
+    <div class="list-row list-pad">
+        <section class="list-control">
+            <div class="row">
+	              <div class="grid width--4 card-left">
+	                  <div class="card-photo">
+	                      <section class="photo">
+	                          <img width="96" src="{{pic}}" class="img-border" />
+	                      </section>
+	                      <section class="text-small text-center">
+	                          评价
+	                          <span class="text-gray">(</span>
+	                          <span class="text-gray js-count">{{comments}}</span>
+	                          <span class="text-gray">条)</span>
+	                      </section>
+	                  </div>
+	              </div>
+
+	              <div class="grid width--8 card-right">
+	                  <header class="muilt-line-title">
+	                      {{name}}
+	                      <span class="text-gray ion-md-information-circle"></span>
+	                  </header>
+	                  <section class="muilt-line-title">
+	                      <div class="muilt-line-block">
+	                          <span class="text-primary">￥</span><span class="text-primary js-price">{{price}}</span>
+	                      </div>
+	                      <div class="muilt-line-block text-small">
+	                          <span class="js-count">{{price1}}</span><span class="">个/箱,</span>
+	                      </div>
+	                      <div class="muilt-line-block text-small">
+	                          <span class="">￥</span><span class="js-count">{{price2}}</span><span class="">/个</span>
+	                      </div>
+	                  </section>
+	                  <section class="muilt-line-title">
+	                      <div class="text-small text-gray">
+	                          {{intro}}
+	                      </div>
+	                  </section>
+	                  <section class="muilt-line-title">
+	                      <div class="muilt-btn-group text-small">
+	                          {{buttonBorder("加入购物车", "add")}}
+	                          {{buttonBorder("立即下单", "submit", true)}}
+	                      </div>
+	                  </section>
+	              </div>
+	              
+            </div>
+        </section>
+    </div>
 
 </div>
 {% endmacro %}
@@ -161,45 +193,45 @@ buttonBorder
 {% macro goodsBox(name="", price="", intro="", intro1="", pic="") %}
 <div class="card">
 
-  <div class="list-row list-pad">
-    <section class="list-control">
-      <div class="row">
-	
-	<div class="grid width--4 card-left">
-	  <div class="card-photo">
-	    <section class="photo">
-	      <img width="96" src="{{pic}}" class="img-border" />
-	    </section>
-	  </div>
-	</div>
-	
-	<div class="grid width--8 card-right">
-	  <header class="muilt-line-title">
-	    {{name}}
-	  </header>
-	  <section class="muilt-line-title">
-	    <div class="text-gray">
-	      {{intro}}
-	    </div>
-	  </section>
-	  <section class="muilt-line-title">
-	    <div class="text-gray">
-	      {{intro1}}
-	    </div>
-	  </section>
-	  <section class="muilt-line-title row">
-	    <div class="grid order-price">
-	      <span class="text-primary">￥</span><span class="text-primary js-price">{{price}}</span><span class="text-primary">/个</span>
-	    </div>
-	    <div class="text-small grid-last">
-	      {{buttonBorder("立即定制", "submit", true)}}
-	    </div>
-	  </section>
-	</div>
-	
-      </div>
-    </section>
-  </div>
+    <div class="list-row list-pad">
+        <section class="list-control">
+            <div class="row">
+	              
+	              <div class="grid width--4 card-left">
+	                  <div class="card-photo">
+	                      <section class="photo">
+	                          <img width="96" src="{{pic}}" class="img-border" />
+	                      </section>
+	                  </div>
+	              </div>
+	              
+	              <div class="grid width--8 card-right">
+	                  <header class="muilt-line-title">
+	                      {{name}}
+	                  </header>
+	                  <section class="muilt-line-title">
+	                      <div class="text-gray">
+	                          {{intro}}
+	                      </div>
+	                  </section>
+	                  <section class="muilt-line-title">
+	                      <div class="text-gray">
+	                          {{intro1}}
+	                      </div>
+	                  </section>
+	                  <section class="muilt-line-title row">
+	                      <div class="grid order-price">
+	                          <span class="text-primary">￥</span><span class="text-primary js-price">{{price}}</span><span class="text-primary">/个</span>
+	                      </div>
+	                      <div class="text-small grid-last">
+	                          {{buttonBorder("立即定制", "submit", true)}}
+	                      </div>
+	                  </section>
+	              </div>
+	              
+            </div>
+        </section>
+    </div>
 
 </div>
 {% endmacro %}
@@ -207,71 +239,69 @@ buttonBorder
 
 {% macro orderItem(name="", price="", price1="", count="0", pic="", name="", control=false, radio=false) %}
 <div class="list-row list-pad">
-  <section class="list-control">
-    <div class="row">
+    <section class="list-control">
+        <div class="row">
 
-      {% if radio %}
-      <label for="{{name}}" class="radio">
-	<div class="grid width--1 card-left">
-	  <div class="order-radio">
-	    <input name="{{name}}" id="{{name}}" type="radio" value=""/>
-	  </div>
-      </div>
-      <div class="grid width--3 card-left">
-	<div class="card-photo">
-	  <section class="photo">
-	    <img width="64" src="{{pic}}" />
-	  </section>
-	</div>
-      </div>
-      <div class="grid width--6 card-right">
-	<header class="muilt-line-title">
-	  {{name}}
-	</header>
-	<section class="muilt-line-title text-gray text-small">
-	  <span class="js-count">{{price1}}</span><span class="">个/箱</span>
-	</section>
-      </div>
-      <div class="grid width--2 card-right card-last">
-	<section class="muilt-line-title {{"" if control else "text-primary"}}">
-	  ￥<span class="js-price">{{price}}</span>
-	</section>
-	<section class="muilt-line-title">
-	  <span class="ion-ios-close-outline"></span>
-	  <span class="js-count">{{count}}</span>
-	</section>
-      </div>
-      </label>
-      {% else %}
-      <div class="grid width--3 card-left">
-	<div class="card-photo">
-	  <section class="photo">
-	    <img width="64" src="{{pic}}" />
-	  </section>
-	</div>
-      </div>
-      <div class="grid width--7 card-right">
-	<header class="muilt-line-title">
-	  {{name}}
-	</header>
-	<section class="muilt-line-title text-gray text-small">
-	  <span class="js-count">{{price1}}</span><span class="">个/箱</span>
-	</section>
-      </div>
-      <div class="grid width--2 card-right card-last">
-	<section class="muilt-line-title {{"" if control else "text-primary"}}">
-	  ￥<span class="js-price">{{price}}</span>
-	</section>
-	<section class="muilt-line-title">
-	  <span class="ion-ios-close-outline"></span>
-	  <span class="js-count">{{count}}</span>
-	</section>
-      </div>
-      {% endif %}
-      
-      
-    </div>
-  </section>
+            {% if radio %}
+            <label for="{{name}}" class="radio">
+	              <div class="grid width--1 card-left">
+	                  <div class="order-radio">
+	                      <input name="{{name}}" id="{{name}}" type="radio" value=""/>
+	                  </div>
+                </div>
+                <div class="grid width--3 card-left">
+	                  <div class="card-photo">
+	                      <section class="photo">
+	                          <img width="64" src="{{pic}}" />
+	                      </section>
+	                  </div>
+                </div>
+                <div class="grid width--6 card-right">
+	                  <header class="muilt-line-title">
+	                      {{name}}
+	                  </header>
+	                  <section class="muilt-line-title text-gray text-small">
+	                      <span class="js-count">{{price1}}</span><span class="">个/箱</span>
+	                  </section>
+                </div>
+                <div class="grid width--2 card-right card-last">
+	                  <section class="muilt-line-title {{"" if control else "text-primary"}}">
+	                      ￥<span class="js-price">{{price}}</span>
+	                  </section>
+	                  <section class="muilt-line-title">
+	                      <span class="ion-ios-close-outline"></span>
+	                      <span class="js-count">{{count}}</span>
+	                  </section>
+                </div>
+            </label>
+            {% else %}
+            <div class="grid width--3 card-left">
+	              <div class="card-photo">
+	                  <section class="photo">
+	                      <img width="64" src="{{pic}}" />
+	                  </section>
+	              </div>
+            </div>
+            <div class="grid width--7 card-right">
+	              <header class="muilt-line-title">
+	                  {{name}}
+	              </header>
+	              <section class="muilt-line-title text-gray text-small">
+	                  <span class="js-count">{{price1}}</span><span class="">个/箱</span>
+	              </section>
+            </div>
+            <div class="grid width--2 card-right card-last">
+	              <section class="muilt-line-title {{"" if control else "text-primary"}}">
+	                  ￥<span class="js-price">{{price}}</span>
+	              </section>
+	              <section class="muilt-line-title">
+	                  <span class="ion-ios-close-outline"></span>
+	                  <span class="js-count">{{count}}</span>
+	              </section>
+            </div>
+            {% endif %}
+        </div>
+    </section>
 </div>
 {% endmacro %}
 
@@ -279,96 +309,96 @@ buttonBorder
 {% macro order(label="", sum="", datetime="", count="", name="", radio=false) %}
 <div class="card">
 
-  <header class="card-header">
-    <div class="order-header">
-      {% if radio %}
-      <label for="{{name}}" class="radio">
-	<input name="{{name}}" id="{{name}}" type="radio" value=""/>
-	<span class="{{"" if datetime else "text-gray"}}">{{label}}</span>
-      </label>
-      {% else %}
-      <span class="{{"" if datetime else "text-gray"}}">{{label}}</span>
-      {% endif %}
-      
-      {% if datetime %}
-      <span class="text-gray text-small">
-	{{datetime}}
-      </span>
-      {% endif %}
+    <header class="card-header">
+        <div class="order-header">
+            {% if radio %}
+            <label for="{{name}}" class="radio">
+	              <input name="{{name}}" id="{{name}}" type="radio" value=""/>
+	              <span class="{{"" if datetime else "text-gray"}}">{{label}}</span>
+            </label>
+            {% else %}
+            <span class="{{"" if datetime else "text-gray"}}">{{label}}</span>
+            {% endif %}
+            
+            {% if datetime %}
+            <span class="text-gray text-small">
+	              {{datetime}}
+            </span>
+            {% endif %}
 
-    </div>
-  </header>
+        </div>
+    </header>
 
-  <section class="card-middle">
-    {% if datetime %}
-    {{orderItem("一撕得7号箱", "100", "100", pic="/images/box-12.png", control=true, radio=radio)}}
-    {{orderItem("一撕得7号箱", "100", "100", pic="/images/box-12.png", control=true, radio=radio)}}
-    {% else %}
-    {{orderItem("一撕得7号箱", "100", "100", pic="/images/box-12.png", radio=radio)}}
-    {{orderItem("一撕得7号箱", "100", "100", pic="/images/box-12.png", radio=radio)}}
-    {% endif %}
-  </section>
+    <section class="card-middle">
+        {% if datetime %}
+        {{orderItem("一撕得7号箱", "100", "100", pic="/images/box-12.png", control=true, radio=radio)}}
+        {{orderItem("一撕得7号箱", "100", "100", pic="/images/box-12.png", control=true, radio=radio)}}
+        {% else %}
+        {{orderItem("一撕得7号箱", "100", "100", pic="/images/box-12.png", radio=radio)}}
+        {{orderItem("一撕得7号箱", "100", "100", pic="/images/box-12.png", radio=radio)}}
+        {% endif %}
+    </section>
 
-  <footer class="card-footer">
-    <div class="order-footer">
-      {% if datetime %}
-      <div class="muilt-line-block text-small">
-	共<span class="js-count">{{count}}</span>件商品
-      </div>
-      {% endif %}
-      <div class="muilt-line-block">
-	合计<span class="{{"" if datetime else "text-primary"}}">￥</span><span class="{{"" if datetime else "text-primary"}} js-price">{{sum}}</span>
-      </div>
-    </div>
-    
-    {% if datetime %}
-    <div class="order-footer text-small">
-      {{buttonBorder("查看物流", "add")}}
-      {{buttonBorder("再次购买", "add")}}
-      {{buttonBorder("评价", "submit", true)}}
-    </div>
-    {% endif %}
-  </footer>
+    <footer class="card-footer">
+        <div class="order-footer">
+            {% if datetime %}
+            <div class="muilt-line-block text-small">
+	              共<span class="js-count">{{count}}</span>件商品
+            </div>
+            {% endif %}
+            <div class="muilt-line-block">
+	              合计<span class="{{"" if datetime else "text-primary"}}">￥</span><span class="{{"" if datetime else "text-primary"}} js-price">{{sum}}</span>
+            </div>
+        </div>
+        
+        {% if datetime %}
+        <div class="order-footer text-small">
+            {{buttonBorder("查看物流", "add")}}
+            {{buttonBorder("再次购买", "add")}}
+            {{buttonBorder("评价", "submit", true)}}
+        </div>
+        {% endif %}
+    </footer>
 </div>
 {% endmacro %}
 
 {% macro comment(phone="", content="", datetime="", pics="") %}
 <div class="list-row list-pad">
-  <section class="list-control">
-    <div class="two-line">
-      <section class="muilt-line-title">
-	<div class="text-gray text-small">
-	  {{phone}}
-	</div>
-      </section>
-      <section class="muilt-line-title">
-	<div class="">
-	  {{content}}
-	</div>
-      </section>
-      {% if pics %}
-      <section class="muilt-line-title">
-	<div class="text-gray text-small">
-	  {{datetime}}
-	</div>
-      </section>
-      <section class="">
-	<div class="comment-img">
-	  <img src="/images/box-12.png" width="88" />
-	</div>
-	<div class="comment-img">
-	  <img src="/images/box-12.png" width="88" />
-	</div>
-      </section>
-      {% else %}
-      <section class="">
-	<div class="text-gray text-small">
-	  {{datetime}}
-	</div>
-      </section>
-      {% endif %}
-      
-    </div>
-  </section>
+    <section class="list-control">
+        <div class="two-line">
+            <section class="muilt-line-title">
+	              <div class="text-gray text-small">
+	                  {{phone}}
+	              </div>
+            </section>
+            <section class="muilt-line-title">
+	              <div class="">
+	                  {{content}}
+	              </div>
+            </section>
+            {% if pics %}
+            <section class="muilt-line-title">
+	              <div class="text-gray text-small">
+	                  {{datetime}}
+	              </div>
+            </section>
+            <section class="">
+	              <div class="comment-img">
+	                  <img src="/images/box-12.png" width="88" />
+	              </div>
+	              <div class="comment-img">
+	                  <img src="/images/box-12.png" width="88" />
+	              </div>
+            </section>
+            {% else %}
+            <section class="">
+	              <div class="text-gray text-small">
+	                  {{datetime}}
+	              </div>
+            </section>
+            {% endif %}
+            
+        </div>
+    </section>
 </div>
 {% endmacro %}

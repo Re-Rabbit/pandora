@@ -36,21 +36,21 @@ $color-primary: #15b4d0;
     
 
     &__btn {
-	box-sizing: border-box;
-	padding: 0.5rem 1rem;
-	color: $color-gray;
-	
-	&--left {
-	    @include fill(l)
-	}
-	&--right {
-	    @include fill(r)
-	}
+	      box-sizing: border-box;
+	      padding: 0.5rem 1rem;
+	      color: $color-gray;
+	      
+	      &--left {
+	          @include fill(l)
+	      }
+	      &--right {
+	          @include fill(r)
+	      }
     }
 
     &-title {
-	padding: 1rem;
-	text-align: center;
+	      padding: 1rem;
+	      text-align: center;
     }
 }
 
@@ -85,17 +85,17 @@ $color-primary: #15b4d0;
     position: relative;
 
     .ic {
-	box-sizing: border-box;
-	@include size(2.5rem);
-	@include theme-reverse($color-primary, $color-white);
-	display: inline-block;
-	padding: 0.25rem;
-	text-align: center;
-	border-radius: $global-border-radius;
+	      box-sizing: border-box;
+	      @include size(2.5rem);
+	      @include theme-reverse($color-primary, $color-white);
+	      display: inline-block;
+	      padding: 0.25rem;
+	      text-align: center;
+	      border-radius: $global-border-radius;
     }
 
     &__icon {
-	@include fill(l);
+	      @include fill(l);
     }
 }
 
@@ -135,9 +135,9 @@ $color-primary: #15b4d0;
 
 .list-row {
     &:last-child {
-	.list-control {
-	    border: 0;
-	}
+	      .list-control {
+	          border: 0;
+	      }
     }
 }
 
@@ -186,7 +186,7 @@ $color-primary: #15b4d0;
 .muilt-btn-group {
     text-align: right;
     .button {
-	margin-left: 0.5rem;
+	      margin-left: 0.5rem;
     }
 }
 
@@ -210,7 +210,7 @@ $color-primary: #15b4d0;
 .card-photo {
     text-align: center;
     .photo {
-	margin-bottom: 0.5rem;
+	      margin-bottom: 0.5rem;
     }
 }
 
@@ -241,11 +241,11 @@ $color-primary: #15b4d0;
     @include border-box-padding(1rem 0.5rem 1rem 0);
     border-top: 1px solid $color-gray-ll;
     &:last-child {
-	border: 0;
-	margin-top: -1rem;
+	      border: 0;
+	      margin-top: -1rem;
     }
     .button {
-	margin-left: 0.5rem;
+	      margin-left: 0.5rem;
     }
 }
 
@@ -253,8 +253,8 @@ $color-primary: #15b4d0;
 .radio {
     input[type=checkbox],
     input[type=radio] {
-	position: relative;
-	top: 2px;
+	      position: relative;
+	      top: 2px;
     }
 }
 
@@ -273,10 +273,10 @@ $color-primary: #15b4d0;
 .star {
     display: inline-block;
     &--empty {
-	color: $color-gray;
+	      color: $color-gray;
     }
     &--fill {
-	color: $color-primary;
+	      color: $color-primary;
     }
 }
 
@@ -286,4 +286,30 @@ $color-primary: #15b4d0;
 
 .assess-row {
     margin-bottom: 0.5rem;
+}
+
+
+.upload {
+    text-align: center;
+}
+
+.label {
+    background-color: $color-gray-ll;
+    @include border-box-padding(0.5rem 0.8rem);
+    border-radius: $global-border-radius;
+}
+
+.counter {
+    &__label,
+    &__num {
+        @include border-box-padding(0.5rem);
+    }
+
+    &__num {
+        @include reset-theme();
+    }
+}
+
+.order-line-pad {
+    @include border-box-padding(0.5rem 0);
 }
