@@ -20,6 +20,7 @@
  * @todo support other files, include index.ext.
  * @todo add api request and response friendly log.
  * @fixme auto switch to default workspace.
+ * @fixme can't supports mulit browsers.
  *
  * v1.1
  * @todo add private/public file own builder.

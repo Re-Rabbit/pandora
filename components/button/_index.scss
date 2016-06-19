@@ -8,8 +8,8 @@
     //@include auto-darken($button-color-text, $button-color-main, $button-color-border);
     background-color: $color-primary;
     @include theme-reverse($color-primary);
-    padding: 0.5rem 0.8rem;
-    min-width: 5 + 2 * 0.8rem
+    padding: 0.5em 0.8em;
+    min-width: 5 + 2 * 0.8em
 }
 
 .button-radius {

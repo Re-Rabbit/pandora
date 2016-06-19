@@ -12,52 +12,40 @@
 
 {% block content %}
 
-{% from "ysd/menu.html" import menu %}
-{% from "ysd/button.html" import
+{% from "ysd/_button.html" import
 buttonBlockFill,
 buttonBlock,
 buttonBorder
 %}
 
+{% from "ysd/_list-row.html" import
+field,
+area,
+oneLine,
+oneLineLink,
+fieldMsgCode,
+twoLineLink,
+areaLine,
+goods,
+goodsBox,
+order,
+comment
+%}
 
-<header>
-    <div class="topbar hide">
-        <section class="topbar__btn topbar__btn--left">
-            <span class="ion-logo-github ic--2x"></span>
-        </section>
-        <section class="topbar__btn topbar__btn--right">
-            <span class="ion-logo-github ic--2x"></span>
-        </section>
-        <section class="topbar-title">首页</section>
-    </div>
-</header>
-
-<aside>
-
-    <div class="sidebar hide">
-        <section class="sidebar__bg"></section>
-        <section class="sidebar__main">
-            <nav class="nav"><ul>
-                {{menu("个人信息", "ion-logo-github", "#")}}
-                {{menu("我的订单", "ion-logo-github", "#")}}
-                {{menu("配送地址", "ion-logo-github", "#")}}
-                {{menu("意见反馈", "ion-logo-github", "#")}}
-                {{menu("设置", "ion-logo-github", "#")}}
-            </ul></nav>
-        </section>
-    </div>
-</aside>
+{% include "ysd/_topbar.html"%}
+{% include "ysd/_sidebar.html"%}
 
 <!-- Main -->
 <main>
 
 </main>
 
-
+{#
 {{buttonBlockFill("退出登录", "quit")}}
 {{buttonBlock("确定", "ok")}}
 {{buttonBorder("立即下单", "submit", true)}}
 {{buttonBorder("加入购物车", "add")}}
+#}
 
 
 <footer>
@@ -98,7 +86,7 @@ buttonBorder
     </div>
 
 
-    <div class="footer row">
+    <div class="footer row hide">
         <div class="grid width--2 footer__block footer__block--left footer__icon">
             <span class="ion-logo-github ic--2x"></span>
         </div>
@@ -117,5 +105,127 @@ buttonBorder
         </div>
     </div>
 </footer>
+
+
+
+<section class="list-container">
+  {# 新增地址 #}
+  {#
+  {{field("收货人姓名")}}
+  {{field("联系电话")}}
+  {{field("省、市、区")}}
+  {{area("详细地址")}}
+  #}
+
+  {# 修改密码 #}
+  {#
+  {{field("原始密码", type="password")}}
+  {{field("密码", type="password")}}
+  {{field("确认密码", type="password")}}
+  #}
+
+  {# 个人信息 #}
+  {#
+  {{oneLine("手机", "15525019350")}}
+  {{oneLine("企业名称", "北京一撕得物流技术")}}
+  {{oneLine("手机", "修改", "#")}}
+  #}
+
+  {# 设置 #}
+  {#
+  {{oneLineLink("关于我们", "#")}}
+  {{oneLineLink("服务协议", "#")}}
+  {{oneLine("客服电话", "4008-000-000", "tel:4008-000-000")}}
+  #}
+
+  {# 注册 #}
+  {#
+  {{fieldMsgCode("手机号码")}}
+  {{field("短信验证码")}}
+  {{field("企业或品牌企业")}}
+  #}
+  
+  {# 配送地址 #}
+  {#
+  {{twoLineLink("北京市丰台星火路11号写字公园2018", "刘易斯 15525019350", "#")}}
+  #}
+
+  {# 评价 意见反馈 #}
+  {#
+  {{areaLine(label="请写下您宝贵的产品使用建议")}}
+  #}
+
+  {# 评价列表 #}
+  {#
+  {{comment("155****9350", "真的特别好，我的网店用了这个箱子，逼格瞬间提高。用户好评跃升！", "2016.03.16", pics="1")}}
+  {{comment("155****9350", "真的特别好，我的网店用了这个箱子，逼格瞬间提高。用户好评跃升！", "2016.03.16")}}
+  #}
+  
+</section>
+
+
+
+<div class="card">
+  
+<div class="list-row list-pad">
+  <section class="list-control">
+    <div class="row">
+
+      <div class="grid width--3 card-left">
+	<div class="card-photo">
+	  <section class="photo">
+	    <img width="64" src="/images/box-12.png" />
+	  </section>
+	</div>
+      </div>
+      <div class="grid width--9 card-right row">
+	<section class="assess-row row">
+	  <div class="grid">
+	    <div class="assess-label">
+	      商品质量
+	    </div>
+	  </div>
+	  <div class="grid grid-last">
+	    <div class="star">
+	      <span class="star--empty ion-md-star ic--1d5x"></span>
+	      <span class="star--empty ion-md-star ic--1d5x"></span>
+	      <span class="star--empty ion-md-star ic--1d5x"></span>
+	      <span class="star--empty ion-md-star ic--1d5x"></span>
+	      <span class="star--empty ion-md-star ic--1d5x"></span>
+	    </div>
+	  </div>
+	</section>
+
+	<section class="assess-row row">
+	  <div class="grid">
+	    <div class="assess-label">
+	      物流服务
+	    </div>
+	  </div>
+	  <div class="grid grid-last">
+	    <div class="star">
+	      <span class="star--fill ion-md-star ic--1d5x"></span>
+	      <span class="star--fill ion-md-star ic--1d5x"></span>
+	      <span class="star--fill ion-md-star ic--1d5x"></span>
+	      <span class="star--fill ion-md-star ic--1d5x"></span>
+	      <span class="star--fill ion-md-star ic--1d5x"></span>
+	    </div>
+	  </div>
+	</section>
+      </div>
+      
+    </div>
+  </section>
+</div>
+
+</div>
+
+{#
+{{goods("一撕得7号箱", "110.00", "100", "0.01", "全国包邮，整箱发货", pic="/images/box-12.png")}}
+{{order("标准产品", "666666")}}
+{{order("标准产品", "666666", "2016-03-20 10:10", "2")}}
+{{goodsBox("一撕得7号箱", "0.01", "全国包邮，整箱发货", "299个起订，每箱100个", pic="/images/box-12.png")}}
+{{order("标准产品", "666666", name="all1", radio=true)}}
+#}
 
 {% endblock %}
