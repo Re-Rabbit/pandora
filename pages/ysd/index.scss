@@ -313,3 +313,21 @@ $color-primary: #15b4d0;
 .order-line-pad {
     @include border-box-padding(0.5rem 0);
 }
+
+.list-pad-y-0d5 {
+    @include border-box-padding(0.5rem 0);
+}
+
+.list-pad-y-0d25 {
+    @include border-box-padding(0.25rem 0);
+}
+
+.field-basic {
+    @include reset-box()
+    @include reset-theme()
+    @include reset-font()
+
+    width: 100%;
+    border: 1px solid $color-gray-ll;
+    padding: 0.3rem 0.5rem;
+}
