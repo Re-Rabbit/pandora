@@ -1,0 +1,33 @@
+{% extends "templates/application.html" %}
+
+{% from "ysd/_button.html" import buttonBlockFill %}
+{% from "ysd/_list-row.html" import oneLine %}
+
+
+{#
+
+个人信息
+
+#}
+
+{% block content %}
+<!-- Main -->
+<main>
+  
+  <div class="card">
+    {{oneLine("手机", "15525019350")}}
+    {{oneLine("企业名称", "北京一撕得物流技术")}}
+    {{oneLine("手机", "修改", "#")}}
+  </div>
+
+  <div class="card">
+    {{buttonBlockFill("退出登录", "quit")}}
+  </div>
+
+</main>
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="index.css" />
+{% endblock %}

@@ -36,26 +36,31 @@ $color-primary: #15b4d0;
     
 
     &__btn {
-	      box-sizing: border-box;
-	      padding: 0.5rem 1rem;
-	      color: $color-gray;
-	      
-	      &--left {
-	          @include fill(l)
-	      }
-	      &--right {
-	          @include fill(r)
-	      }
+	box-sizing: border-box;
+	padding: 0.5rem 1rem;
+	color: $color-gray;
+	
+	&--left {
+	    @include fill(l)
+	}
+	&--right {
+	    @include fill(r)
+	}
     }
 
     &-title {
-	      padding: 1rem;
-	      text-align: center;
+	padding: 1rem;
+	text-align: center;
     }
+}
+
+.bottom-btn {
+    @include fill(b);
 }
 
 .sidebar {
     @include fill();
+    display: none;
     z-index: 90;
 }
 
@@ -85,17 +90,17 @@ $color-primary: #15b4d0;
     position: relative;
 
     .ic {
-	      box-sizing: border-box;
-	      @include size(2.5rem);
-	      @include theme-reverse($color-primary, $color-white);
-	      display: inline-block;
-	      padding: 0.25rem;
-	      text-align: center;
-	      border-radius: $global-border-radius;
+	box-sizing: border-box;
+	@include size(2.5rem);
+	@include theme-reverse($color-primary, $color-white);
+	display: inline-block;
+	padding: 0.25rem;
+	text-align: center;
+	border-radius: $global-border-radius;
     }
 
     &__icon {
-	      @include fill(l);
+	@include fill(l);
     }
 }
 
@@ -135,9 +140,9 @@ $color-primary: #15b4d0;
 
 .list-row {
     &:last-child {
-	      .list-control {
-	          border: 0;
-	      }
+	.list-control {
+	    border: 0;
+	}
     }
 }
 
@@ -186,7 +191,7 @@ $color-primary: #15b4d0;
 .muilt-btn-group {
     text-align: right;
     .button {
-	      margin-left: 0.5rem;
+	margin-left: 0.5rem;
     }
 }
 
@@ -210,7 +215,7 @@ $color-primary: #15b4d0;
 .card-photo {
     text-align: center;
     .photo {
-	      margin-bottom: 0.5rem;
+	margin-bottom: 0.5rem;
     }
 }
 
@@ -241,11 +246,11 @@ $color-primary: #15b4d0;
     @include border-box-padding(1rem 0.5rem 1rem 0);
     border-top: 1px solid $color-gray-ll;
     &:last-child {
-	      border: 0;
-	      margin-top: -1rem;
+	border: 0;
+	margin-top: -1rem;
     }
     .button {
-	      margin-left: 0.5rem;
+	margin-left: 0.5rem;
     }
 }
 
@@ -253,8 +258,8 @@ $color-primary: #15b4d0;
 .radio {
     input[type=checkbox],
     input[type=radio] {
-	      position: relative;
-	      top: 2px;
+	position: relative;
+	top: 2px;
     }
 }
 
@@ -273,10 +278,10 @@ $color-primary: #15b4d0;
 .star {
     display: inline-block;
     &--empty {
-	      color: $color-gray;
+	color: $color-gray;
     }
     &--fill {
-	      color: $color-primary;
+	color: $color-primary;
     }
 }
 
@@ -322,6 +327,16 @@ $color-primary: #15b4d0;
     @include border-box-padding(0.25rem 0);
 }
 
+.list-pad-y-2 {
+    @include border-box-padding(2rem 0);
+}
+
+
+.list-pad-y-2d5 {
+    @include border-box-padding(2.5rem 0);
+}
+
+
 .field-basic {
     @include reset-box();
     @include reset-theme();
@@ -332,52 +347,56 @@ $color-primary: #15b4d0;
     padding: 0.3rem 0.5rem;
 }
 
-.place-holder-line {
+.carousel {
     position: relative;
-    height: 20px;
-    width: 100%;
 }
 
 .trolley {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    right: 0;
-    top: -40px;
-    margin: 10px;
-}
-.trolley__icon {
-    position: absolute;
-    border-radius: 50%;
-    // background: rgba(0.5, 0.5, 0.5, 0.5);
-    opacity: 0.5;
-    overflow: hidden;
-}
-.trolley__count {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 1.5em;
-    height: 1.5em;
-    padding: 0.25em 0;
-    text-align: center;
-    color: white;
-    background-color: red;
-    border-radius: 50%;
-    box-sizing: border-box;
+    @include fill(br);
+    @include size(5rem);
+    bottom: -3rem;
 }
 
-.suggest__item {
+.trolley-inline {
+    position: relative;
+}
+
+
+.trolley__icon {
+    @include size(3.5rem);
+    @include theme-reverse(rgba($color-black, $alpha-l));
+    @include border-box-padding(0.925rem 0);
+    text-align: center;
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+}
+.trolley__count {
+    @include fill(tr);
+    @include size(1.5rem);
+    @include border-box-padding(0.35rem 0);
+    @include theme-reverse($color-error);
+    font-size: $font-size-sm;
+    text-align: center;
+    border-radius: 50%;
+    .trolley-inline & {
+	top: -0.25rem;
+	right: -0.25rem;
+    }
+}
+
+.suggest {
     text-align: center;
     position: relative;
-    &:not(:last-child)::after {
-        content: "";
-        display: block;
-        position: absolute;
-        right: 0;
-        top: 0.5rem;
-        width: 1px;
-        height: 4.5rem;
-        background-color: lightgray;
+    &:after {
+	@include size(1px, 4.5rem);
+	@include fill(tr);
+	content: "";
+        top: 1rem;
+        background-color: $color-gray-ll;
+
+	.suggest:last-child & {
+	    display: none;
+	}
     }
 }

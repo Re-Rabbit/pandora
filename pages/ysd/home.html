@@ -1,0 +1,24 @@
+{% extends "templates/application.html" %}
+
+{#
+
+首页
+
+#}
+
+{% block content %}
+{% include "ysd/_topbar.html"%}
+{% include "ysd/_sidebar.html"%}
+<!-- Main -->
+<main>
+  <div class="card">
+    {% include "ysd/_carousel.html"%}
+    {% include "ysd/_suggests.html"%}
+  </div>
+</main>
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="index.css" />
+{% endblock %}
