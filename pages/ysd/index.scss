@@ -323,11 +323,61 @@ $color-primary: #15b4d0;
 }
 
 .field-basic {
-    @include reset-box()
-    @include reset-theme()
-    @include reset-font()
+    @include reset-box();
+    @include reset-theme();
+    @include reset-font();
 
     width: 100%;
     border: 1px solid $color-gray-ll;
     padding: 0.3rem 0.5rem;
+}
+
+.place-holder-line {
+    position: relative;
+    height: 20px;
+    width: 100%;
+}
+
+.trolley {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 0;
+    top: -40px;
+    margin: 10px;
+}
+.trolley__icon {
+    position: absolute;
+    border-radius: 50%;
+    // background: rgba(0.5, 0.5, 0.5, 0.5);
+    opacity: 0.5;
+    overflow: hidden;
+}
+.trolley__count {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1.5em;
+    height: 1.5em;
+    padding: 0.25em 0;
+    text-align: center;
+    color: white;
+    background-color: red;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.suggest__item {
+    text-align: center;
+    position: relative;
+    &:not(:last-child)::after {
+        content: "";
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0.5rem;
+        width: 1px;
+        height: 4.5rem;
+        background-color: lightgray;
+    }
 }
