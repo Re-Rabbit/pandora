@@ -1,0 +1,31 @@
+{% extends "templates/application.html" %}
+
+{% from "ysd/_button.html" import buttonBlock %}
+{% from "ysd/_list-row.html" import field, fieldMsgCode %}
+
+
+{#
+
+注册
+
+#}
+
+{% block content %}
+<!-- Main -->
+<main>
+  <div class="card">
+      {{fieldMsgCode("手机号码")}}
+      {{field("短信验证码")}}
+      {{field("企业或品牌企业")}}
+  </div>
+
+  <div class="bottom-btn">
+    {{buttonBlock("确定", "ok")}}
+  </div>
+</main>
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="index.css" />
+{% endblock %}

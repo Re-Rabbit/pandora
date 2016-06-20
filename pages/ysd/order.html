@@ -1,0 +1,24 @@
+{% extends "templates/application.html" %}
+
+{% from "ysd/_button.html" import buttonBlock %}
+{% from "ysd/_list-row.html" import order, addrLink %}
+
+
+{#
+
+我的订单
+
+#}
+
+{% block content %}
+<!-- Main -->
+<main>
+  {{order("标准产品", "666666", "2016-03-20 10:10", "2")}}
+  {{order("标准产品", "666666", "2016-03-20 10:10", "2")}}
+</main>
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="index.css" />
+{% endblock %}

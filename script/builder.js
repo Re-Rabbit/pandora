@@ -21,6 +21,7 @@
  * @todo add api request and response friendly log.
  * @fixme auto switch to default workspace.
  * @fixme can't supports mulit browsers.
+ * @fixme workspace match failed.
  *
  * v1.1
  * @todo add private/public file own builder.
@@ -107,7 +108,7 @@ const ignorename = '[^#~]'
  */
 function gulpBuildPath(extname, workspace) {
     const work  = workspace || '**'
-    const files = 'index.' + extname
+    const files = '[^_]*.' + extname
     
     return [ pages, work, files ].join('/')
 }
@@ -196,7 +197,6 @@ function sassConfig() {
  * @todo fix during time
  */
 function css(done) {
-    console.log(workspace, initBuild)
     if(!workspace && initBuild) return done()
     return gulpEntrySrc(gulpBuildPath(extname.css, workspace))
 	.pipe(data(file => file.start = Date.now()))

@@ -1,0 +1,26 @@
+{#
+
+首页产品分类
+
+#}
+
+{% macro suggest(name="", href="#", pic="") %}
+<a href="{{href}}">
+  <div class="suggest">
+    <img src="{{pic}}" />
+    <div>{{name}}</div>
+  </div>
+</a>
+{% endmacro %}
+
+<div class="list-pad-y-2 row">
+  <div class="grid width--4">
+    {{suggest("标准箱", pic="/images/box-1-2x.png")}}
+  </div>
+  <div class="grid width--4 suggest">
+    {{suggest("一撕得", pic="/images/box-2-2x.png")}}
+  </div>
+  <div class="grid width--4 suggest">
+    {{suggest("定制箱", pic="/images/box-3-2x.png")}}
+  </div>
+</div>

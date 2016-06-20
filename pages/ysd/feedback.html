@@ -1,0 +1,31 @@
+{% extends "templates/application.html" %}
+
+{% from "ysd/_button.html" import buttonBlock %}
+{% from "ysd/_list-row.html" import areaLine %}
+
+
+{#
+
+意见反馈
+
+#}
+
+{% block content %}
+<!-- Main -->
+<main>
+  
+  <div class="card">
+    {{areaLine(label="请写下您宝贵的产品使用建议")}}
+  </div>
+
+  <div class="bottom-btn">
+    {{buttonBlock("提交", "ok")}}
+  </div>
+
+</main>
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="index.css" />
+{% endblock %}

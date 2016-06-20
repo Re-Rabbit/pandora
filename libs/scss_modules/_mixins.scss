@@ -85,7 +85,7 @@
 
 /// Theme
 
-@mixin theme-reverse($bgc: $global-color, $c: $global-bgColor) {
+@mixin theme-reverse($bgc: $global-color, $c: $color-white) {
     color: $c;
     background-color: $bgc;
 }
@@ -141,8 +141,8 @@
 }
 
 /// Fill
-@mixin fill($direction: a, $isFixed: fixed) {
-    @if ifFixed == fixed {
+@mixin fill($direction: a, $isFixed: false) {
+    @if ifFixed == true {
         position: fixed;
     }
     @else {
