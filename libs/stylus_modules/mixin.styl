@@ -1,0 +1,90 @@
+reset-box()
+  margin  0
+  padding 0
+  border  0
+  outline 0
+
+reset-font()
+  font-size   inherit
+  font-weight normal
+  font-style  normal
+  font-family inherit
+  line-height global-line-height
+  vertical-align baseline
+
+reset-theme()
+  background-color transparent
+  color inherit
+  border 0
+
+reset-overflow()
+  overflow-x hidden
+  overflow-y auto
+
+reset-body(ff = sans-serif, fz = global-font-size, c = global-color, bgc = global-background-color, lh = global-line-height)
+  font-family ff
+  font-size fz
+  line-height lh
+  color c
+  background-color bgc
+  reset-overflow()
+
+
+size(w, h = false)
+  width w
+  height h ? h : w
+
+
+reset-console()
+  html
+  body
+  body > .main
+  body > .console
+    size(100%)
+    reset-overflow()
+
+block-fill(w)
+  size(w, 100%)
+
+
+theme-reverse(bgc = global-color, c = color-white)
+  color c
+  background-color bgc
+
+
+fill(dir = a, isFixed = false)
+  position isFixed ? fixed : absolute
+
+  if dir is t
+    left 0
+    right 0
+    top 0
+  else if dir is r
+    top 0
+    right 0
+    bottom 0
+  else if dir is b
+    left 0
+    right 0
+    bottom 0
+  else if dir is l
+    top 0
+    left 0
+    bottom 0
+  else if dir is tl
+    top 0
+    left 0
+  else if dir is tr
+    top 0
+    right 0
+  else if dir is bl
+    left 0
+    bottom 0
+  else if dir is br
+    right 0
+    bottom 0
+  else
+    top 0
+    right 0
+    bottom 0
+    left 0

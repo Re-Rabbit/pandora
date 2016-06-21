@@ -34,7 +34,7 @@
 
 const gulp        = require('gulp')
 const sass        = require('gulp-sass')
-const nunjucks    = require('gulp-nunjucks')
+const nunjucks    = require('gulp-nunjucks-render')
 const data        = require('gulp-data')
 const tool        = require('gulp-util')
 const Nunjucks    = require('nunjucks')
@@ -51,6 +51,7 @@ const morgan      = require('morgan')
 const bodyParser  = require('body-parser')
 const cors        = require('cors')
 const compression = require('compression')
+const cache       = require('gulp-memory-cache')
 
 
 // code start here
@@ -108,7 +109,7 @@ const ignorename = '[^#~]'
  */
 function gulpBuildPath(extname, workspace) {
     const work  = workspace || '**'
-    const files = '[^_]*.' + extname
+    const files = '[^_\.]*.' + extname
     
     return [ pages, work, files ].join('/')
 }
@@ -122,7 +123,7 @@ function gulpBuildPath(extname, workspace) {
  * @require libs
  */
 function gulpWatchPath(extname) {
-    const files = '*.' + extname
+    const files = '[^_\.]*.' + extname
     return paths.map(n => `${n}/**/${files}`)
 }
 
@@ -222,17 +223,26 @@ function css(done) {
  * @todo match the file current path.
  */
 function nunjucksEnv() {
+    /*
     return new Nunjucks.Environment(
 	new Nunjucks.FileSystemLoader(paths)
     )
+    */
+    return {
+	path: paths,
+	envOptions: {
+	    watch: false,
+	    noCache: false
+	}
+    }
 }
+
 
 function html(done) {
     if(!workspace && initBuild) return done()
     return gulpEntrySrc(gulpBuildPath(extname.html, workspace))
 	.pipe(data(file => file.start = Date.now()))
-	.pipe(nunjucks
-	      .compile({}, { env: nunjucksEnv() })
+	.pipe(nunjucks(nunjucksEnv())
 	      .on('error', function(err) {
 		  log.errFlag('html')
 		  log.errFile(path.relative(process.cwd(), path.normalize(err.fileName)))
@@ -418,10 +428,13 @@ function browserServer(done) {
     defineWatcher(gulpWatchPath(extname.css),
 		  gulp.series(css, reload),
 		  reportFileChange)
-    
+
+    ///*
     defineWatcher(gulpWatchPath(extname.html),
 		  gulp.series(html, reload),
 		  reportFileChange)
+    //*/
+
     
     defineWatcher(gulpWatchPath(extname.js),
 		  noop,
