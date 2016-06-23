@@ -1,7 +1,7 @@
 {% extends "templates/application.html" %}
 
 {% from "ysd/_button.html" import buttonBlock %}
-{% from "ysd/_list-row.html" import twoLineLink %}
+{% from "ysd/_list-row.html" import twoLineLink, addrLine %}
 
 
 {#
@@ -13,11 +13,11 @@
 {% block content %}
 <!-- Main -->
 <main>
-  
+
   <div class="card">
-    {{twoLineLink("北京市丰台星火路11号写字公园2018", "刘易斯 15525019350", "#")}}
-    {{twoLineLink("北京市丰台星火路11号写字公园2018", "刘易斯 15525019350", "#")}}
-    {{twoLineLink("北京市丰台星火路11号写字公园2018", "刘易斯 15525019350", "#")}}
+      {{addrLine("北京市丰台星火路11号写字公园2018", "刘易斯 15525019350", "#")}}
+      {{addrLine("北京市丰台星火路11号写字公园2018", "刘易斯 15525019350", "#")}}
+      {{addrLine("北京市丰台星火路11号写字公园2018", "刘易斯 15525019350", "#")}}
   </div>
 
   <div class="bottom-btn">

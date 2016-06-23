@@ -1,0 +1,82 @@
+{% extends "templates/application.html" %}
+
+{% from "ysd/_button.html" import buttonBlock %}
+{% from "ysd/_list-row.html" import oneLineLink, twoLineLink, addrLine %}
+
+
+{#
+
+在线支付
+
+#}
+
+{% block content %}
+<!-- Main -->
+<main>
+
+  <div class="card">
+      <div class="list-row list-pad">
+          <section class="list-control">
+              <div class="two-line">
+                  <div class="list-mar-0d5 row">
+                      <div class="grid">
+                          <div class="text-gray">应付金额：</div>
+                      </div>
+                      <div class="grid">
+                          <div class="text-primary">
+                              ￥<span>660.00</span>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="list-mar-0d5 row">
+                      <div class="grid width--3">
+                          <div class="text-gray">收获信息：</div>
+                      </div>
+                      <div class="grid width--9">
+                          <div class="list-mar-0d5">
+                              <span>刘一撕</span>
+                              <span>15525019350</span>
+                          </div>
+                          <div class="">
+                              <span>北京市丰台区星火路11号写字公园2018</span>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="list-mar-0d5 row">
+                      <div class="grid">
+                          <div class="text-gray">预计收获时间：</div>
+                      </div>
+                      <div class="grid">
+                          <span>2016-06-16</span>
+                      </div>
+                  </div>
+              </div>
+          </section>
+      </div>
+  </div>
+
+  <section class="list-mar-1">
+      <div class="list-row list-pad row">
+          <div class="grid">
+              请选择支付方式
+          </div>
+          <div class="grid list-pad">
+              <div class="text-primary text-small list-pad-y-0d25">
+                  请在120分钟内完成支付
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="card">
+      {{oneLineLink("微信支付", "#", ic="ion-md-person")}}
+  </section>
+
+
+</main>
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="index.css" />
+{% endblock %}

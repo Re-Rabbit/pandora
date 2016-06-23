@@ -25,3 +25,13 @@
 .label--radius {
     border-radius: $global-border-radius;
 }
+
+.label {
+    background: $color-gray-ll;
+    @include border-box-padding(0.5rem 0.8rem);
+    border-radius: $global-border-radius;
+
+    &.active {
+	      @include theme-reverse($color-gray-d);
+    }
+}

@@ -1,0 +1,70 @@
+{% extends "templates/application.html" %}
+
+{% from "ysd/_button.html" import buttonBorder %}
+{% from "ysd/_list-row.html" import oneLineLink, twoLineLink, addrLine %}
+
+
+{#
+
+在线支付成功
+
+#}
+
+{% block content %}
+<!-- Main -->
+<main>
+
+    <section class="list-pad-y-1 text-center text-primary">
+        <div class="list-mar-0d5">
+            <span class="ion-md-person ic--4x"></span>
+        </div>
+        <div>
+            支付成功
+        </div>
+    </section>
+
+    <div class="card">
+        <div class="list-row list-pad">
+            <section class="list-control">
+                <div class="two-line">
+                    <div class="list-mar-0d5 row">
+                        <div class="grid">
+                            <div class="text-gray">实付金额：</div>
+                        </div>
+                        <div class="grid">
+                            <div class="text-primary">
+                                ￥<span>660.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-mar-0d5 row">
+                        <div class="grid width--3">
+                            <div class="text-gray">收获信息：</div>
+                        </div>
+                        <div class="grid width--9">
+                            <div class="list-mar-0d5">
+                                <span>刘一撕</span>
+                                <span>15525019350</span>
+                            </div>
+                            <div class="">
+                                <span>北京市丰台区星火路11号写字公园2018</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <section class="list-mar-1 text-center pay-btngroup">
+        {{buttonBorder("查看订单", "submit", true)}}
+        {{buttonBorder("返回首页", "submit", true)}}
+    </section>
+
+</main>
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="index.css" />
+{% endblock %}

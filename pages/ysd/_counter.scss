@@ -1,0 +1,21 @@
+.counter {
+    &__num {
+        @include border-box-padding(0.3rem 0);
+    }
+    &__label {
+        @include border-box-padding(0.3rem 0.5rem);
+    }
+
+    &__num {
+        @include reset-theme();
+    }
+
+    &__field {
+	      -moz-appearance: textfield;
+	      -webkit-appearance: textfield;
+	      min-width: 1rem;
+	      width: 1rem;
+	      padding: 0;
+	      text-align: center;
+    }
+}
