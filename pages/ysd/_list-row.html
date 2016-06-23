@@ -1,6 +1,5 @@
-{% from "ysd/_button.html" import
-buttonBorder
-%}
+{% from "ysd/_button.html" import buttonBorder %}
+{% from "ysd/_counter.html" import counter %}
 
 {% macro field(placeholder="", name="", hook="", type="text") %}
 <div class="list-row list-pad">
@@ -256,7 +255,7 @@ buttonBorder
 	    </section>
 	  </div>
         </div>
-        <div class="grid width--6 card-right">
+        <div class="grid width--4 card-right">
 	  <header class="muilt-line-title">
 	    {{name}}
 	  </header>
@@ -264,13 +263,12 @@ buttonBorder
 	    <span class="js-count">{{price1}}</span><span class="">个/箱</span>
 	  </section>
         </div>
-        <div class="grid width--2 card-right card-last">
+        <div class="grid width--4 card-right card-last">
 	  <section class="muilt-line-title {{"" if control else "text-primary"}}">
 	    ￥<span class="js-price">{{price}}</span>
 	  </section>
 	  <section class="muilt-line-title">
-	    <span class="ion-ios-close-outline"></span>
-	    <span class="js-count">{{count}}</span>
+	    {{counter(count)}}
 	  </section>
         </div>
       </label>
@@ -282,7 +280,7 @@ buttonBorder
 	  </section>
 	</div>
       </div>
-      <div class="grid width--7 card-right">
+      <div class="grid width--5 card-right">
 	<header class="muilt-line-title">
 	  {{name}}
 	</header>
@@ -290,13 +288,12 @@ buttonBorder
 	  <span class="js-count">{{price1}}</span><span class="">个/箱</span>
 	</section>
       </div>
-      <div class="grid width--2 card-right card-last">
+      <div class="grid width--4 card-right card-last">
 	<section class="muilt-line-title {{"" if control else "text-primary"}}">
 	  ￥<span class="js-price">{{price}}</span>
 	</section>
 	<section class="muilt-line-title">
-	  <span class="ion-ios-close-outline"></span>
-	  <span class="js-count">{{count}}</span>
+	  {{counter(count)}}
 	</section>
       </div>
       {% endif %}

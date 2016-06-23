@@ -2,6 +2,7 @@
 
 {% from "ysd/_button.html" import buttonBlock %}
 {% from "ysd/_list-row.html" import order, addrLink %}
+{% from "ysd/_footer.html" import footerCar, footerCarEdit %}
 
 
 {#
@@ -12,7 +13,7 @@
 
 {% block content %}
 <!-- Main -->
-<main>
+<main class="footer-pad">
 
   <div class="card">
     {{addrLink("刘易斯 15525019350", "北京市丰台星火路11号写字公园2018", "#")}}
@@ -71,23 +72,10 @@
     </div>
   </div>
 
-  <footer>
-    <div class="footer row">
-      <div class="grid width--2 footer__block footer__block--left footer__icon">
-	
-      </div>
-      <div class="grid width--6 footer__block footer__block--left footer__text">
-	合计:<span class="text-primary">￥</span><span class="text-primary js-price">660.00</span>
-      </div>
-      <div class="grid width--4 footer__block footer__block--right footer__button">
-	<button type="button" class="button button-block js-submit">
-          结算
-	</button>
-      </div>
-    </div>
-  </footer>
-
 </main>
+
+{{footerCar("660.00", "2")}}
+
 {% endblock %}
 
 

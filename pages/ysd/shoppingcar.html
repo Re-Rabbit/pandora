@@ -2,6 +2,7 @@
 
 {% from "ysd/_button.html" import buttonBlock %}
 {% from "ysd/_list-row.html" import order %}
+{% from "ysd/_footer.html" import footerCar, footerCarEdit %}
 
 
 {#
@@ -12,25 +13,19 @@
 
 {% block content %}
 <!-- Main -->
-<main>
+<main class="footer-pad">
+
+  <section class="text-right">
+    <div class="list-pad-1 text-primary js-edit" id="edit">完成</div>
+  </section>
 
   {{order("标准产品", "666666", name="all1", radio=true)}}
+  {{order("标准产品", "666666", name="all1", radio=true)}}
 
-  <footer>
-    <div class="footer row">
-      <div class="grid width--2 footer__block footer__block--left footer__icon">
-	
-      </div>
-      <div class="grid width--6 footer__block footer__block--left footer__text">
-	合计:<span class="text-primary">￥</span><span class="text-primary js-price">660.00</span>
-      </div>
-      <div class="grid width--4 footer__block footer__block--right footer__button">
-	<button type="button" class="button button-block js-submit">
-          结算
-	</button>
-      </div>
-    </div>
-  </footer>
+  {#
+  {{footerCar("660.00", "2")}}
+  #}
+  {{footerCarEdit("all")}}
 
 </main>
 {% endblock %}

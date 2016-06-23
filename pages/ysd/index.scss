@@ -54,12 +54,26 @@ $footer-height: 3rem;
 }
 
 .footer__text {
-    @include border-box-padding(1rem);
+    @include border-box-padding(0.5rem 1rem);
     text-align: right;
 }
 
 .footer__button {
     @include border-box-padding(0.25rem);
+}
+
+.js-footer-del {
+    background: $color-gray-l !important;
+    .button {
+	background: $color-gray-l;
+    }
+}
+
+.js-footer-del.active {
+    background: $color-secondary;
+    button {
+	background: $color-secondary;
+    }
 }
 
 .footer__block {
@@ -302,6 +316,10 @@ $footer-height: 3rem;
 
 .list-pad-y-2d5 {
     @include border-box-padding(2.5rem 0);
+}
+
+.list-mar-0d5 {
+    margin-bottom: 0.5rem;
 }
 
 

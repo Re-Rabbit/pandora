@@ -23,3 +23,41 @@
   </div>
 </footer>
 {% endmacro %}
+
+{% macro footerCar(price="", num="0") %}
+<footer>
+  <div class="footer row">
+    <div class="grid width--8 footer__block footer__block--left footer__text">
+      <div class="list-mar-0d5">
+	合计：<span class="text-secondary">￥</span><span class="text-secondary js-price">{{price}}</span>
+      </div>
+      <div>
+	<small>不含运费</small>
+      </div>
+    </div>
+    <div class="grid width--4 footer__block footer__block--right footer__button">
+      <button type="button" class="button button-block js-submit button--color2">
+        结算（{{num}}）
+      </button>
+    </div>
+  </div>
+</footer>
+{% endmacro %}
+
+{% macro footerCarEdit(name="", edit=false) %}
+<footer>
+  <div class="footer row">
+    <div class="grid width--8 footer__block footer__block--left list-pad-1">
+      <label for="{{name}}" class="radio">
+	  <input name="{{name}}" id="{{name}}" type="radio" value="" />
+	  <span>全选</span>
+      </label>
+    </div>
+    <div class="grid width--4 footer__block footer__block--right footer__button js-footer-del">
+      <button type="button" class="button button-block js-submit">
+        删除
+      </button>
+    </div>
+  </div>
+</footer>
+{% endmacro %}
