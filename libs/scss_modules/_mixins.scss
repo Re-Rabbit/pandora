@@ -142,7 +142,7 @@
 
 /// Fill
 @mixin fill($direction: a, $isFixed: false) {
-    @if ifFixed == true {
+    @if $isFixed == true {
         position: fixed;
     }
     @else {

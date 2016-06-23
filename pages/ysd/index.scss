@@ -8,6 +8,7 @@
 
 $global-font-size: 14px;
 $color-primary: #15b4d0;
+$color-secondary: #fe3333;
 
 @import "scss_modules/public";
 @import "button/index";
@@ -22,91 +23,28 @@ $color-primary: #15b4d0;
 //@import "notify/index";
 //@import "tips/index";
 
+
+
+@import "home";
+
 .hide {
     display: none;
 }
 
 
-.topbar {
-    box-sizing: border-box;
-    min-height: 3rem;
-    border-bottom: 1px solid $color-gray-ll;
-    position: relative;
-    background-color: $color-white;
-    
-
-    &__btn {
-	box-sizing: border-box;
-	padding: 0.5rem 1rem;
-	color: $color-gray;
-	
-	&--left {
-	    @include fill(l)
-	}
-	&--right {
-	    @include fill(r)
-	}
-    }
-
-    &-title {
-	padding: 1rem;
-	text-align: center;
-    }
-}
-
 .bottom-btn {
     @include fill(b);
 }
 
-.sidebar {
-    @include fill();
-    display: none;
-    z-index: 90;
-}
-
-.sidebar__bg {
-    @include fill();
-    z-index: 1;
-    background: rgba($color-black, $alpha-l)
-}
-
-.sidebar__main {
-    @include fill(l);
-    background: $color-white;
-    padding: 3rem 0;
-    min-width: 65%;
-    z-index: 2;
-}
-
-.nav__item {
-    box-sizing: border-box;
-    padding: 0.8rem 1.5rem;
-}
-
-.menu {
-    box-sizing: border-box;
-    padding: 1rem;
-    padding-left: 3.5rem;
-    position: relative;
-
-    .ic {
-	box-sizing: border-box;
-	@include size(2.5rem);
-	@include theme-reverse($color-primary, $color-white);
-	display: inline-block;
-	padding: 0.25rem;
-	text-align: center;
-	border-radius: $global-border-radius;
-    }
-
-    &__icon {
-	@include fill(l);
-    }
-}
+$footer-height: 3rem;
 
 .footer {
-    @include fill(b);
-    max-height: 3rem;
+    @include fill(b, true);
+    height: $footer-height;
+
+    &-pad {
+	padding-bottom: $footer-height;
+    }
 }
 
 .footer__icon {
@@ -127,7 +65,7 @@ $color-primary: #15b4d0;
 .footer__block {
     min-height: 3rem;
     &--right {
-        background-color: $color-primary;
+        background-color: $color-secondary;
     }
     &--left {
         background-color: $color-white;
@@ -298,20 +236,38 @@ $color-primary: #15b4d0;
     text-align: center;
 }
 
+.good-color-label {
+    margin-right: 1rem;
+}
+
 .label {
-    background-color: $color-gray-ll;
+    background: $color-gray-ll;
     @include border-box-padding(0.5rem 0.8rem);
     border-radius: $global-border-radius;
+
+    &.active {
+	@include theme-reverse($color-gray-d);
+    }
 }
 
 .counter {
+    
     &__label,
     &__num {
-        @include border-box-padding(0.5rem);
+        @include border-box-padding(0.3rem 0.5rem);
     }
 
     &__num {
         @include reset-theme();
+    }
+
+    &__field {
+	-moz-appearance: textfield;
+	-webkit-appearance: textfield;
+	min-width: 1rem;
+	width: 1rem;
+	padding: 0;
+	text-align: center;
     }
 }
 
@@ -323,8 +279,20 @@ $color-primary: #15b4d0;
     @include border-box-padding(0.5rem 0);
 }
 
+.list-pad-y-1 {
+    @include border-box-padding(1rem 0);
+}
+
 .list-pad-y-0d25 {
     @include border-box-padding(0.25rem 0);
+}
+
+.list-pad-0d5 {
+    @include border-box-padding(0.5rem);
+}
+
+.list-pad-1 {
+    @include border-box-padding(1rem);
 }
 
 .list-pad-y-2 {
@@ -347,30 +315,41 @@ $color-primary: #15b4d0;
     padding: 0.3rem 0.5rem;
 }
 
-.carousel {
+.relatived {
     position: relative;
+}
+
+.carousel {
+
 }
 
 .trolley {
     @include fill(br);
-    @include size(5rem);
-    bottom: -3rem;
+    @include size(3.5rem);
+    bottom: -1.375rem;
+    right: 1rem;
 }
 
 .trolley-inline {
     position: relative;
+
+    .trolley__count {
+	@include size(1.2rem);
+	@include border-box-padding(0.25rem 0);
+    }
 }
 
 
 .trolley__icon {
     @include size(3.5rem);
-    @include theme-reverse(rgba($color-black, $alpha-l));
+    @include theme-reverse(rgba($color-black, $alpha));
     @include border-box-padding(0.925rem 0);
     text-align: center;
     display: inline-block;
     border-radius: 50%;
     position: relative;
 }
+
 .trolley__count {
     @include fill(tr);
     @include size(1.5rem);
@@ -385,18 +364,27 @@ $color-primary: #15b4d0;
     }
 }
 
-.suggest {
+
+.hr {
     text-align: center;
     position: relative;
-    &:after {
-	@include size(1px, 4.5rem);
-	@include fill(tr);
-	content: "";
-        top: 1rem;
-        background-color: $color-gray-ll;
+    margin: 1rem;
+    
+    &__content {
+	display: inline-block;
+	padding: 1rem;
+	background: $global-bgColor;
+	position: relative;
+	z-index: 1;
+	font-size: $font-size-sm;
+    }
 
-	.suggest:last-child & {
-	    display: none;
-	}
+    &:after {
+	content: ' ';
+	display: inline-block;
+	@include fill(x);
+	top: 50%;
+	height: 1px;
+	background: $color-gray-l;
     }
 }

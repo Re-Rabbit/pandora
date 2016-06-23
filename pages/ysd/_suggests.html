@@ -4,23 +4,26 @@
 
 #}
 
-{% macro suggest(name="", href="#", pic="") %}
+{% macro suggest(name="", href="#", description="", pic="") %}
 <a href="{{href}}">
   <div class="suggest">
     <img src="{{pic}}" />
     <div>{{name}}</div>
+    <div class="suggest-detail">
+      {{description}}
+    </div>
   </div>
 </a>
 {% endmacro %}
 
 <div class="list-pad-y-2 row">
   <div class="grid width--4">
-    {{suggest("标准箱", pic="/images/box-1-2x.png")}}
+    {{suggest("标准箱", "#", "超高性价比，超高性价比，超高性价比，", pic="/images/box-1-2x.png")}}
   </div>
   <div class="grid width--4 suggest">
-    {{suggest("一撕得", pic="/images/box-2-2x.png")}}
+    {{suggest("一撕得", "#", "超高性价比，超高性价比，超高性价比，", pic="/images/box-2-2x.png")}}
   </div>
   <div class="grid width--4 suggest">
-    {{suggest("定制箱", pic="/images/box-3-2x.png")}}
+    {{suggest("定制箱", "#", "超高性价比，超高性价比，超高性价比，", pic="/images/box-3-2x.png")}}
   </div>
 </div>

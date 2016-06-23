@@ -1,0 +1,112 @@
+$topbar-height: 3rem;
+
+.topbar {
+    @include fill(t, true);
+    z-index: 1;
+    box-sizing: border-box;
+    min-height: $topbar-height;
+    background-color: $color-white;
+    
+    &__btn {
+	box-sizing: border-box;
+	padding: 0.5rem 1rem;
+	color: $color-gray;
+	
+	&--left {
+	    @include fill(l)
+	}
+	&--right {
+	    @include fill(r)
+	}
+    }
+
+    &-title {
+	padding: 1rem;
+	text-align: center;
+    }
+    &-pad {
+	padding-top: $topbar-height;
+    }
+}
+
+.sidebar {
+    @include fill();
+    z-index: 2;
+    display: none;
+    &.active {
+	display: block;
+    }
+}
+
+.sidebar__bg {
+    @include fill();
+    @include trans();
+    z-index: 1;
+    
+    background: rgba($color-black, 0);
+    .sidebar.active & {
+	background: rgba($color-black, $alpha-l);
+    }
+}
+
+.sidebar__main {
+    @include fill(l);
+    @include trans();
+    background: $color-white;
+    padding: 3rem 0;
+    min-width: 65%;
+    z-index: 2;
+    
+    transform: translate3d(-100%, 0, 0);
+    .sidebar.active & {
+	transform: translate3d(0, 0, 0);
+    }
+}
+
+.nav__item {
+    box-sizing: border-box;
+    padding: 0.8rem 1.5rem;
+}
+
+.menu {
+    box-sizing: border-box;
+    padding: 1rem;
+    padding-left: 3.5rem;
+    position: relative;
+
+    .ic {
+	box-sizing: border-box;
+	@include size(2.5rem);
+	@include theme-reverse($color-primary, $color-white);
+	display: inline-block;
+	padding: 0.35rem 0.25rem;
+	text-align: center;
+	border-radius: $global-border-radius;
+    }
+
+    &__icon {
+	@include fill(l);
+    }
+}
+
+.suggest {
+    text-align: center;
+    position: relative;
+    &:after {
+	@include size(1px, 4.5rem);
+	@include fill(tr);
+	content: "";
+        top: 1rem;
+        background-color: $color-gray-ll;
+
+	.suggest:last-child & {
+	    display: none;
+	}
+    }
+
+    &-detail {
+	@extend .list-pad-1;
+	@extend .text-gray;
+	text-align: left;
+    }
+}

@@ -1,0 +1,25 @@
+{% macro footerBuy() %}
+<footer>
+  <div class="footer row">
+    <div class="grid width--2 footer__block footer__block--left footer__icon">
+      <span class="ion-ios-call-outline ic--2x"></span>
+    </div>
+    <div class="grid width--2 footer__block footer__block--left footer__icon" style="border-left: 1px solid #ddd;">
+      <div class="trolley-inline">
+	<span class="ion-ios-cart-outline ic--2x"></span>
+	<div class="trolley__count">24</div>
+      </div>
+    </div>
+    <div class="grid width--4 footer__block footer__block--left footer__button" style="border-left: 1px solid #ddd;">
+      <button type="button" class="button button-block button--white js-submit">
+        加入购物车
+      </button>
+    </div>
+    <div class="grid width--4 footer__block footer__block--right footer__button">
+      <button type="button" class="button button-block js-submit button--color2">
+        立即下单
+      </button>
+    </div>
+  </div>
+</footer>
+{% endmacro %}
