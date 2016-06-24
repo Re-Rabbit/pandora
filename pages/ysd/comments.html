@@ -1,47 +1,22 @@
-{% extends "templates/application.html" %}
-
-{% from "ysd/_button.html" import buttonBlock %}
-{% from "ysd/_list-row.html" import comment %}
-
-
 {#
 
-评价
+查看评价
 
 #}
 
+{% extends "templates/application.html" %}
+{% from "ysd/_goods.html" import comment, commentImg %}
+{% from "ysd/_hr.html" import hr %}
+
 {% block content %}
-<!-- Main -->
 <main>
   <div class="card">
+    {% set img=commentImg("/images/box-12.png") %}
+    
     {{comment("155****9350", "真的特别好，我的网店用了这个箱子，逼格瞬间提高。用户好评跃升！", "2016.03.16")}}
-    {{comment("155****9350", "真的特别好，我的网店用了这个箱子，逼格瞬间提高。用户好评跃升！", "2016.03.16", pics="1")}}
+    {{comment("155****9350", "真的特别好，我的网店用了这个箱子，逼格瞬间提高。用户好评跃升！", "2016.03.16", pics=[img, img])}}
   </div>
   
-  <footer>
-    <div class="footer row">
-      <div class="grid width--2 footer__block footer__block--left footer__icon">
-	<span class="ion-md-call ic--2x"></span>
-      </div>
-      <div class="grid width--2 footer__block footer__block--left footer__icon" style="border-left: 1px solid #ddd;">
-	<span class="ion-md-cart ic--2x"></span>
-      </div>
-      <div class="grid width--4 footer__block footer__block--left footer__button" style="border-left: 1px solid #ddd;">
-	<button type="button" class="button button-block button--white js-submit">
-          加入购物车
-	</button>
-      </div>
-      <div class="grid width--4 footer__block footer__block--right footer__button">
-	<button type="button" class="button button-block js-submit">
-          立即下单
-	</button>
-      </div>
-    </div>
-  </footer>
+  {{hr("没有更多评论了，亲")}}
 </main>
-{% endblock %}
-
-
-{% block styles %}
-<link rel="stylesheet" href="index.css" />
 {% endblock %}

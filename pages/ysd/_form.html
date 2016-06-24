@@ -1,0 +1,58 @@
+{% macro switch(name="", content="", checkbox=true, checked=false) %}
+{% if checkbox %}
+<label for="{{name}}" class="switch">
+  <input name="{{name}}" id="{{name}}" type="checkbox" value="" checked="{{checked}}" />
+  <div class="switch__control">
+    {% if checked %}
+    <span class="ion-ios-checkbox ic--2x text-primary"></span>
+    {% else %}
+    <span class="ion-ios-square-outline ic--2x text-gray"></span>
+    {% endif %}
+  </div>
+  {% if content %}
+  <span class="">{{content}}</span>
+  {% endif %}
+</label>
+{% else %}
+<label for="{{name}}" class="radio">
+  <input name="{{name}}" id="{{name}}" type="radio" value="" checked="{{checked}}" />
+  {% if content %}
+  <span class="">{{content}}</span>
+  {% endif %}
+</label>
+{% endif %}
+{% endmacro %}
+
+{% macro field(placeholder="", name="", hook="", type="text") %}
+<div class="list-row list-pad-x-1">
+  <section class="list-control">
+    <label for="{{name}}" class="field__label field-block js-{{hook}}">
+      <input class="field" name="{{name}}" id="{{name}}" type="{{type}}" placeholder="{{placeholder}}" />
+    </label>
+  </section>
+</div>
+{% endmacro %}
+
+{% macro area(placeholder="", name="", hook="") %}
+<div class="list-row list-pad">
+  <section class="list-control">
+    <label for="{{name}}" class="field__label field-block js-{{hook}}">
+      <textarea class="field field-area" name="{{name}}" id="{{name}}" placeholder="{{placeholder}}"></textarea>
+    </label>
+  </section>
+</div>
+{% endmacro %}
+
+{% macro areaLine(placeholder="", name="", label="", hook="") %}
+<div class="list-row list-pad">
+  <section class="list-control">
+    <div class="area-line row">
+      <div>
+	<span class="text-primary ion-md-create"></span>
+	<span class="text-gray">{{label}}</span>
+      </div>
+      <textarea class="field field-area" name="{{name}}" id="{{name}}" placeholder="{{placeholder}}"></textarea>
+    </div>
+  </section>
+</div>
+{% endmacro %}

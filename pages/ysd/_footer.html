@@ -1,73 +1,73 @@
 {% macro footerBuy() %}
 <footer>
-    <div class="footer row">
-        <div class="grid width--2 footer__block footer__block--left footer__icon">
-            <span class="ion-ios-call-outline ic--2x"></span>
-        </div>
-        <div class="grid width--2 footer__block footer__block--left footer__icon" style="border-left: 1px solid #ddd;">
-            <div class="trolley-inline">
-	              <span class="ion-ios-cart-outline ic--2x"></span>
-	              <div class="trolley__count">24</div>
-            </div>
-        </div>
-        <div class="grid width--4 footer__block footer__block--left footer__button" style="border-left: 1px solid #ddd;">
-            <button type="button" class="button button-block button--white js-submit">
-                加入购物车
-            </button>
-        </div>
-        <div class="grid width--4 footer__block footer__block--right footer__button">
-            <button type="button" class="button button-block js-submit button--color2">
-                立即下单
-            </button>
-        </div>
+  <div class="footer row">
+    <div class="grid width--2 footer__block footer__block--left footer__icon">
+      <span class="ion-ios-call-outline ic--2x"></span>
     </div>
+    <div class="grid width--2 footer__block footer__block--left footer__icon" style="border-left: 1px solid #ddd;">
+      <div class="trolley-inline">
+	<span class="ion-ios-cart-outline ic--2x"></span>
+	<div class="trolley__count">24</div>
+      </div>
+    </div>
+    <div class="grid width--4 footer__block footer__block--left footer__button" style="border-left: 1px solid #ddd;">
+      <button type="button" class="button button-block button--white js-submit">
+        加入购物车
+      </button>
+    </div>
+    <div class="grid width--4 footer__block footer__block--right footer__button">
+      <button type="button" class="button button-block js-submit button--color2">
+        立即下单
+      </button>
+    </div>
+  </div>
 </footer>
 {% endmacro %}
 
 {% macro footerCar(price="", num="0", muilt=false) %}
 <footer>
-    <div class="footer row">
-        <div class="grid width--8 footer__block footer__block--left text-right list-pad-x-1">
-            {% if muilt %}
-            <div class="list-pad-y-0d5">
-                <div class="list-mar-0d5">
-	                  合计：<span class="text-secondary">￥</span><span class="text-secondary js-price">{{price}}</span>
-                </div>
-                <div>
-	                  <small>不含运费</small>
-                </div>
-            </div>
-            {% else %}
-            <div class="list-pad-y-1">
-                <div class="list-mar-0d5">
-	                  合计：<span class="text-secondary">￥</span><span class="text-secondary js-price">{{price}}</span>
-                </div>
-            </div>
-            {% endif %}
+  <div class="footer row">
+    <div class="grid width--8 footer__block footer__block--left text-right list-pad-x-1">
+      {% if muilt %}
+      <div class="list-pad-y-0d5">
+        <div class="list-mar-0d5">
+	  合计：<span class="text-secondary">￥</span><span class="text-secondary js-price">{{price}}</span>
         </div>
-        <div class="grid width--4 footer__block footer__block--right footer__button">
-            <button type="button" class="button button-block js-submit button--color2">
-                结算（{{num}}）
-            </button>
+        <div>
+	  <small>不含运费</small>
         </div>
+      </div>
+      {% else %}
+      <div class="list-pad-y-1">
+        <div class="list-mar-0d5">
+	  合计：<span class="text-secondary">￥</span><span class="text-secondary js-price">{{price}}</span>
+        </div>
+      </div>
+      {% endif %}
     </div>
+    <div class="grid width--4 footer__block footer__block--right footer__button">
+      <button type="button" class="button button-block js-submit button--color2">
+        结算（{{num}}）
+      </button>
+    </div>
+  </div>
 </footer>
 {% endmacro %}
 
 {% macro footerCarEdit(name="", edit=false) %}
 <footer>
-    <div class="footer row">
-        <div class="grid width--8 footer__block footer__block--left list-pad-1">
-            <label for="{{name}}" class="radio">
-	              <input name="{{name}}" id="{{name}}" type="radio" value="" />
-	              <span>全选</span>
-            </label>
-        </div>
-        <div class="grid width--4 footer__block footer__block--right footer__button js-footer-del">
-            <button type="button" class="button button-block js-submit">
-                删除
-            </button>
-        </div>
+  <div class="footer row">
+    <div class="grid width--8 footer__block footer__block--left list-pad-1">
+      <label for="{{name}}" class="radio">
+	<input name="{{name}}" id="{{name}}" type="radio" value="" />
+	<span>全选</span>
+      </label>
     </div>
+    <div class="grid width--4 footer__block footer__block--right footer__button js-footer-del">
+      <button type="button" class="button button-block js-submit">
+        删除
+      </button>
+    </div>
+  </div>
 </footer>
 {% endmacro %}

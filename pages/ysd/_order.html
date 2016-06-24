@@ -1,0 +1,170 @@
+{% from "ysd/_form.html" import switch, field %}
+{% from "ysd/_button.html" import buttonBorder %}
+
+{% macro invoice() %}
+<section class="card">
+  <div class="list-row list-pad-x-1">
+    <section class="list-control">
+      <div class="list-pad-y-1 row">
+	<div class="grid">
+          发票
+	</div>
+	<div class="grid grid-last">
+          {{switch("invoice", checked=true)}}
+	</div>
+      </div>
+    </section>
+  </div>
+  
+  <div class="list-row list-pad-x-1">
+    <section class="list-control">
+      <div class="list-pad-y-1 row">
+	<div class="grid width--3">
+	  {{switch("org", "个人", checked=true)}}
+	</div>
+	<div class="grid width--3">
+	  {{switch("org", "公司")}}
+	</div>	  
+      </div>
+    </section>
+  </div>
+  
+  {{field("输入公司名称", hook="addr")}}
+</section>
+{% endmacro %}
+
+{% macro statistical(price="0", price1="0") %}
+<section class="card">
+  <div class="list-row list-pad-x-1">
+    <section class="list-control">
+      <div class="list-pad-y-1">
+	<div class="list-mar-1 row">
+	  <div class="grid">
+	    商品金额
+	  </div>
+	  <div class="grid grid-last">
+	    <div class="text-secondary">￥<span>{{price}}</span></div>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="grid">
+	    运费
+	    <span class="text-gray ion-md-help-circle"></span>
+	  </div>
+	  <div class="grid grid-last">
+	    <div class="text-secondary">￥<span>{{price}}</span></div>
+	  </div>
+	</div>
+      </div>
+    </section>
+  </div>
+</section>
+{% endmacro %}
+
+{% macro orderItem(name="", spec="", sum="", intro="", price="", num="", cost="", pic="") %}
+<div class="list-row list-pad-x-1">
+  <section class="list-control">
+    <div class="row">
+      <div class="grid width--3 list-pad-y-1">
+	<div class="text-center">
+	  <section class="list-mar-0d5">
+	    <img width="64" src="{{pic}}" />
+	  </section>
+	</div>
+      </div>
+      <div class="grid width--5 order-item-pad">
+	<header class="list-mar-0d5">
+	  {{name}}
+	</header>
+	<section class="list-mar-0d5 text-gray text-small">
+	  <span class="js-count">{{spec}}</span><span class="">个/箱</span>，
+	  共<span>{{sum}}</span>个
+	</section>
+        <section class="text-gray text-small">
+	  {{intro}}
+	</section>
+      </div>
+      <div class="grid width--4 order-item-pad text-right">
+	<section class="list-mar-0d5 text-primary">
+	  ￥<span>{{price}}</span>
+	</section>
+	<section class="list-mar-0d5">
+	  <span class="ion-ios-close"></span>
+          <span>{{num}}</span>
+	</section>
+        <footer>
+          <div class="text-small">
+	    合计：<span class="text-primary">￥</span><span class="text-primary">{{cost}}</span>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </section>
+</div>
+{% endmacro %}
+
+{% macro orderBlockHeaderId(label="", id="") %}
+<header class="list-pad-x-1">
+  <div class="order-header row">
+    <div class="grid">
+      <span class="">{{label}}</span>
+    </div>
+    <div class="grid grid-last">
+      <div class="text-gray text-small">
+        订单号：<span>{{id}}</span>
+      </div>
+    </div>
+  </div>
+</header>
+{% endmacro %}
+
+{% macro orderBlockHeaderDate(label="", date="", state="") %}
+<header class="list-pad-x-1">
+  <div class="order-header row">
+    <div class="grid">
+      <span class="">{{label}}</span>
+      <span class="text-gray text-small">
+	{{date}}
+      </span>
+    </div>
+    <div class="grid grid-last">
+      <div class="text-gray text-small">
+	{% if state %}
+        <span>{{state}}</span>
+	{% endif %}
+      </div>
+    </div>
+  </div>
+</header>
+{% endmacro %}
+
+{% macro orderBlockFooter(num="", price="", price1="") %}
+<footer class="card-footer">
+  <div class="order-footer text-small">
+    共<span class="">{{num}}</span>件商品，
+    合计<span class="">￥</span><span class="">{{price}}</span>
+    （含运费<span class="">￥</span><span class="">{{price1}}</span>）
+  </div>
+  <div class="order-footer text-small">
+    {{buttonBorder("查看物流", "add")}}
+    {{buttonBorder("再次购买", "add")}}
+    {{buttonBorder("评价", "submit", true)}}
+  </div>
+</footer>
+{% endmacro %}
+
+{% macro orderBlock(header, items, footer) %}
+<div class="card">
+  {{header}}
+
+  <section class="card-middle">
+    {% for item in items %}
+    {{item}}
+    {% endfor %}
+  </section>
+
+  {% if footer %}
+  {{footer}}
+  {% endif %}
+</div>
+{% endmacro %}

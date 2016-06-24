@@ -1,0 +1,14 @@
+.pay-btngroup {
+    .button {
+        margin: 0 1rem;
+    }
+}
+
+.pay-wx {
+    @include fill(tl);
+    top: -4px;
+}
+
+.pay-ic {
+    font-size: 7.5rem;
+}

@@ -1,0 +1,70 @@
+{% macro commentImg(pic="") %}
+<div class="comment-img">
+  <img src="/images/box-12.png" width="88" />
+</div>
+{% endmacro %}
+
+{% macro comment(phone="", content="", datetime="", pics="") %}
+<div class="list-row list-pad-x-1">
+  <section class="list-control">
+    <div class="list-pad-y-1">
+      <section class="list-mar-1 row text-gray text-small">
+	<div class="grid">
+	  {{phone}}
+	</div>
+	<div class="grid grid-last">
+	  {{datetime}}
+	</div>
+      </section>
+      <section class="line-height">
+	{{content}}
+      </section>
+      {% if pics %}
+      <section class="comment-imgs">
+	{% for item in pics %}
+	{{item}}
+	{% endfor %}
+      </section>
+      {% endif %}
+    </div>
+  </section>
+</div>
+{% endmacro %}
+
+{% macro star(state=false) %}
+<div class="star">
+  <span class="{{"star--fill" if state else "star--empty"}} ion-md-star ic--1d5x"></span>
+  <span class="{{"star--fill" if state else "star--empty"}} ion-md-star ic--1d5x"></span>
+  <span class="{{"star--fill" if state else "star--empty"}} ion-md-star ic--1d5x"></span>
+  <span class="{{"star--fill" if state else "star--empty"}} ion-md-star ic--1d5x"></span>
+  <span class="{{"star--fill" if state else "star--empty"}} ion-md-star ic--1d5x"></span>
+</div>
+{% endmacro %}
+
+{% macro commentStar(label="", state=false) %}
+<section class="assess-row row">
+  <div class="grid">
+    <div class="assess-label">
+      {{label}}
+    </div>
+  </div>
+  <div class="grid grid-last">
+    {{star(state)}}
+  </div>
+</section>
+{% endmacro %}
+
+{% macro commentUpload(pic="", delete=false) %}
+<div class="comment-upload">
+  {% if pic %}
+  <img src="{{pic}}" width="64" />
+  {% if delete %}
+  <div class="trolley__count">
+    <span class="ion-ios-remove"></span>
+  </div>
+  {% endif %}
+  {% else %}
+  <span class="ion-ios-add ic ic--4x"></span>
+  {% endif %}
+</div>
+{% endmacro %}

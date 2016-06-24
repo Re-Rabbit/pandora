@@ -1,7 +1,25 @@
 .order-pin {
-    margin-left: -1.05rem;
+    margin-left: -1.6rem;
+    .ic {
+	display: inline-block;
+	text-align: center;
+	width: 1.2rem;
+    }
 }
 
 .order-addr {
     margin-top: -1rem;
+}
+
+.order-pad {
+    @include border-box-padding(0 1rem 0 2rem);
+}
+
+.order-item-pad {
+    @include border-box-padding(1rem 0 0 0.5rem);
+}
+
+.order-header {
+    @extend .list-pad-y-1;
+    border-bottom: 1px solid $color-gray-ll;
 }

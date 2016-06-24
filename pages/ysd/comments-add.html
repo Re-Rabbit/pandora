@@ -1,0 +1,56 @@
+{#
+
+添加评论
+
+#}
+
+
+{% extends "templates/application.html" %}
+{% from "ysd/_button.html" import buttonBlock %}
+{% from "ysd/_form.html" import areaLine, switch %}
+{% from "ysd/_goods.html" import commentStar, commentUpload %}
+
+{% block content %}
+<main class="bottom-btn-pad">
+  <div class="card">
+    <div class="list-row list-pad-x-1">
+      <section class="list-control row">
+        <div class="grid width--3 list-pad-y-1">
+	  <div class="card-photo">
+	    <section class="photo">
+	      <img width="64" src="/images/box-12.png" />
+	    </section>
+	  </div>
+        </div>
+        <div class="grid width--9 card-right row">
+	  {{commentStar("商品质量", true)}}
+	  {{commentStar("物流服务")}}
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="card">
+    {{areaLine(label="请写下您宝贵的产品使用建议")}}
+  </div>
+
+  <div class="list-pad-1">
+    添加图片
+    <span class="text-small text-gray">（您最多可以上传三张图片）</span>
+  </div>
+
+  <div class="list-pad-x-1">
+    {{commentUpload("/images/box-2.png")}}
+    {{commentUpload("/images/box-2.png", true)}}
+    {{commentUpload()}}
+  </div>
+
+  <div class="list-pad-1">
+    {{switch("named", "匿名评价")}}
+  </div>
+
+  <div class="bottom-btn">
+    {{buttonBlock("提交", "ok")}}
+  </div>
+</main>
+{% endblock %}

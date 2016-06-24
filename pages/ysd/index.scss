@@ -24,10 +24,24 @@ $color-secondary: #fe3333;
 //@import "tips/index";
 
 
+@import "pay";
 @import "counter";
 @import "home";
 @import "order";
 
+/// ion-ios-arrow-forward-outline
+/// ion-ios-checkmark-circle
+/// ion-ios-pin-outline
+/// ion-ios-close
+/// ion-md-help-circle
+/// ion-ios-paper-outline
+/// ion-md-star
+/// ion-ios-remove-outline
+/// ion-ios-add-outline
+/// ion-ios-add
+
+
+// remove
 .hide {
     display: none;
 }
@@ -35,6 +49,9 @@ $color-secondary: #fe3333;
 
 .bottom-btn {
     @include fill(b);
+    &-pad {
+	padding-bottom: 4.5rem;
+    }
 }
 
 $footer-height: 3rem;
@@ -44,7 +61,7 @@ $footer-height: 3rem;
     height: $footer-height;
 
     &-pad {
-	      padding-bottom: $footer-height;
+	padding-bottom: $footer-height;
     }
 }
 
@@ -66,14 +83,14 @@ $footer-height: 3rem;
 .js-footer-del {
     background: $color-gray-l !important;
     .button {
-	      background: $color-gray-l;
+	background: $color-gray-l;
     }
 }
 
 .js-footer-del.active {
     background: $color-secondary;
     button {
-	      background: $color-secondary;
+	background: $color-secondary;
     }
 }
 
@@ -87,15 +104,16 @@ $footer-height: 3rem;
     }
 }
 
+// remove
 .list-container {
     background-color: $color-white;
 }
 
 .list-row {
     &:last-child {
-	      .list-control {
-	          border: 0;
-	      }
+	.list-control {
+	    border: 0;
+	}
     }
 }
 
@@ -103,11 +121,12 @@ $footer-height: 3rem;
     border-bottom: 1px solid $color-gray-ll;
 }
 
+// remove
 .list-pad {
     @include border-box-padding(0 1rem);
 }
 
-
+// remove
 .one-line,
 .two-line,
 .area-line {
@@ -119,17 +138,20 @@ $footer-height: 3rem;
     @include border-box-padding(1rem 0);
 }
 
+// remove
 .muilt-line-title,
-.area-line-title,
-.card {
+.area-line-title {
     margin-bottom: 1rem;
 }
 
+// remove
 .two-line-ic {
     @include border-box-padding(1rem 0);
 }
 
+
 .card {
+    @extend .list-mar-1;
     background-color: $color-white;
 }
 
@@ -144,7 +166,7 @@ $footer-height: 3rem;
 .muilt-btn-group {
     text-align: right;
     .button {
-	      margin-left: 0.5rem;
+	margin-left: 0.5rem;
     }
 }
 
@@ -153,14 +175,17 @@ $footer-height: 3rem;
     height: auto;
 }
 
+// remove
 .card-left {
     @include border-box-padding(1rem 0);
 }
+
 
 .card-right {
     @include border-box-padding(1rem 0 0 0.5rem);
 }
 
+// remove
 .card-last {
     text-align: right;
 }
@@ -168,7 +193,7 @@ $footer-height: 3rem;
 .card-photo {
     text-align: center;
     .photo {
-	      margin-bottom: 0.5rem;
+	margin-bottom: 0.5rem;
     }
 }
 
@@ -177,42 +202,60 @@ $footer-height: 3rem;
     border: 1px solid $color-gray-ll;
 }
 
+// remove
 .card-header {
     @include border-box-padding(0 1rem);
 }
 
+// remove
 .card-footer {
     @include border-box-padding(0 1rem);
     text-align: right;
 }
-
+// rename
 .card-middle {
     @include border-box-padding(0 0.5rem 0 1rem);
 }
 
-.order-header {
-    @include border-box-padding(1rem 0);
-    border-bottom: 1px solid $color-gray-ll;
-}
+// remove
+
 
 .order-footer {
     @include border-box-padding(1rem 0.5rem 1rem 0);
     border-top: 1px solid $color-gray-ll;
     &:last-child {
-	      border: 0;
-	      margin-top: -1rem;
+	border: 0;
+	margin-top: -1rem;
     }
     .button {
-	      margin-left: 0.5rem;
+	margin-left: 0.5rem;
     }
 }
 
+
+//remove
 .checkbox,
 .radio {
     input[type=checkbox],
     input[type=radio] {
-	      position: relative;
-	      top: 2px;
+	position: relative;
+	top: 2px;
+    }
+}
+
+.switch {
+    @extend .relatived;
+    @include border-box-padding(0.5rem 0 0.5rem 2rem);
+    
+    input[type=checkbox],
+    input[type=radio] {
+	display: none;
+    }
+    &__control {
+	@include fill(l);
+	@include size(2rem);
+	@include border-box-padding(0.25rem 0);
+	text-align: center;
     }
 }
 
@@ -228,13 +271,36 @@ $footer-height: 3rem;
     display: inline-block;
 }
 
+.comment-upload {
+    @include theme-reverse($color-white, $color-gray-ll)
+    @include size(4rem);
+    display: inline-block;
+    margin-right: 1rem;
+    border: 1px dotted $color-gray-ll;
+    vertical-align: bottom;
+    text-align: center;
+    position: relative;
+
+    .ic {
+	line-height: 1.1;
+    }
+
+    .trolley__count {
+	@include theme-reverse($color-secondary);
+	@include size(1.2rem);
+	@include border-box-padding(0.25rem 0);
+	top: -0.5rem;
+	right: -0.5rem;
+    }
+}
+
 .star {
     display: inline-block;
     &--empty {
-	      color: $color-gray;
+	color: $color-gray;
     }
     &--fill {
-	      color: $color-primary;
+	color: $color-primary;
     }
 }
 
@@ -302,6 +368,10 @@ $footer-height: 3rem;
     @include border-box-padding(2.5rem 0);
 }
 
+.list-pad-l-2 {
+    @include border-box-padding(0 0 0 2rem);
+}
+
 .list-mar-1 {
     margin-bottom: 1rem;
 }
@@ -340,8 +410,8 @@ $footer-height: 3rem;
     position: relative;
 
     .trolley__count {
-	      @include size(1.2rem);
-	      @include border-box-padding(0.25rem 0);
+	@include size(1.2rem);
+	@include border-box-padding(0.25rem 0);
     }
 }
 
@@ -365,8 +435,8 @@ $footer-height: 3rem;
     text-align: center;
     border-radius: 50%;
     .trolley-inline & {
-	      top: -0.25rem;
-	      right: -0.25rem;
+	top: -0.25rem;
+	right: -0.25rem;
     }
 }
 
@@ -377,27 +447,51 @@ $footer-height: 3rem;
     margin: 1rem;
     
     &__content {
-	      display: inline-block;
-	      padding: 1rem;
-	      background: $global-bgColor;
-	      position: relative;
-	      z-index: 1;
-	      font-size: $font-size-sm;
+	display: inline-block;
+	padding: 1rem;
+	background: $global-bgColor;
+	position: relative;
+	z-index: 1;
+	font-size: $font-size-sm;
     }
 
     &:after {
-	      content: ' ';
-	      display: inline-block;
-	      @include fill(x);
-	      top: 50%;
-	      height: 1px;
-	      background: $color-gray-l;
+	content: ' ';
+	display: inline-block;
+	@include fill(x);
+	top: 50%;
+	height: 1px;
+	background: $color-gray-l;
     }
 }
 
 
-.pay-btngroup {
-    .button {
-        margin: 0 1rem;
+.tab {
+    font-size: $font-size-sm;
+    background: $color-white;
+    border-bottom: 1px solid $color-gray-ll;
+    height: 3rem;
+
+    &-pad {
+	padding-top: 4rem;
+    }
+
+    .trolley__count {
+	@include theme-reverse($color-white, $color-primary);
+	@include size(1.2rem);
+	@include border-box-padding(0.25rem 0);
+	top: 0.25rem;
+	right: 0.25rem;
+	border: 1px solid $color-primary;
+    }
+}
+
+.tab__title {
+    @include border-box-padding(1rem 0);
+    position: relative;
+    text-align: center;
+    
+    &.active {
+	color: $color-primary;
     }
 }

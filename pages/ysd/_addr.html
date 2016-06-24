@@ -1,0 +1,31 @@
+{% macro addrLink(name="", phone="", small="", href="#") %}
+<div class="list-row order-pad">
+  <section class="list-control">
+    <a href="{{href}}">
+      <div class="list-pad-y-1">
+        <div class="list-mar-0d5 text-gray">
+          配送地址
+        </div>
+        <div class="list-mar-0d5 order-pin">
+          <span class="ion-ios-pin-outline ic"></span>
+          <span class="text-primary" id="area">北京市海沧区</span>
+        </div>
+        <div class="row">
+          <div class="grid">
+	    <div class="list-mar-0d5" id="title">
+	      <span id="name">{{name}}</span>
+	      <span id="phone">{{phone}}</span>
+	    </div>
+	    <small id="addr">{{small}}</small>
+          </div>
+          <div class="grid grid-last">
+	    <div class="order-addr">
+	      <span class="text-gray ion-ios-arrow-forward-outline"></span>
+	    </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </section>
+</div>
+{% endmacro %}

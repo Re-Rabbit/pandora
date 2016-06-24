@@ -1,0 +1,77 @@
+{% macro pay(price="", name="", phone="", addr="", date="") %}
+{% if date %}
+<div class="card">
+  <div class="list-row list-pad-x-1">
+    <section class="list-control">
+      <div class="list-pad-y-1">
+        <div class="list-mar-1 row">
+          <div class="grid">
+            <div class="text-gray">应付金额：</div>
+          </div>
+          <div class="grid">
+            <div class="text-primary">
+              ￥<span id="price">{{price}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="list-mar-1 row">
+          <div class="grid width--3">
+            <div class="text-gray">收获信息：</div>
+          </div>
+          <div class="grid width--9">
+            <div class="list-mar-0d5">
+              <span id="name">{{name}}</span>
+              <span id="phone">{{phone}}</span>
+            </div>
+            <div id="addr" class="line-height">
+              {{addr}}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="grid">
+            <div class="text-gray">预计收获时间：</div>
+          </div>
+          <div class="grid">
+            <span id="date">{{date}}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% else %}
+<div class="card">
+  <div class="list-row list-pad-x-1">
+    <section class="list-control">
+      <div class="list-pad-y-1">
+        <div class="list-mar-0d5 row">
+          <div class="grid">
+            <div class="text-gray">实付金额：</div>
+          </div>
+          <div class="grid">
+            <div class="text-primary">
+              ￥<span id="price">{{price}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="grid width--3">
+            <div class="text-gray">收获信息：</div>
+          </div>
+          <div class="grid width--9">
+            <div class="list-mar-0d5">
+              <span id="name">{{name}}</span>
+              <span id="phone">{{phone}}</span>
+            </div>
+            <div class="line-height" id="addr">
+              {{addr}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endif %}
+{% endmacro %}

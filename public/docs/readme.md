@@ -1,7 +1,7 @@
 # Index
 
-| PAGE | TITLE | STATE |
-|------|--------|------|
+| PAGE | TITLE | STATE | NEW |
+|------|--------|------|-----|
 | home | 首页 | 1 |
 
 | person | 个人信息 |
@@ -12,13 +12,18 @@
 | setting | 设置 |
 | goods | 标准产品 |
 | shoppingcar | 购物车 |
-| order-confirmed | 确认订单 |
-| order | 我的订单 |
-| goods-assess | 评价 |
+
 | box-list | 一死得定制箱 | 1 |
 | box | 标准箱 | 1 |
-| comments | 评价 |
 | register | 注册 |
-| ADD -----------------------|
-| pay | 在线支付 |
-| pay-ok | 在线支付成功 |
+|--ADD--|
+|-----------------------|
+| pay | 在线支付 | 2 | +
+| pay-ok | 在线支付成功 | 2 | +
+|-----------------------|
+| order-submit | 确认订单 | 1 |
+| order | 我的订单 | 1 |
+| order-detail | 订单详情 | 1 | +
+|-----------------------|
+| comments | 评价列表 | 2
+| comments-add | 评价 |
