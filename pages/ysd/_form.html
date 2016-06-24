@@ -1,8 +1,8 @@
 {% macro switch(name="", content="", checkbox=true, checked=false) %}
 {% if checkbox %}
-<label for="{{name}}" class="switch">
-  <input name="{{name}}" id="{{name}}" type="checkbox" value="" checked="{{checked}}" />
-  <div class="switch__control">
+<label for="{{name}}" class="switch js-switch">
+  <input name="{{name}}" id="{{name}}" type="checkbox" value="" checked="{{checked}}" class="js-switch-form" />
+  <div class="switch__control js-switch-control">
     {% if checked %}
     <span class="ion-ios-checkbox ic--2x text-primary"></span>
     {% else %}
@@ -48,8 +48,8 @@
   <section class="list-control">
     <div class="area-line row">
       <div>
-	<span class="text-primary ion-md-create"></span>
-	<span class="text-gray">{{label}}</span>
+	      <span class="text-primary ion-md-create"></span>
+	      <span class="text-gray">{{label}}</span>
       </div>
       <textarea class="field field-area" name="{{name}}" id="{{name}}" placeholder="{{placeholder}}"></textarea>
     </div>
