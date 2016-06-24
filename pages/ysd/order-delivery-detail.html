@@ -18,7 +18,7 @@
 	        <div class="text-center">
 	          <section class="list-mar-0d5">
               <div class="image-box">
-	              <img src="/images/box-12.png" width="64">
+	              <img src="/images/box-2-2x.png" width="64">
               </img>
               <footer class="img-footer">
                 2件
@@ -27,20 +27,23 @@
 	          </section>
 	        </div>
         </div>
-        <div class="grid width--9 order-item-pad">
-          <div class="list-mar-1">
-	          <span>物流状态</span>
-	          <span class="text-primary">包裹发往调拨中心</span>
+        <div class="grid width--9  list-pad-y-1">
+          <div class="list-pad-x-1">
+            <div class="list-pad-y-1">
+	            <span>物流状态</span>
+	            <span class="text-primary">包裹发往调拨中心</span>
+            </div>
+            <small>
+              <div class="list-mar-0d5">
+                <span>运单号：</span>
+                <span>5681648646582</span>
+              </div>
+              <div class="list-mar-0d5">
+                <span>信息来源：</span>
+                <span>中通快递</span>             
+              </div>
+            </small>
           </div>
-          <small>
-            <div class="list-mar-0d5">
-              <span>运单号：</span>
-              <span>5681648646582</span>
-            </div>
-            <div class="list-mar-0d5">
-              <span>信息来源：</span>
-              <span>中通快递</span>             
-            </div>
 	      </div>
       </div>
     </div>
@@ -48,75 +51,41 @@
   <section class="card">
     <div class="list-row list-pad-x-1">
       <section class="list-control">
-        物流genzong
+        <div class="list-pad-y-1">
+          <span>物流跟踪</span>
+        </div>
       </section>
     </div>
     <div class="order-pad">
       <div class="list-row list-pad-x-1">
         <section class="list-control">
-          <div class="list-mar-1">
-	          <span class="text-primary">[beijingshi]</span>
-	          <span class="text-primary">beijingshineibu</span>
-            	          <span class="text-primary">yifachu</span>
-	        </div>
+          <div class="list-pad-y-1">
+            <div class="list-mar-0d5">
+	            <span class="text-primary">【北京市】</span>
+	            <span class="text-primary">北京市内部</span>
+              <span class="text-primary">已发出</span>
+	          </div>
+            <div class="list-mar-0d5">
+	            <span class="text-primary">2016-06-21  00:40:09</span>
+	          </div>
+          </div>
         </section>
       </div>
       <div class="list-row list-pad-x-1">
         <section class="list-control">
+          <div class="list-pad-y-1">
+            <div class="list-mar-0d5">
+	            <span>【上海市】</span>
+	            <span>中通快递 青浦金泽收件员</span>
+              <span>正揽件</span>
+	          </div>
+            <div class="list-mar-0d5">
+	            <span>2016-06-21  00:40:09</span>
+	          </div>
+          </div>
         </section>
       </div>
     </div>
   </section>
-  
-  <!------------->
-  <section class="card">
-    <div class="list-row list-pad-x-1">
-      <section class="list-control">
-	<div class="list-pad-y-1">
-	  <div class="list-mar-1">
-	    订单状态：
-	    <span class="text-secondary">待付款</span>
-	  </div>
-	  <div class="list-mar-1">
-	    订单金额：
-	    <span class="text-primary">￥</span>
-	    <span class="text-primary">2660.00</span>
-	  </div>
-	  <div class="list-mar-1">
-	    订单编号：
-	    <span class="">DD16516516644</span>
-	  </div>
-	</div>
-      </section>
-    </div>
-
-    {{orderState1("2", "120", "00")}}
-    {{orderState2("2016-05-16 10：00")}}
-    {{orderState3("2016-05-16 10：00")}}
-    {{orderState4()}}
-    {{orderState5()}}
-    {{orderState6()}}
-  </section>
-
-  <section class="card">
-    {{orderInfo("配送地址", "刘易斯 15525019350", "ion-ios-pin-outline", "北京市丰台星火路11号写字公园2018")}}
-    {{orderInfo("发票信息", "发票抬头：北京一撕得物流技术有限公司", "ion-ios-paper-outline")}}
-  </section>
-
-  {% set header=orderBlockHeaderDateOnly("标准产品", "2016-03-20 10:10")%}
-  {% set item=orderItem("一撕得7号箱", "100", "600", "整箱发货", "100.00", "6", "666.66", pic="/images/box-12.png") %}
-  {% set footer=orderBlockFooterOnly("2", "100.00", "50.00")%}
-
-  {{orderBlock(header, [item, item], footer)}}
-
 </main>
-
-<footer>
-  <div class="footer">
-    <div class="order-detail-footer">
-      {{buttonBorder("再次购买", "add")}}
-      {{buttonBorder("评价", "submit", true)}}
-    </div>
-  </div>
-</footer>
 {% endblock %}
