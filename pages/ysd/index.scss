@@ -26,7 +26,7 @@ $color-secondary: #fe3333;
 
 @import "pay";
 @import "counter";
-@import "home";
+@Import "home";
 @import "order";
 
 /// ion-ios-arrow-forward-outline
@@ -497,4 +497,21 @@ $footer-height: 3rem;
     .button {
 	margin-left: 0.5rem;
     }
+}
+
+.image-box {
+    position: relative;
+    top: 0;
+}
+
+.img-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-size: 0.8rem;
+    //font-weight: bold;
+    line-height: 1rem;
 }
