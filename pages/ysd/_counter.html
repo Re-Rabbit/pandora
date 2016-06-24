@@ -1,12 +1,12 @@
 {% macro counter(count = 1) %}
-<div class="counter">
-  <div class="label counter__label">
+<div class="counter js-counter">
+  <div class="label counter__label js-counter-dec">
     <span class="ion-ios-remove-outline"></span>
   </div>
-  <div class="label counter__num">
-    <input class="counter__field field" type="number" value="{{count}}" />
+  <div class="label counter__num ">
+    <input class="counter__field field js-counter-val" type="number" value="{{count}}" />
   </div>
-  <div class="label counter__label">
+  <div class="label counter__label js-counter-inc">
     <span class="ion-ios-add-outline"></span>
   </div>
 </div>
