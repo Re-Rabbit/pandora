@@ -1,16 +1,16 @@
 {% macro menu(content="", icon="", link="") %}
 
 <li class="nav__item">
-	  <a href="{{link}}">
-	      <section class="menu">
-		        <div class="menu__icon">
-		            <div class="ic">
-		                <span class="ic--2x {{icon}}"></span>
-		            </div>
-		        </div>
-		        {{content}}
-	      </section>
-	  </a>
+  <a href="{{link}}">
+    <section class="menu">
+      <div class="menu__icon">
+	<div class="ic">
+	  <span class="ic--2x {{icon}}"></span>
+	</div>
+      </div>
+      {{content}}
+    </section>
+  </a>
 </li>
 
 {% endmacro %}

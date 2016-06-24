@@ -34,6 +34,7 @@
 
 const gulp        = require('gulp')
 const sass        = require('gulp-sass')
+const babel       = require('gulp-babel')
 const nunjucks    = require('gulp-nunjucks')
 const data        = require('gulp-data')
 const tool        = require('gulp-util')
@@ -51,6 +52,7 @@ const morgan      = require('morgan')
 const bodyParser  = require('body-parser')
 const cors        = require('cors')
 const compression = require('compression')
+
 
 
 // code start here
@@ -279,22 +281,30 @@ function webpackConfig() {
 function javascriptServer(done) {
     
     return gulpEntrySrc(gulpBuildPath(extname.js, workspace))
-	.pipe(named())
-        .pipe(webpack(webpackConfig(), null, (err, stats) => {
-	    const res = stats.toJson()
-	    log.js(workspace, res.time)
-	})).on('error', function(err) {
-	    log.errFlag('js')
-	    let mf = err.message.match(/([^]+)Module/)
-	    if(mf) log.errFile(path.normalize(mf[1].trim()))
-	    let mp = err.message.match(/Unexpected token\s*\((.+)\)\n/)
-	    if (mp) log.errPos.apply(null, mp[1].split(':'))
-	    log.n()
-	    say(err.message)
-	    log.n()
-	    this.emit('end')
-	})
+    /**
+       .pipe(named())
+       .pipe(webpack(webpackConfig(), null, (err, stats) => {
+       const res = stats.toJson()
+       log.js(workspace, res.time)
+       })).on('error', function(err) {
+       log.errFlag('js')
+       let mf = err.message.match(/([^]+)Module/)
+       if(mf) log.errFile(path.normalize(mf[1].trim()))
+       let mp = err.message.match(/Unexpected token\s*\((.+)\)\n/)
+       if (mp) log.errPos.apply(null, mp[1].split(':'))
+       log.n()
+       say(err.message)
+       log.n()
+       this.emit('end')
+       })
+    **/
+	.pipe(data(file => file.start = Date.now()))
+	.pipe(babel())
 	.pipe(gulp.dest(tmp))
+	.pipe(data(file => {
+	    let tp = reverseTmpFileName(file.path)
+	    log.js(tp.workspace, tp.file, Date.now() - file.start)
+	}))
 }
 
 function image() {
@@ -424,7 +434,7 @@ function browserServer(done) {
 		  reportFileChange)
     
     defineWatcher(gulpWatchPath(extname.js),
-		  noop,
+		  gulp.series(javascriptServer, reload),
 		  reportFileChange)
     
     defineWatcher(workspaceTmpFile,
@@ -477,11 +487,11 @@ function main() {
 	clean,
 	gulp.parallel(css,
 		      html,
+		      javascriptServer,
 		      gulp.series(i.start, i.task, i.end),
 		      gulp.series(f.start, f.task, f.end)),
 	initBuildDone,
 	gulp.parallel(browserServer,
-		      javascriptServer,
 		      apiServer,
 		      boot)))
 }

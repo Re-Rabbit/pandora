@@ -138,18 +138,40 @@
 </header>
 {% endmacro %}
 
-{% macro orderBlockFooter(num="", price="", price1="") %}
+{% macro orderBlockHeaderDateOnly(label="", date="") %}
+<header class="list-pad-x-1">
+  <div class="order-header row">
+    <div class="grid">
+      <span class="">{{label}}</span>
+    </div>
+    <div class="grid grid-last">
+      <span class="text-gray text-small">
+	{{date}}
+      </span>
+    </div>
+  </div>
+</header>
+{% endmacro %}
+
+{% macro orderBlockFooter(num="", price="", price1="", buttons) %}
 <footer class="card-footer">
-  <div class="order-footer text-small">
-    共<span class="">{{num}}</span>件商品，
-    合计<span class="">￥</span><span class="">{{price}}</span>
-    （含运费<span class="">￥</span><span class="">{{price1}}</span>）
+  <div class="order-footer">
+    共<span class="">{{num}}</span>件商品，合计<span class="">￥</span><span class="">{{price}}</span>(含运费<span class="">￥</span><span class="">{{price1}}</span>)
   </div>
   <div class="order-footer text-small">
     {{buttonBorder("查看物流", "add")}}
     {{buttonBorder("再次购买", "add")}}
     {{buttonBorder("评价", "submit", true)}}
   </div>
+</footer>
+{% endmacro %}
+
+{% macro orderBlockFooterOnly(num="", price="", price1="") %}
+<footer class="card-footer">
+  <div class="order-footer">
+    共<span class="">{{num}}</span>件商品，合计<span class="">￥</span><span class="">{{price}}</span>(含运费<span class="">￥</span><span class="">{{price1}}</span>)
+  </div>
+  <div class="order-footer"></div>
 </footer>
 {% endmacro %}
 
@@ -166,5 +188,119 @@
   {% if footer %}
   {{footer}}
   {% endif %}
+</div>
+{% endmacro %}
+
+{% macro orderState1(time, mm, ss) %}
+<div class="list-row list-pad-x-1">
+  <section class="list-control">
+    <div class="list-pad-y-1 row">
+      <div class="grid">
+	<div class="list-mar-0d5 text-gray">
+	  请在<span class="text-primary">{{time}}</span>小时内完成付款
+	</div>
+	<div class="text-gray">
+	  逾期订单将自动取消
+	</div>	    
+      </div>
+      <div class="grid grid-last">
+	<div class="text-primary list-pad-y-0d5">
+	  <span>{{mm}}</span>
+	  分
+	  <span>{{ss}}</span>
+	  秒
+	</div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endmacro %}
+
+{% macro orderState2(time) %}
+<div class="list-row list-pad-x-1">
+  <section class="list-control">
+    <div class="list-pad-y-1">
+      <div class="text-gray">
+	正在准备货物，预计
+	<span class="text-primary">{{time}}</span>
+	前发出
+      </div>
+    </div>
+  </section>
+</div>
+{% endmacro %}
+
+{% macro orderState3(time) %}
+<div class="list-row list-pad-x-1">
+  <section class="list-control">
+    <div class="list-pad-y-1">
+      <div class="text-gray">
+	你的货物于
+	<span class="text-primary">{{time}}</span>
+	发出
+      </div>
+    </div>
+  </section>
+</div>
+{% endmacro %}
+
+{% macro orderState4() %}
+<div class="list-row list-pad-x-1">
+  <section class="list-control">
+    <div class="list-pad-y-1">
+      <div class="text-gray">
+	你的
+	<span class="text-primary">评价</span>
+	是我们改进的强大动力
+      </div>
+    </div>
+  </section>
+</div>
+{% endmacro %}
+
+{% macro orderState5() %}
+<div class="list-row list-pad-x-1">
+  <section class="list-control">
+    <div class="list-pad-y-1">
+      <div class="text-secondary">
+	订单已取消
+      </div>
+    </div>
+  </section>
+</div>
+{% endmacro %}
+
+{% macro orderState6() %}
+<div class="list-row list-pad-x-1">
+  <section class="list-control">
+    <div class="list-pad-y-1">
+      <div class="text-gray">
+	订单已完成，感谢您的配合
+      </div>
+    </div>
+  </section>
+</div>
+{% endmacro %}
+
+{% macro orderInfo(label="", content="", icon="", content1="") %}
+<div class="list-row">
+  <section class="list-control">
+    <div class="list-pad-y-1">
+      <div class="order-pad">
+	<div class="list-mar-0d5 text-gray">
+          {{label}}
+	</div>
+	<div class="list-mar-0d5 order-pin">
+          <span class="{{icon}} ic"></span>
+	  {{content}}
+	</div>
+	{% if content1 %}
+	<div class="list-mar-0d5">
+	  <small>{{content1}}</small>
+	</div>
+	{% endif %}
+      </div>
+    </div>
+  </section>
 </div>
 {% endmacro %}

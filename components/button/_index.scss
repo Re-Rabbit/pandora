@@ -22,6 +22,7 @@
     @extend .button;
     border: $border-size solid $color-primary;
     color: $color-primary;
+    border-radius: $global-border-radius;
 }
 
 .button-border--default {

@@ -1,24 +1,25 @@
-{% extends "templates/application.html" %}
-
 {#
 
 首页
 
 #}
 
+
+{% extends "templates/application.html" %}
+
 {% block content %}
 {% include "ysd/_topbar.html"%}
 {% include "ysd/_sidebar.html"%}
-<!-- Main -->
+
 <main class="topbar-pad">
-  <div class="card">
+  <div class="home">
     {% include "ysd/_carousel.html"%}
     {% include "ysd/_suggests.html"%}
   </div>
 </main>
 {% endblock %}
 
-
-{% block styles %}
-<link rel="stylesheet" href="index.css" />
+{% block scripts %}
+<script src="jquery.min.js"></script>
+<script src="home.js"></script>
 {% endblock %}

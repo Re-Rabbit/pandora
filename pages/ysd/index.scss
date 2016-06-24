@@ -304,15 +304,6 @@ $footer-height: 3rem;
     }
 }
 
-.assess-label {
-    @include border-box-padding(0.25rem 0);
-}
-
-.assess-row {
-    margin-bottom: 0.5rem;
-}
-
-
 .upload {
     text-align: center;
 }
@@ -493,5 +484,17 @@ $footer-height: 3rem;
     
     &.active {
 	color: $color-primary;
+    }
+}
+
+.order-detail-footer {
+    background: $color-white;
+    text-align: right;
+    height: 3rem;
+    @include border-box-padding(0.6rem 1rem);
+    border-top: 1px solid $color-gray-ll;
+    
+    .button {
+	margin-left: 0.5rem;
     }
 }

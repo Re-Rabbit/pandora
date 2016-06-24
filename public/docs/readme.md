@@ -23,7 +23,7 @@
 |-----------------------|
 | order-submit | 确认订单 | 1 |
 | order | 我的订单 | 1 |
-| order-detail | 订单详情 | 1 | +
+| order-detail(1-6) | 订单详情 | 1 | +
 |-----------------------|
 | comments | 评价列表 | 2
 | comments-add | 评价 |
