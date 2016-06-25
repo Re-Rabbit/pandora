@@ -1,22 +1,24 @@
-{% extends "templates/application.html" %}
-
-{% from "ysd/_button.html" import buttonBlock %}
-{% from "ysd/_list-row.html" import field, fieldMsgCode %}
-
-
 {#
 
 注册
 
 #}
 
+
+{% extends "templates/application.html" %}
+{% from "ysd/_button.html" import buttonBlock %}
+{% from "ysd/_form.html" import field, fieldMsgCode, switch %}
+
 {% block content %}
-<!-- Main -->
-<main>
+<main class="bottom-btn-pad">
   <div class="card">
-      {{fieldMsgCode("手机号码")}}
-      {{field("短信验证码")}}
-      {{field("企业或品牌企业")}}
+    {{fieldMsgCode("手机号码", name="phone")}}
+    {{field("短信验证码", name="code")}}
+    {{field("企业或品牌企业", name="business")}}
+  </div>
+
+  <div class="list-pad-x-1">
+      {{switch("read", "我已阅读并同意《一撕得包装服务协议》", checked=true)}}
   </div>
 
   <div class="bottom-btn">
@@ -26,6 +28,9 @@
 {% endblock %}
 
 
-{% block styles %}
-<link rel="stylesheet" href="index.css" />
+{% block scripts %}
+<script src="jquery.min.js"></script>
+<script src="msgcode.js"></script>
+<script src="switch.js"></script>
+<script src="register.js"></script>
 {% endblock %}

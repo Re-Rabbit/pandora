@@ -56,3 +56,16 @@
   </section>
 </div>
 {% endmacro %}
+
+{% macro fieldMsgCode(placeholder="", name="", hook="", type="text") %}
+<div class="list-row list-pad-x-1">
+  <section class="list-control">
+    <label for="{{name}}" class="field__label field-block js-{{hook}}">
+      <input class="field" name="{{name}}" id="{{name}}" type="{{type}}" placeholder="{{placeholder}}" />
+      <section class="msg-code">
+	      <a id="msg" class="text-primary">发送验证码</a>
+      </section>
+    </label>
+  </section>
+</div>
+{% endmacro %}
