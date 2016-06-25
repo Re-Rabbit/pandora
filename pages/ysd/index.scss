@@ -26,7 +26,7 @@ $color-secondary: #fe3333;
 
 @import "pay";
 @import "counter";
-@Import "home";
+@import "home";
 @import "order";
 
 /// ion-ios-arrow-forward-outline
@@ -39,7 +39,7 @@ $color-secondary: #fe3333;
 /// ion-ios-remove-outline
 /// ion-ios-add-outline
 /// ion-ios-add
-
+/// ion-md-create
 
 // remove
 .hide {
@@ -48,9 +48,9 @@ $color-secondary: #fe3333;
 
 
 .bottom-btn {
-    @include fill(b);
+    @include fill(b, true);
     &-pad {
-	padding-bottom: 4.5rem;
+	      padding-bottom: 4.5rem;
     }
 }
 
@@ -61,7 +61,7 @@ $footer-height: 3rem;
     height: $footer-height;
 
     &-pad {
-	padding-bottom: $footer-height;
+	      padding-bottom: $footer-height;
     }
 }
 
@@ -83,14 +83,14 @@ $footer-height: 3rem;
 .js-footer-del {
     background: $color-gray-l !important;
     .button {
-	background: $color-gray-l;
+	      background: $color-gray-l;
     }
 }
 
 .js-footer-del.active {
     background: $color-secondary;
     button {
-	background: $color-secondary;
+	      background: $color-secondary;
     }
 }
 
@@ -111,9 +111,9 @@ $footer-height: 3rem;
 
 .list-row {
     &:last-child {
-	.list-control {
-	    border: 0;
-	}
+	      .list-control {
+	          border: 0;
+	      }
     }
 }
 
@@ -166,7 +166,7 @@ $footer-height: 3rem;
 .muilt-btn-group {
     text-align: right;
     .button {
-	margin-left: 0.5rem;
+	      margin-left: 0.5rem;
     }
 }
 
@@ -193,7 +193,7 @@ $footer-height: 3rem;
 .card-photo {
     text-align: center;
     .photo {
-	margin-bottom: 0.5rem;
+	      margin-bottom: 0.5rem;
     }
 }
 
@@ -224,11 +224,11 @@ $footer-height: 3rem;
     @include border-box-padding(1rem 0.5rem 1rem 0);
     border-top: 1px solid $color-gray-ll;
     &:last-child {
-	border: 0;
-	margin-top: -1rem;
+	      border: 0;
+	      margin-top: -1rem;
     }
     .button {
-	margin-left: 0.5rem;
+	      margin-left: 0.5rem;
     }
 }
 
@@ -238,8 +238,8 @@ $footer-height: 3rem;
 .radio {
     input[type=checkbox],
     input[type=radio] {
-	position: relative;
-	top: 2px;
+	      position: relative;
+	      top: 2px;
     }
 }
 
@@ -249,13 +249,13 @@ $footer-height: 3rem;
     
     input[type=checkbox],
     input[type=radio] {
-	display: none;
+	      display: none;
     }
     &__control {
-	@include fill(l);
-	@include size(2rem);
-	@include border-box-padding(0.25rem 0);
-	text-align: center;
+	      @include fill(l);
+	      @include size(2rem);
+	      @include border-box-padding(0.25rem 0);
+	      text-align: center;
     }
 }
 
@@ -282,25 +282,25 @@ $footer-height: 3rem;
     position: relative;
 
     .ic {
-	line-height: 1.1;
+	      line-height: 1.1;
     }
 
     .trolley__count {
-	@include theme-reverse($color-secondary);
-	@include size(1.2rem);
-	@include border-box-padding(0.25rem 0);
-	top: -0.5rem;
-	right: -0.5rem;
+	      @include theme-reverse($color-secondary);
+	      @include size(1.2rem);
+	      @include border-box-padding(0.25rem 0);
+	      top: -0.5rem;
+	      right: -0.5rem;
     }
 }
 
 .star {
     display: inline-block;
     &--empty {
-	color: $color-gray;
+	      color: $color-gray;
     }
     &--fill {
-	color: $color-primary;
+	      color: $color-primary;
     }
 }
 
@@ -401,8 +401,8 @@ $footer-height: 3rem;
     position: relative;
 
     .trolley__count {
-	@include size(1.2rem);
-	@include border-box-padding(0.25rem 0);
+	      @include size(1.2rem);
+	      @include border-box-padding(0.25rem 0);
     }
 }
 
@@ -426,8 +426,8 @@ $footer-height: 3rem;
     text-align: center;
     border-radius: 50%;
     .trolley-inline & {
-	top: -0.25rem;
-	right: -0.25rem;
+	      top: -0.25rem;
+	      right: -0.25rem;
     }
 }
 
@@ -438,21 +438,21 @@ $footer-height: 3rem;
     margin: 1rem;
     
     &__content {
-	display: inline-block;
-	padding: 1rem;
-	background: $global-bgColor;
-	position: relative;
-	z-index: 1;
-	font-size: $font-size-sm;
+	      display: inline-block;
+	      padding: 1rem;
+	      background: $global-bgColor;
+	      position: relative;
+	      z-index: 1;
+	      font-size: $font-size-sm;
     }
 
     &:after {
-	content: ' ';
-	display: inline-block;
-	@include fill(x);
-	top: 50%;
-	height: 1px;
-	background: $color-gray-l;
+	      content: ' ';
+	      display: inline-block;
+	      @include fill(x);
+	      top: 50%;
+	      height: 1px;
+	      background: $color-gray-l;
     }
 }
 
@@ -464,16 +464,16 @@ $footer-height: 3rem;
     height: 3rem;
 
     &-pad {
-	padding-top: 4rem;
+	      padding-top: 4rem;
     }
 
     .trolley__count {
-	@include theme-reverse($color-white, $color-primary);
-	@include size(1.2rem);
-	@include border-box-padding(0.25rem 0);
-	top: 0.25rem;
-	right: 0.25rem;
-	border: 1px solid $color-primary;
+	      @include theme-reverse($color-white, $color-primary);
+	      @include size(1.2rem);
+	      @include border-box-padding(0.25rem 0);
+	      top: 0.25rem;
+	      right: 0.25rem;
+	      border: 1px solid $color-primary;
     }
 }
 
@@ -483,7 +483,7 @@ $footer-height: 3rem;
     text-align: center;
     
     &.active {
-	color: $color-primary;
+	      color: $color-primary;
     }
 }
 
@@ -495,7 +495,7 @@ $footer-height: 3rem;
     border-top: 1px solid $color-gray-ll;
     
     .button {
-	margin-left: 0.5rem;
+	      margin-left: 0.5rem;
     }
 }
 
