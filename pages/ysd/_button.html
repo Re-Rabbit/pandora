@@ -1,8 +1,16 @@
-{% macro buttonBlockFill(content="", hook="") %}
+{% macro buttonBlockFill(content="", hook="", href="") %}
 <div>
+  {% if href %}
+  <a href="{{href}}">
+    <button type="button" class="button button-block button--white js-{{hook}}">
+      {{content}}
+    </button>
+  </a>
+  {% else %}
   <button type="button" class="button button-block button--white js-{{hook}}">
     {{content}}
   </button>
+  {% endif %}
 </div>
 {% endmacro %}
 
