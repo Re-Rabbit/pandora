@@ -254,7 +254,7 @@ $footer-height: 3rem;
     &__control {
 	      @include fill(l);
 	      @include size(2rem);
-	      @include border-box-padding(0.25rem 0);
+	      //@include border-box-padding(0.25rem 0);
 	      text-align: center;
     }
 }

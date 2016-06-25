@@ -9,7 +9,8 @@
     background-color: $color-primary;
     @include theme-reverse($color-primary);
     padding: 0.5em 0.8em;
-    min-width: 5 + 2 * 0.8em
+    min-width: 5 + 2 * 0.8em;
+    text-align: center;
 }
 
 .button-radius {
@@ -90,11 +91,20 @@
     @extend .button;
     @include size(100%);
     padding: 0.8rem;
+
+    &-border {
+        @include reset-theme();
+        border: 1px solid $color-primary;
+    }
 }
 
 .button-block-container {
     box-sizing: border-box;
     padding: 1rem;
+
+    &--thin {
+        padding: 0.5rem 1rem;
+    }
 }
 
 .button--white {

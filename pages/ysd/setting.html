@@ -1,29 +1,19 @@
-{% extends "templates/application.html" %}
-
-{% from "ysd/_button.html" import buttonBlock %}
-{% from "ysd/_list-row.html" import oneLine, oneLineLink %}
-
-
 {#
 
 设置
 
 #}
 
+
+{% extends "templates/application.html" %}
+{% from "ysd/_list-row.html" import oneLine, oneLineLink %}
+
 {% block content %}
-<!-- Main -->
 <main>
-  
   <div class="card">
     {{oneLineLink("关于我们", "#")}}
     {{oneLineLink("服务协议", "#")}}
     {{oneLine("客服电话", "4008-000-000", "tel:4008-000-000")}}
   </div>
-
 </main>
-{% endblock %}
-
-
-{% block styles %}
-<link rel="stylesheet" href="index.css" />
 {% endblock %}

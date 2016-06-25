@@ -15,11 +15,17 @@
 {% endmacro %}
 
 
-{% macro buttonBlock(content="", hook="") %}
-<div class="button-block-container">
-  <button type="button" class="button button-block button-radius js-{{hook}}">
+{% macro buttonBlock(content="", hook="", thin=false, border=false, href="") %}
+<div class="button-block-container {{"button-block-container--thin" if thin else ""}}">
+  {% if href %}
+  <a href="{{href}}" class="button button-block {{"button-block-border" if border else ""}} button-radius js-{{hook}}">
+    {{content}}
+  </a>
+  {% else %}
+  <button type="button" class="button button-block {{"button-block-border" if border else ""}} button-radius js-{{hook}}">
     {{content}}
   </button>
+  {% endif %}
 </div>
 {% endmacro %}
 
