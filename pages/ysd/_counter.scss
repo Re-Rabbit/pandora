@@ -1,9 +1,9 @@
 .counter {
     &__num {
-        @include border-box-padding(0.3rem 0);
+        @include border-box-padding(0.3em 0);
     }
     &__label {
-        @include border-box-padding(0.3rem 0.5rem);
+        @include border-box-padding(0.3em 0.5em);
     }
 
     &__num {
@@ -13,8 +13,8 @@
     &__field {
 	      -moz-appearance: textfield;
 	      -webkit-appearance: textfield;
-	      min-width: 1rem;
-	      width: 1rem;
+	      min-width: 1em;
+	      width: 1em;
 	      padding: 0;
 	      text-align: center;
     }

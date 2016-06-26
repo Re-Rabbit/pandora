@@ -595,7 +595,7 @@ $footer-height: 3rem;
 
 .main-box {
     position: fixed;
-    margin: 2rem 2rem;
+    margin: 1.5rem 1.5rem;
     border: 2px solid gray;
     top: 0;
     bottom: 0;
@@ -615,10 +615,13 @@ $footer-height: 3rem;
     left: 0;
     right: 0;
     text-align: center;
+    .big--015e1 {
+        font-size: 1.5rem;
+    }
 }
 
 .btn-append-shoppingcar {
-    margin: 0 auto;
-    @extend .width--6;
-    height: 3em;
+    margin: 1rem auto;
+    @extend .width--8;
+    line-height: 3em;
 }
