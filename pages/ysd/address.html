@@ -1,19 +1,16 @@
-{% extends "templates/application.html" %}
-
-{% from "ysd/_button.html" import buttonBlock %}
-{% from "ysd/_list-row.html" import twoLineLink, addrLine %}
-
-
 {#
 
 配送地址
 
 #}
 
-{% block content %}
-<!-- Main -->
-<main>
 
+{% extends "templates/application.html" %}
+{% from "ysd/_button.html" import buttonBlock %}
+{% from "ysd/_list-row.html" import twoLineLink, addrLine %}
+
+{% block content %}
+<main>
   <div class="card">
     {{addrLine("北京市丰台星火路11号写字公园2018", "刘易斯 15525019350", "#")}}
     {{addrLine("北京市丰台星火路11号写字公园2018", "刘易斯 15525019350", "#")}}
@@ -21,13 +18,7 @@
   </div>
 
   <div class="bottom-btn">
-    {{buttonBlock("新增地址", "ok")}}
+    {{buttonBlock("新增地址", "ok", href="address-add.html")}}
   </div>
-
 </main>
-{% endblock %}
-
-
-{% block styles %}
-<link rel="stylesheet" href="index.css" />
 {% endblock %}

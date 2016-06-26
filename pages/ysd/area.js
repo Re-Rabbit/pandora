@@ -15,6 +15,9 @@ class Area {
         this.bindEvent()
         this.changed()
     }
+    getVal() {
+	return this.$el.val()
+    }
     setVal(col) {
         this.$el.css('min-height', `${col * 14 * 1.5}px`)
     }

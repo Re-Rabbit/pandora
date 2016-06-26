@@ -20,10 +20,10 @@
   </div>
   
   <div class="card">
-    {{field("收货人姓名")}}
-    {{field("联系电话")}}
-    {{field("省、市、区")}}
-    {{area("详细地址")}}
+    {{field("收货人姓名", name="name")}}
+    {{field("联系电话", name="phone")}}
+    {{field("省、市、区", name="city")}}
+    {{area("详细地址", name="addr")}}
   </div>
 
   <div class="bottom-btn">
@@ -31,3 +31,12 @@
   </div>
 </main>
 {% endblock %}
+
+{% block scripts %}
+<script src="jquery.min.js"></script>
+<script src="validate.js"></script>
+<script src="area.js"></script>
+<script src="address-add.js"></script>
+{% endblock %}
+
+
