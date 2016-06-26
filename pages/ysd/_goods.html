@@ -54,15 +54,16 @@
 </section>
 {% endmacro %}
 
-{% macro commentUpload(pic="", delete=false) %}
-<div class="comment-upload">
+{% macro commentUpload(pic="", delete=false, name="", hook="") %}
+<div class="comment-upload js-upload js-{{hook}}">
   {% if pic %}
-  <img src="{{pic}}" width="64" />
-  {% if delete %}
-  <div class="trolley__count">
-    <span class="ion-ios-remove"></span>
-  </div>
-  {% endif %}
+  <label for="{{name}}">
+    <img src="{{pic}}" class="img-res js-img" width="64" />
+    <div class="trolley__count js-remove">
+      <span class="ion-ios-remove"></span>
+    </div>
+    <input type="file" class="file js-form" name="{{name}}" id="{{name}}" />
+  </label>
   {% else %}
   <span class="ion-ios-add ic ic--4x"></span>
   {% endif %}

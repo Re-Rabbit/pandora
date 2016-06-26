@@ -10,15 +10,15 @@
 {% from "ysd/_order.html" import invoice, statistical, orderBlockHeaderId, orderItem, orderBlock %}
 {% from "ysd/_footer.html" import footerCar %}
 
+{% set header=orderBlockHeaderId("标准产品", "DD165165165516") %}
+{% set item=orderItem("一撕得7号箱", "100", "600", "整箱发货", "100.00", "6", "666.66", pic="/images/box-12.png") %}
+
 {% block content %}
 <main class="footer-pad">
   <div class="card">
     {{addrLink("刘易斯", "15525019350", "北京市丰台星火路11号写字公园2018", "#")}}
   </div>
   <div class="card">
-    {% set header=orderBlockHeaderId("标准产品", "DD165165165516") %}
-    {% set item=orderItem("一撕得7号箱", "100", "600", "整箱发货", "100.00", "6", "666.66", pic="/images/box-12.png") %}
-    
     {{orderBlock(header, [item, item])}}
   </div>
   {{invoice()}}
@@ -26,4 +26,11 @@
 </main>
 
 {{footerCar("660.00", "2", true)}}
+{% endblock %}
+
+{% block scripts %}
+<script src="jquery.min.js"></script>
+<script src="switch.js"></script>
+<script src="validate.js"></script>
+<script src="order-submit.js"></script>
 {% endblock %}

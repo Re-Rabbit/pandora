@@ -1,0 +1,33 @@
+{#
+
+新增地址
+
+#}
+
+
+{% extends "templates/application.html" %}
+{% from "ysd/_button.html" import buttonBlock %}
+{% from "ysd/_form.html" import field, area %}
+
+{% block content %}
+<main>
+  <div class="card">
+    <div class="list-pad-x-1">
+      <div class="list-pad-y-1">
+	<div class="text-primary">地址标签名称</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card">
+    {{field("收货人姓名")}}
+    {{field("联系电话")}}
+    {{field("省、市、区")}}
+    {{area("详细地址")}}
+  </div>
+
+  <div class="bottom-btn">
+    {{buttonBlock("保存", "ok")}}
+  </div>
+</main>
+{% endblock %}

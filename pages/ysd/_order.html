@@ -4,7 +4,7 @@
 {% macro invoice() %}
 <section class="card">
   <div class="list-row list-pad-x-1">
-    <section class="list-control">
+    <section class="list-control nobd">
       <div class="list-pad-y-1 row">
 	<div class="grid">
           发票
@@ -16,20 +16,22 @@
     </section>
   </div>
   
-  <div class="list-row list-pad-x-1">
-    <section class="list-control">
+  <div class="list-row list-pad-x-1 js-next-1">
+    <section class="list-control nobd">
       <div class="list-pad-y-1 row">
 	<div class="grid width--3">
-	  {{switch("org", "个人", checked=true)}}
+	  {{switch("person", "个人", checked=true)}}
 	</div>
 	<div class="grid width--3">
 	  {{switch("org", "公司")}}
 	</div>	  
       </div>
     </section>
+
   </div>
-  
-  {{field("输入公司名称", hook="addr")}}
+
+  {{field("输入公司名称", name="orgc", hook="next-2")}}
+
 </section>
 {% endmacro %}
 
@@ -159,9 +161,14 @@
     共<span class="">{{num}}</span>件商品，合计<span class="">￥</span><span class="">{{price}}</span>(含运费<span class="">￥</span><span class="">{{price1}}</span>)
   </div>
   <div class="order-footer text-small">
+    {#
     {{buttonBorder("查看物流", "add")}}
     {{buttonBorder("再次购买", "add")}}
     {{buttonBorder("评价", "submit", true)}}
+    #}
+    {% for btn in buttons %}
+    {{btn}}
+    {% endfor %}
   </div>
 </footer>
 {% endmacro %}

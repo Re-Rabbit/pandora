@@ -1,12 +1,11 @@
 const ValidatorDefaultOptions = {
     el: null,
-    require: null,
-    regex: /[^]+/
+    regex: /^.+$/
 }
 
 class Validator {
     constructor(opts) {
-        let { el, regex } = Object.assign(ValidatorDefaultOptions, opts)
+        let { el, regex } = Object.assign({}, ValidatorDefaultOptions, opts)
         this.$el = el
         this.regex = regex
         this.init()

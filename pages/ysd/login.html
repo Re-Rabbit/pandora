@@ -10,22 +10,24 @@
 {% from "ysd/_form.html" import field, fieldMsgCode, switch %}
 
 {% block content %}
-<main>
-  <div class="list-pad-y-1 text-center">
-    <span class="text-primary js-tab-title">手机登录</span>
+<main class="js-tab">
+  <div class="list-pad-y-1 text-center  login-titles">
+    <span class="text-primary js-tab-title tab__title">手机登录</span>
     <span class="text-gray text-small">OR</span>
-    <span class="js-tab-title">密码登录</span>
+    <span class="js-tab-title tab__title">密码登录</span>
   </div>
 
-  <div class="card js-tab-content">
-    {{fieldMsgCode("手机号码", name="phone")}}
-    {{field("短信验证码", name="code")}}
-  </div>
+  <section class="login-contents">
+    <div class="card js-tab-content tab__content">
+      {{fieldMsgCode("手机号码", name="phone")}}
+      {{field("短信验证码", name="code")}}
+    </div>
 
-  <div class="card js-tab-content">
-    {{field("手机号码", name="phone1")}}
-    {{field("密码", type="password", name="pwd")}}
-  </div>
+    <div class="card js-tab-content tab__content">
+      {{field("手机号码", name="phone1")}}
+      {{field("密码", type="password", name="pwd")}}
+    </div>
+  </section>
 
   <div class="list-pad-y-1">
     {{buttonBlock("登录", "ok", true)}}
@@ -38,5 +40,7 @@
 {% block scripts %}
 <script src="jquery.min.js"></script>
 <script src="msgcode.js"></script>
+<script src="validate.js"></script>
+<script src="tab.js"></script>
 <script src="login.js"></script>
 {% endblock %}

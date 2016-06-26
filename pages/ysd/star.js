@@ -14,21 +14,51 @@ const render = (arr) => {
     return arr.map(tpl).join('')
 }
 
-const defaultOptions = {
-    el: null
+const sum = (a, b) => a + b
+
+const StarDefaultOptions = {
+    el: null,
+    val: 5
 }
 
 class Star {
     constructor(opts) {
-	let { el } = Object.assign({}, defaultOptions, opts)
-	this.el = el
+	let { el, val } = Object.assign({}, StarDefaultOptions, opts)
+	this.$el = el
+	this.arr = fillArr(val)(1)
 	this.init()
     }
     init() {
-	let el = this.el
-	el.on('click', 'span', function() {
+	this.bindEvent()
+	this.changed()
+	this.setVal(this.arr)
+	
+	return this
+    }
+    bindEvent() {
+	let { $el } = this
+	
+	$el.on('click', 'span', function() {
 	    let idx = $(this).index()
-	    el.html(render(constArr(idx)))
+	    $el.trigger('changed', [idx])
 	})
+
+	return this
+    }
+    getVal() {
+	return this.arr.reduce(sum)
+    }
+    setVal(arr) {
+	this.arr = arr
+	this.$el.html(render(arr))
+	return this
+    }
+    changed(cb) {
+	this.$el.on('changed', (_, idx) => {
+	    this.setVal(constArr(idx))
+	    cb && cb(this.getVal())
+	})
+
+	return this
     }
 }

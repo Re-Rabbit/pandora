@@ -1,37 +1,37 @@
-let $phone = $('[name=phone]')
-let $code = $('[name=code]')
-let $phone1 = $('[name=phone1]')
-let $pwd  = $('[name=pwd]')
+let tab = new Tab({ el: $('.js-tab') })
+let phone = new Validator({ el: $('[name=phone]'), regex: /^1\d{10}$/ })
+let phone1 = new Validator({ el: $('[name=phone1]'), regex: /^1\d{10}$/ })
+let code = new Validator({ el: $('[name=code]') })
+let pwd = new Validator({ el: $('[name=pwd]') })
 
 const beforeCheck = _ => {
-    if($phone.val()) return true
+    if(phone.getVal()) return true
     alert('还没有填写手机号')
     return false
 }
 
-
-$('.js-tab-title').on('click', function() {
-    let idx = $(this).index('.js-tab-title')
-    $('.js-tab-title')
-        .removeClass('text-primary')
-        .eq(idx).addClass('text-primary')
-    $('.js-tab-content')
-        .hide()
-        .eq(idx).show()
-}).first().click()
-
 new Msgcode({ el: $('#msg'), onBeforeSend: beforeCheck })
 
 $('.js-ok').on('click', _ => {
-    let [v1, v2, v3] = [$phone, $code, $pwd].map(n => n.val())
-    if(!v1) {
-        alert('请填写手机号')
-        return
-    }
-    if(!v2) {
-        alert('请填写短信验证码')
-        return
+    if(tab.getVal() === 0) {
+	if(!phone.validate()) {
+            alert('请填写正确的手机号')
+            return
+	}
+	if(!code.validate()) {
+            alert('请填写短信验证码')
+            return
+	}
+    } else {
+	if(!phone1.validate()) {
+            alert('请填写正确的手机号')
+            return
+	}
+	if(!pwd.validate()) {
+            alert('请输入密码')
+            return
+	}
     }
 
-    alert(`${v1}, ${v2}`)
+    alert([phone, code, phone1, pwd].map(n => n.getVal()).join(','))
 })

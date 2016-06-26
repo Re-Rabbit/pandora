@@ -1,6 +1,6 @@
 {% macro switch(name="", content="", checkbox=true, checked=false) %}
 {% if checkbox %}
-<label for="{{name}}" class="switch js-switch">
+<label for="{{name}}" class="switch js-switch js-{{name}}">
   <input name="{{name}}" id="{{name}}" type="checkbox" value="" checked="{{checked}}" class="js-switch-form" />
   <div class="switch__control js-switch-control">
     {% if checked %}
@@ -24,9 +24,9 @@
 {% endmacro %}
 
 {% macro field(placeholder="", name="", hook="", type="text") %}
-<div class="list-row list-pad-x-1">
+<div class="list-row list-pad-x-1 js-{{hook}}">
   <section class="list-control">
-    <label for="{{name}}" class="field__label field-block js-{{hook}}">
+    <label for="{{name}}" class="field__label field-block">
       <input class="field" name="{{name}}" id="{{name}}" type="{{type}}" placeholder="{{placeholder}}" />
     </label>
   </section>

@@ -31,7 +31,7 @@
   </div>
 
   <div class="card">
-    {{areaLine(label="请写下您宝贵的产品使用建议")}}
+    {{areaLine(label="请写下您宝贵的产品使用建议", name="content")}}
   </div>
 
   <div class="list-pad-1">
@@ -39,14 +39,15 @@
     <span class="text-small text-gray">（您最多可以上传三张图片）</span>
   </div>
 
-  <div class="list-pad-x-1">
-    {{commentUpload("/images/box-2.png")}}
-    {{commentUpload("/images/box-2.png", true)}}
-    {{commentUpload()}}
+  <div class="list-pad-x-1 js-uploads">
+    {{commentUpload("/images/box-2.png", name="box1", hook="box1")}}
+    {{commentUpload("/images/box-2.png", name="box2", hook="box2")}}
+    {{commentUpload("/images/box-2.png", name="box3", hook="box3")}}
+    {{commentUpload(hook="new")}}
   </div>
 
   <div class="list-pad-1">
-    {{switch("named", "匿名评价")}}
+    {{switch("unname", "匿名评价")}}
   </div>
 
   <div class="bottom-btn">
@@ -58,5 +59,8 @@
 {% block scripts %}
 <script src="jquery.min.js"></script>
 <script src="star.js"></script>
+<script src="area.js"></script>
+<script src="switch.js"></script>
+<script src="preview.js"></script>
 <script src="comments-add.js"></script>
 {% endblock %}

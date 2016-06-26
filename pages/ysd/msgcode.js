@@ -22,7 +22,8 @@ class Msgcode {
         this.bindEvent()
     }
     bindEvent() {
-        this.$el.on('click', _ => {
+        this.$el.on('click', evt => {
+	    evt.preventDefault()
             if(this.state === 2 && this.tick) return
             if(!this.onBeforeSend()) return
             this.tick = setInterval(this.countdown.bind(this), 1000)
