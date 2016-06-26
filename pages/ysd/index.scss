@@ -515,3 +515,60 @@ $footer-height: 3rem;
     //font-weight: bold;
     line-height: 1rem;
 }
+
+.delivery-item {
+    position: relative; top: 0;
+    color: gray;
+    &:first-child {
+        z-index: 1;        
+        span {
+            @extend .text-primary;
+        }
+    }
+    
+    $bar-width: 2px;
+    $bar-width-05: $bar-width / 2;
+
+    &:first-child .delivery-ion{
+        width: 0px;
+        &::after{
+            $ion-size: 1rem;
+            $ion-size-05: $ion-size / 2;
+            transform: translate3d(calc(#{$bar-width-05} - #{$ion-size-05}), $ion-size-05, 0);
+            
+            @include size($ion-size);
+            border: 0.15rem solid lightblue;
+            background-color: blue;
+        }
+    }
+    .delivery-ion {
+        position: absolute;
+        left: -1rem;
+        top: 0;
+        bottom: 0;
+        width: $bar-width;
+        transform: translate3d(#{- $bar-width / 2}, -50%, 0);
+        background-color: lightgray;
+        &::after {
+            $ion-size: 0.6rem;
+            $ion-size-05: $ion-size / 2;
+            content: "";
+            display: inline-block;
+            left: 0;
+            bottom: 0;
+            
+            position: absolute;
+            transform: translate3d(calc(#{$bar-width-05} - #{$ion-size-05}), $ion-size-05, 0);
+            
+            @include size($ion-size);
+            box-sizing: border-box;
+            
+            border-radius: 50%;
+            border: none;
+            background-color: lightgray;
+        }
+    }
+}
+
+
+

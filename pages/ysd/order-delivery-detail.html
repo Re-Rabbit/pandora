@@ -6,8 +6,6 @@
 
 
 {% extends "templates/application.html" %}
-{% from "ysd/_order.html" import orderState1, orderState2, orderState3, orderState4, orderState5, orderState6, orderInfo, orderBlockHeaderDateOnly, orderBlockFooterOnly, orderItem, orderBlock %}
-{% from "ysd/_button.html" import buttonBorder %}
 
 {% block content %}
 <main>
@@ -57,21 +55,22 @@
       </section>
     </div>
     <div class="order-pad">
-      <div class="list-row list-pad-x-1">
+      <div class="delivery-item list-row list-pad-x-1">
         <section class="list-control">
           <div class="list-pad-y-1">
             <div class="list-mar-0d5">
-	            <span class="text-primary">【北京市】</span>
-	            <span class="text-primary">北京市内部</span>
-              <span class="text-primary">已发出</span>
+	            <span>【北京市】</span>
+	            <span>北京市内部</span>
+              <span>已发出</span>
 	          </div>
             <div class="list-mar-0d5">
-	            <span class="text-primary">2016-06-21  00:40:09</span>
+	            <span>2016-06-21  00:40:09</span>
 	          </div>
           </div>
+          <div class="delivery-ion"></div>
         </section>
       </div>
-      <div class="list-row list-pad-x-1">
+      <div class="delivery-item list-row list-pad-x-1">
         <section class="list-control">
           <div class="list-pad-y-1">
             <div class="list-mar-0d5">
@@ -83,6 +82,7 @@
 	            <span>2016-06-21  00:40:09</span>
 	          </div>
           </div>
+          <div class="delivery-ion"></div>
         </section>
       </div>
     </div>
