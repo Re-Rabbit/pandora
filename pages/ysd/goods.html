@@ -1,42 +1,24 @@
-{% extends "templates/application.html" %}
-
-{% from "ysd/_button.html" import buttonBlock %}
-{% from "ysd/_list-row.html" import goods %}
-
-
 {#
 
 标准产品
 
 #}
 
+
+{% extends "templates/application.html" %}
+{% from "ysd/_button.html" import buttonBlock %}
+{% from "ysd/_list-row.html" import goods %}
+
 {% block content %}
-<!-- Main -->
 <main>
-
-  {{goods("一撕得7号箱", "110.00", "100", "0.01", "全国包邮，整箱发货", pic="/images/box-12.png")}}
-  {{goods("一撕得7号箱", "110.00", "100", "0.01", "全国包邮，整箱发货", pic="/images/box-12.png")}}
-
-  <footer>
-    <div class="footer row">
-      <div class="grid width--2 footer__block footer__block--left footer__icon">
-	<div class="trolley-inline">
-	  <span class="ion-md-cart ic--2x"></span>
-	  <div class="trolley__count">24</div>
-	</div>
-      </div>
-      <div class="grid width--10 footer__block footer__block--right footer__button">
-	<button type="button" class="button button-block js-submit">
-          去购物车结算
-	</button>
-      </div>
-    </div>
-  </footer>
-
+    {{goods("一撕得7号箱", "110.00", "100", "0.01", "整箱发货", pic="/images/box-12.png")}}
+    {{goods("一撕得7号箱", "110.00", "100", "0.01", "整箱发货", pic="/images/box-12.png")}}
+    {{goods("一撕得7号箱", "110.00", "100", "0.01", "整箱发货", pic="/images/box-12.png")}}
+    {{goods("一撕得7号箱", "110.00", "100", "0.01", "整箱发货", pic="/images/box-12.png")}}
 </main>
 {% endblock %}
 
-
-{% block styles %}
-<link rel="stylesheet" href="index.css" />
+{% block scripts %}
+<script src="jquery.min.js"></script>
+<script src="goods.js"></script>
 {% endblock %}

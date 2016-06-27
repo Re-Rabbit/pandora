@@ -31,7 +31,7 @@
 
 
 {% macro buttonBorder(content="", hook="", isColor=false, link=false, href="") %}
-{% if link %}
+{% if href %}
 <a href="{{href}}" class="button button-border js-{{hook}} {{ '' if isColor else 'button-border--default'}}">
   {{content}}
 </a>
@@ -40,4 +40,10 @@
   {{content}}
 </button>
 {% endif %}
+{% endmacro %}
+
+{% macro buttonBorder1(content="", hook="", isColor=false, link=false, href="") %}
+<button type="button" class="button button-border js-{{hook}} button-border--red">
+    {{content}}
+</button>
 {% endmacro %}

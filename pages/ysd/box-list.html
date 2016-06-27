@@ -1,26 +1,18 @@
-{% extends "templates/application.html" %}
-
-{% from "ysd/_button.html" import buttonBlock %}
-{% from "ysd/_list-row.html" import goodsBox %}
-
-
 {#
 
 定制箱列表
 
 #}
 
+
+{% extends "templates/application.html" %}
+{% from "ysd/_button.html" import buttonBlock %}
+{% from "ysd/_list-row.html" import goodsBox %}
+
 {% block content %}
-<!-- Main -->
 <main>
-
-  {{goodsBox("一撕得7号箱", "0.01", "全国包邮，整箱发货", "299个起订，每箱100个", pic="/images/box-12.png")}}
-  {{goodsBox("一撕得7号箱", "0.01", "全国包邮，整箱发货", "299个起订，每箱100个", pic="/images/box-12.png")}}
-
+    {{goodsBox("一撕得7号箱", "100.00", "尺寸固定，定制专属logo", "每箱100个，整箱发货", pic="/images/box-12.png")}}
+    {{goodsBox("一撕得7号箱", "80.00", "尺寸固定，定制专属logo", "每箱100个，整箱发货", pic="/images/box-12.png")}}
 </main>
 {% endblock %}
 
-
-{% block styles %}
-<link rel="stylesheet" href="index.css" />
-{% endblock %}

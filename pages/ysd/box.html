@@ -1,97 +1,98 @@
-{% extends "templates/application.html" %}
-
-{% from "ysd/_button.html" import buttonBlock %}
-{% from "ysd/_list-row.html" import oneLineLink %}
-{% from "ysd/_footer.html" import footerBuy %}
-{% from "ysd/_counter.html" import counter %}
-{% from "ysd/_hr.html" import hr %}
-
-
 {#
 
 定制箱详情
 
 #}
 
+
+{% extends "templates/application.html" %}
+{% from "ysd/_button.html" import buttonBlock %}
+{% from "ysd/_list-row.html" import oneLineLink %}
+{% from "ysd/_footer.html" import footerBuy %}
+{% from "ysd/_counter.html" import counter %}
+{% from "ysd/_hr.html" import hr %}
+{% from "ysd/_goods.html" import goodsUpload %}
+
+
 {% block content %}
-<!-- Main -->
 <main class="footer-pad">
-  <div class="card">
-    <div class="upload" id="upload">
-      <img src="/images/upload.png" width="224" />
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="list-row list-pad">
-      <section class="list-control">
-	<div class="one-line row">
-          <div class="grid">
-            <div class="">
-              一撕得<span class="text-primary">7号</span>箱
-            </div>
-          </div>
-          <div class="grid grid-last">
-            <div class="text-primary">
-              ￥100.00
-            </div>
-          </div>
-	</div>
-      </section>
+    <div class="card">
+        {{goodsUpload("/images/upload.png", "upload", "upload")}}
     </div>
 
-    <div class="list-row list-pad">
-      <section class="list-control">
-	<div class="two-line">
-          <div class="muilt-line-title">
-            logo颜色
-          </div>
-	  <div>
-            <div class="label good-color-label js-label active">黑色</div>
-            <div class="label good-color-label js-label">红色</div>
-	  </div>
-	</div>
-      </section>
+    <div class="card">
+        <div class="list-row list-pad">
+            <section class="list-control">
+	              <div class="one-line row">
+                    <div class="grid">
+                        <div class="">
+                            一撕得<span class="text-primary">7号</span>箱
+                        </div>
+                    </div>
+                    <div class="grid grid-last">
+                        <div class="text-primary">
+                            ￥100.00
+                        </div>
+                    </div>
+	              </div>
+            </section>
+        </div>
+
+        <div class="list-row list-pad">
+            <section class="list-control">
+	              <div class="two-line">
+                    <div class="muilt-line-title">
+                        logo颜色
+                    </div>
+	                  <div>
+                        <div class="label good-color-label js-label active">黑色</div>
+                        <div class="label good-color-label js-label">红色</div>
+	                  </div>
+	              </div>
+            </section>
+        </div>
+
+        <div class="list-row list-pad">
+            <section class="list-control">
+	              <div class="one-line">
+	                  <div class="">
+	                      <span>100</span>个/箱，￥<span>1.10<span>/个，<span>整箱发货</span>
+	                  </div>
+	              </div>
+            </section>
+        </div>
+
+        <div class="list-row list-pad">
+            <section class="list-control">
+	              <div class="two-line row">
+                    <div class="grid width--6">
+                        <div class="list-pad-y-0d5">
+                            数量选择（共<span class="text-primary" id="sum">100</span>个）
+                        </div>
+                    </div>
+                    <div class="grid grid-last">
+	                      <div class="list-pad-y-0d25">
+	                          {{counter()}}
+	                      </div>
+                    </div>
+	              </div>
+            </section>
+        </div>
+
+        {{oneLineLink("评价", "#", comments="5624")}}
     </div>
 
-    <div class="list-row list-pad">
-      <section class="list-control">
-	<div class="one-line">
-	  <div class="">
-	    <span>100</span>个/箱，￥<span>1.10<span>/个，<span>整箱发货</span>
-	  </div>
-	</div>
-      </section>
-    </div>
-
-    <div class="list-row list-pad">
-      <section class="list-control">
-	<div class="two-line row">
-          <div class="grid width--6">
-            <div class="list-pad-y-0d5">
-              数量选择（共<span class="text-primary" id="sum">100</span>个）
-            </div>
-          </div>
-          <div class="grid grid-last">
-	    <div class="list-pad-y-0d25">
-	      {{counter()}}
-	    </div>
-          </div>
-	</div>
-      </section>
-    </div>
-
-    {{oneLineLink("评价", "#", comments="5624")}}
-  </div>
-
-  {{hr("继续拖动，查看图文详情")}}
+    {{hr("继续拖动，查看图文详情")}}
 </main>
 
 {{footerBuy()}}
-
 {% endblock %}
 
 
-{% block styles %}
-<link rel="stylesheet" href="index.css" />
+{% block scripts %}
+<script src="jquery.min.js"></script>
+<script src="switch.js"></script>
+<script src="preview.js"></script>
+<script src="counter.js"></script>
+<script src="box.js"></script>
 {% endblock %}

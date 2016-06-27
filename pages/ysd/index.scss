@@ -49,6 +49,7 @@ $color-secondary: #fe3333;
 
 .bottom-btn {
     @include fill(b, true);
+    z-index: 10;
     &-pad {
 	padding-bottom: 4.5rem;
     }
@@ -58,6 +59,7 @@ $footer-height: 3rem;
 
 .footer {
     @include fill(b, true);
+    z-index: 10;
     height: $footer-height;
 
     &-pad {
@@ -625,3 +627,37 @@ $footer-height: 3rem;
     @extend .width--8;
     line-height: 3em;
 }
+
+.goods-upload {
+    text-align: center;
+    //@include size(224px);
+    height: 224px;
+}
+
+.goods-modal-bg {
+    @include fill(a, true);
+    z-index: 1;
+    display: none;
+    background-color: rgba($color-black, $alpha);
+}
+
+.goods-detail {
+    position: relative;
+}
+
+.goods-photo {
+    height: 9rem;
+    img {
+        width: 100%;
+    }
+}
+
+.goods-modal {
+    @include fill(tr);
+    top: 1rem;
+    z-index: 2;
+    @include size(10rem, 12rem);
+    background: $color-white;
+    display: none;
+}
+

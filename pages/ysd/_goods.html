@@ -69,3 +69,12 @@
   {% endif %}
 </div>
 {% endmacro %}
+
+{% macro goodsUpload(pic="", name="", hook="") %}
+<div class="goods-upload js-upload js-{{hook}}">
+    <label for="{{name}}">
+        <img src="{{pic}}" class="img-res js-img" width="224" height="224" />
+        <input type="file" class="file js-form" name="{{name}}" id="{{name}}" />
+    </label>
+</div>
+{% endmacro %}

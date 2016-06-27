@@ -1,4 +1,4 @@
-{% from "ysd/_button.html" import buttonBorder %}
+{% from "ysd/_button.html" import buttonBorder, buttonBorder1 %}
 {% from "ysd/_counter.html" import counter %}
 
 {% macro field(placeholder="", name="", hook="", type="text") %}
@@ -172,48 +172,55 @@
 	              </div>
 
 	              <div class="grid width--8 card-right">
-	                  <header class="muilt-line-title">
-	                      {{name}}
-	                      <span class="text-gray ion-md-information-circle"></span>
+	                  <header class="muilt-line-title row">
+                        <div class="grid">{{name}}</div>
+                        <div class="grid grid-last goods-detail js-modal">
+                            <span class="text-small">箱子尺寸</span>
+                            <span class="text-gray ion-md-information-circle"></span>
+                            <div class="goods-modal">
+                                <div class="goods-photo">
+                                    <img src="/images/binding_dark.png" height="100" class="img-res" />
+                                </div>
+                                <div class="list-pad-x-1 text-small">
+                                    <div class="list-pad-y-0d5">
+                                        <div class="list-mar-0d5">尺寸：100x200x300mm</div>
+                                        <div>建议装：手机</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="goods-modal-bg"></div>
+                        </div>
 	                  </header>
 	                  <section class="muilt-line-title">
 	                      <div class="muilt-line-block">
 	                          <span class="text-primary">￥</span><span class="text-primary js-price">{{price}}</span>
 	                      </div>
-	                      <div class="muilt-line-block text-small">
-	                          <span class="js-count">{{price1}}</span><span class="">个/箱,</span>
-	                      </div>
-	                      <div class="muilt-line-block text-small">
-	                          <span class="">￥</span><span class="js-count">{{price2}}</span><span class="">/个</span>
-	                      </div>
 	                  </section>
 	                  <section class="muilt-line-title">
 	                      <div class="text-small text-gray">
-	                          {{intro}}
+	                          <span class="js-count">{{price1}}</span><span class="">个/箱,</span><span class="">￥</span><span class="js-count">{{price2}}</span><span class="">/个,</span><span>{{intro}}</span>
 	                      </div>
 	                  </section>
 	                  <section class="muilt-line-title">
 	                      <div class="muilt-btn-group text-small">
-	                          {{buttonBorder("加入购物车", "add")}}
-	                          {{buttonBorder("立即下单", "submit", true)}}
+	                          {{buttonBorder("加入购物车", "add", true, href="standard-append-shoppingcar.html")}}
+	                          {{buttonBorder1("立即下单", "submit", true, href="standard-append-shoppingcar.html")}}
 	                      </div>
 	                  </section>
 	              </div>
-	              
+
             </div>
         </section>
     </div>
-
 </div>
 {% endmacro %}
 
-{% macro goodsBox(name="", price="", intro="", intro1="", pic="") %}
+{% macro goodsBox(name="", price="", intro="", intro1="", pic="", href="#") %}
 <div class="card">
 
     <div class="list-row list-pad">
         <section class="list-control">
             <div class="row">
-	              
 	              <div class="grid width--4 card-left">
 	                  <div class="card-photo">
 	                      <section class="photo">
@@ -221,7 +228,7 @@
 	                      </section>
 	                  </div>
 	              </div>
-	              
+
 	              <div class="grid width--8 card-right">
 	                  <header class="muilt-line-title">
 	                      {{name}}
@@ -241,7 +248,7 @@
 	                          <span class="text-primary">￥</span><span class="text-primary js-price">{{price}}</span><span class="text-primary">/个</span>
 	                      </div>
 	                      <div class="text-small grid-last">
-	                          {{buttonBorder("立即定制", "submit", true)}}
+	                          {{buttonBorder("立即定制", "submit", true, href="box.html")}}
 	                      </div>
 	                  </section>
 	              </div>
