@@ -103,6 +103,10 @@
     }
 }
 
+.button--red {
+    @include theme-reverse($color-secondary);
+}
+
 .button-block-container {
     box-sizing: border-box;
     padding: 1rem;

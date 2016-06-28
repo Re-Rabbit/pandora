@@ -1,36 +1,46 @@
-{% extends "templates/application.html" %}
-
-{% from "ysd/_button.html" import buttonBlock %}
-{% from "ysd/_list-row.html" import order %}
-{% from "ysd/_footer.html" import footerCar, footerCarEdit %}
-
-
 {#
 
 购物车
 
 #}
 
-{% block content %}
-<!-- Main -->
-<main class="footer-pad">
 
+{% extends "templates/application.html" %}
+{% from "ysd/_button.html" import buttonBlock %}
+{% from "ysd/_list-row.html" import order %}
+{% from "ysd/_footer.html" import footerCar, footerCarEdit %}
+
+{% block content %}
+<main class="footer-pad">
   <section class="text-right">
-    <div class="list-pad-1 text-primary js-edit" id="edit">完成</div>
+    <div class="list-pad-1 text-primary js-btn">编辑全部</div>
   </section>
 
-  {{order("标准产品", "666666", name="all1", radio=true)}}
-  {{order("标准产品", "666666", name="all1", radio=true)}}
+  <div class="js-container"></div>
 
   {#
-  {{footerCar("660.00", "2", true)}}
+  <section class="js-default">
+    {{order("标准产品", "666666", name="all1")}}
+  </section>
+  <section class="js-edit">
+    {{order("标准产品", "666666", name="all1", radio=true)}}
+  </section>
   #}
-  {{footerCarEdit("all")}}
 
+  <section class="js-footer">
+    <footer class="js-edit">
+      {{footerCar("660.00", "2", true)}}
+    </footer>
+    <footer class="js-default">
+      {{footerCarEdit("all")}}
+    </footer>
+  </section>
 </main>
 {% endblock %}
 
 
-{% block styles %}
-<link rel="stylesheet" href="index.css" />
+{% block scripts %}
+<script src="jquery.min.js"></script>
+<script src="counter.js"></script>
+<script src="shoppingcar.js"></script>
 {% endblock %}

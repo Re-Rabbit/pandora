@@ -15,3 +15,11 @@ $('.sidebar__bg').on('click', evt => {
 	$('body').removeClass('sidebar-fixed')
     }, 210)
 })
+
+
+$('.owl-carousel').owlCarousel({
+    loop: true,
+    responsiveClass: true,
+    items: 1,
+    autoplay: true
+})

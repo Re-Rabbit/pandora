@@ -25,6 +25,7 @@ class Counter {
     setValue(val) {
         this.val = val
         this.$val.val(val)
+	this.$el.trigger('changed', [val])
     }
     bindEvent() {
         this.$el.on('click', '.js-counter-inc', _ => {

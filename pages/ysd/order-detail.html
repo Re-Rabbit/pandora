@@ -46,7 +46,7 @@
   </section>
 
   {% set header=orderBlockHeaderDateOnly("标准产品", "2016-03-20 10:10")%}
-  {% set item=orderItem("一撕得7号箱", "100", "600", "整箱发货", "100.00", "6", "666.66", pic="/images/box-12.png") %}
+  {% set item=orderItem("一撕得7号箱", "100", "600", "整箱发货", "100.00", "6", "666.66", pic="../images/box-12.png") %}
   {% set footer=orderBlockFooterOnly("2", "100.00", "50.00")%}
 
   {{orderBlock(header, [item, item], footer)}}

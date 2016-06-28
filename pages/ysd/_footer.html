@@ -31,7 +31,7 @@
       {% if muilt %}
       <div class="list-pad-y-0d5">
         <div class="list-mar-0d5">
-	  合计：<span class="text-secondary">￥</span><span class="text-secondary js-price">{{price}}</span>
+	  合计：<span class="text-secondary">￥</span><span class="text-secondary js-money">{{price}}</span>
         </div>
         <div>
 	  <small>不含运费</small>
@@ -40,14 +40,14 @@
       {% else %}
       <div class="list-pad-y-1">
         <div class="list-mar-0d5">
-	  合计：<span class="text-secondary">￥</span><span class="text-secondary js-price">{{price}}</span>
+	  合计：<span class="text-secondary">￥</span><span class="text-secondary js-money">{{price}}</span>
         </div>
       </div>
       {% endif %}
     </div>
     <div class="grid width--4 footer__block footer__block--right footer__button">
       <button type="button" class="button button-block js-submit button--color2">
-        结算（{{num}}）
+        结算（<span class="js-len">{{num}}</span>）
       </button>
     </div>
   </div>
