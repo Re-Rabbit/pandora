@@ -1,0 +1,60 @@
+
+
+.popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+              
+    z-index: 100;
+}
+
+.small-window {
+    $h: 7.5rem;
+    $w: 18em;
+    display: block;
+    position: absolute;
+    top: calc(50% - #{$h / 2});
+    left: calc(50% - #{$w / 2});
+
+    width: $w;
+    height: $h;
+    border-radius: 0.5rem;
+
+    background-color: white;
+    color: black;
+    text-align: center;
+}
+.small-window-content {
+    box-sizing: border-box;
+    border-bottom: 1px solid lightgray;
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    height: 5rem;
+    line-height: 5rem;
+    font-size: 1.2rem;
+}
+.small-window-btn1 {
+    @extend .grid;
+    @extend .width--6;
+    border-bottom-left-radius: 0.5rem;
+    line-height: 2.5rem;
+}
+.small-window-btn2 {
+    @extend .grid;
+    @extend .width--6;
+    border-bottom-right-radius: 0.5rem;
+    line-height: 2.5rem;
+    background-color: $color-primary;
+    color: white;
+}
+
+.gray-layer {
+    background-color: rgba(0.5, 0.5, 0.5, 0.5);
+    height: 100%;
+    width: 100%;
+}
+
+
+
