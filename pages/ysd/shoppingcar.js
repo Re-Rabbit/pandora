@@ -172,12 +172,21 @@ const blockEditTpl = block => `
 </div>
 `
 
+function getBlock(pid) {
+    let blockIdx = data.findIndex(n => n.id == pid)
+    return data[blockIdx]
+}
+
+function getGoods(pid, id) {
+    let blockIdx = data.findIndex(n => n.id == pid)
+    let goodsIdx = getBlock(pid).goods.findIndex(n => n.id == id)
+    return getBlock(pid).goods[goodsIdx]
+}
+
 function render() {
-    console.log(data)
     let dom = data.map(state === 2 ? blockDefaultTpl : blockEditTpl).join('')
     $('.js-container').html(dom)
     $('.js-counter').toArray().forEach(n => {
-	console.log($(n))
 	return new Counter({ el: $(n), val: $(n).data('count') })
     })
 }
@@ -186,13 +195,14 @@ $('.js-container').on('changed', '.js-counter', function(_, c) {
     let id = $(this).parents('.js-goods').data('id')
     let $pid = $(this).parents('.js-block')
     let pid = $pid.data('id')
-    let blockIdx = data.findIndex(n => n.id == pid)
-    let goodsIdx = data[blockIdx].goods.findIndex(n => n.id == id)
-    data[blockIdx].goods[goodsIdx].count = c
-    data[blockIdx].sum = data[blockIdx].goods.reduce((acc, c) => {
+    let block = getBlock(pid)
+    let goods = getGoods(pid, id)
+    goods.count = c
+    let sum = block.goods.reduce((acc, c) => {
 	return acc + parseInt(c.price) * parseInt(c.count)
     }, 0)
-    $pid.find('.js-sum').text(data[blockIdx].sum)
+    block.sum = sum
+    $pid.find('.js-sum').text(sum)
     $('.js-footer').trigger('recalc')
 })
 
@@ -209,12 +219,41 @@ $('.js-footer').on('recalc', _ => {
     )
 })
 
-$('.js-container').on('changed', '.js-checked-all', function() {
-    let pid = $(this).parents('js-block').data('id')
+$('.js-container').on('change', '.js-checked-all', function() {
+    let pid = $(this).parents('.js-block').data('id')
+    let ids = getBlock(pid).goods.map(n => n.id)
+    $('.js-container').trigger('checked-all', [pid, ids, $(this).prop('checked')])
 })
 
-$('.js-container').on('changed', '.js-checked', function() {
-    let id = $(this).parents('js-goods').data('id')
+$('.js-container').on('checked-all', (_, pid, ids, isChecked) => {
+    ids.forEach(n => {
+	getGoods(pid, n).checked = isChecked
+	$(`.js-goods[data-id=${n}]`).find('.js-checked').prop('checked', isChecked)
+    })
+    $('.js-container').trigger('maybe-remove')
+})
+
+$('.js-container').on('maybe-remove', _ => {
+    let hasChecked = data.filter(n => n.goods.filter(m => !!m.checked).length).length
+    $('.js-delete').toggleClass('button--color2', hasChecked)
+    $('.js-footer-del').toggleClass('footer__block--right', hasChecked)
+})
+
+$('.js-checked-all1').on('change', function() {
+    let checked = $(this).prop('checked')
+    $('.js-container').find('.js-checked-all').prop('checked', checked)
+    $('.js-container').find('.js-checked').prop('checked', checked)
+    data.forEach(n => n.goods.forEach(m => m.checked = checked))
+    $('.js-container').trigger('maybe-remove')
+})
+
+$('.js-container').on('change', '.js-checked', function() {
+    let id = $(this).parents('.js-goods').data('id')
+    let pid = $(this).parents('.js-block').data('id')
+    let block = getBlock(pid)
+    getGoods(pid, id).checked = $(this).prop('checked')
+    $(this).parents('.js-block').find('.js-checked-all').prop('checked', block.goods.filter(n => !!n.checked).length === block.goods.length)
+    $('.js-container').trigger('maybe-remove')
 })
 
 

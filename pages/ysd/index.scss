@@ -100,7 +100,7 @@ $footer-height: 3rem;
 .footer__block {
     min-height: 3rem;
     &--right {
-        background-color: $color-secondary;
+        background-color: $color-secondary !important;
     }
     &--left {
         background-color: $color-white;
