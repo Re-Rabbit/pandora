@@ -8,6 +8,7 @@
 {% extends "templates/application.html" %}
 {% from "ysd/_order.html" import invoice, statistical, orderBlockHeaderDate, orderBlockFooter, orderItem, orderBlock %}
 {% from "ysd/_button.html" import buttonBorder %}
+{% from "ysd/_popup.html" import popupSmall %}
 
 {% set header=orderBlockHeaderDate("标准产品", "2016-03-20 10:10", "待评价")%}
 {% set item=orderItem("一撕得7号箱", "100", "600", "整箱发货", "100.00", "6", "666.66", pic="../images/box-12.png") %}
@@ -68,6 +69,9 @@
     </div>
   </section>
 </main>
+
+{{popupSmall("content", "bt1", "bt2")}}
+
 {% endblock %}
 
 {% block scripts %}

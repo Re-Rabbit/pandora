@@ -1,0 +1,31 @@
+
+
+
+
+{% macro grayLayer(content) %}
+<div class="gray-layer">
+  {{content}}
+</div>
+{% endmacro %}
+
+{% macro smallWindow2Btn(content, btn1, btn2) %}
+<div class="small-window">
+  <div class="small-window-content">
+    {{content}}
+  </div>
+  <div class="row">
+    <div class="small-window-btn1">{{btn1}}</div>
+    <div class="small-window-btn2">{{btn2}}</div>
+  </div>
+</div>
+{% endmacro %}
+
+{% macro popupBase(window, background=grayLayer) %}
+<div class="popup">
+  {{grayLayer(window)}}
+</div>
+{% endmacro %}
+
+{% macro popupSmall(content, btn1, btn2) %}
+{{popupBase(smallWindow2Btn(content, btn1, btn2), grayLayer)}}
+{% endmacro %}
