@@ -6,7 +6,11 @@
 
 
 {% extends "templates/application.html" %}
-{% from "ysd/_order.html" import invoice, statistical, orderBlockHeaderDate, orderBlockFooter, orderItem, orderBlock %}
+{% from "ysd/_order.html" import
+invoice,statistical, orderBlockHeaderDate,
+orderBlockFooter, orderItem, orderBlock,
+icon, noBlock
+%}
 {% from "ysd/_button.html" import buttonBorder %}
 {% from "ysd/_popup.html" import popupSmall %}
 
@@ -50,26 +54,26 @@
 
   <section class="">
     <div class="tab__content js-tab-content">
-      {{orderBlock(header, [item, item], footer1)}}
-      {{orderBlock(header, [item, item], footer2)}}
-      {{orderBlock(header, [item, item], footer3)}}
-      {{orderBlock(header, [item, item], footer4)}}
+      {{noBlock("目前没有订单", icon("ion-ios-menu"))}}
     </div>
     <div class="tab__content js-tab-content">
-      {{orderBlock(header, [item, item], footer4)}}
+      {{noBlock("目前没有订单需要付款", icon("ion-ios-menu"))}}
     </div>
     <div class="tab__content js-tab-content">
-      {{orderBlock(header, [item, item], footer2)}}
+      {{noBlock("目前没有待发货订单", icon("ion-ios-menu"))}}
     </div>
     <div class="tab__content js-tab-content">
-      {{orderBlock(header, [item, item], footer3)}}
+      {{noBlock("目前没有待收货订单", icon("ion-ios-menu"))}}
     </div>
     <div class="tab__content js-tab-content">
-      {{orderBlock(header, [item, item], footer1)}}
+      {{noBlock("目前没有待评价订单", icon("ion-ios-menu"))}}
     </div>
   </section>
 </main>
 
+<!--
+    {{popupSmall("您是否收到该订单商品？", "未收货", "已收货")}}
+-->
 {% endblock %}
 
 {% block scripts %}

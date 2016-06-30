@@ -46,7 +46,7 @@
 	  </div>
 	  <div class="grid grid-last">
 	    <div class="text-secondary">￥<span>{{price}}</span></div>
-	  </div>
+  </div>
 	</div>
 	<div class="row">
 	  <div class="grid">
@@ -309,5 +309,34 @@
       </div>
     </div>
   </section>
+</div>
+{% endmacro %}
+
+{% macro grayLine(len="3rem") %}
+<div class="gray-line--{{len}}"></div>
+{% endmacro %}
+
+{% macro icon(cls_code) %}
+<div class={{cls_code}}></div>
+{% endmacro %}
+
+{% macro noBlock(text, icon, left=grayLine(), right=grayLine()) %}
+<div class="no-block">
+  <div class="icon-line">
+    <!--<div class="no-block-left-box">-->
+    <div class="no-block-left">
+      {{left}}
+    </div>
+    <!--</div>-->
+    <div class="no-block-center">{{icon}}</div>
+    <!--<div class="no-block-right-box">-->
+    <div class="no-block-right">
+      {{right}}
+    </div>
+    <!--</div>-->
+  </div>
+  <div class="no-block-text">
+    {{text}}
+  </div>
 </div>
 {% endmacro %}
