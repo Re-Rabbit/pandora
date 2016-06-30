@@ -659,3 +659,15 @@ $footer-height: 3rem;
     background: $color-white;
     display: none;
 }
+
+
+.goods-shoppingcar {
+    @include fill(tr, true);
+    top: 50%;
+    right: -1rem;
+    .trolley__icon {
+	border-radius: 0;
+	border-top-left-radius: $global-border-radius;
+	border-bottom-left-radius: $global-border-radius;
+    }
+}
