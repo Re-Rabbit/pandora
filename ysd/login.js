@@ -1,5 +1,7 @@
 'use strict';
 
+try{
+
 var tab = new Tab({ el: $('.js-tab') });
 var phone = new Validator({ el: $('[name=phone]'), regex: /^1\d{10}$/ });
 var phone1 = new Validator({ el: $('[name=phone1]'), regex: /^1\d{10}$/ });
@@ -39,3 +41,4 @@ $('.js-ok').on('click', function (_) {
                       return n.getVal();
            }).join(','));
 });
+} catch(e) { alert(e) }
