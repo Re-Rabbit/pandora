@@ -15,7 +15,7 @@ var beforeCheck = function beforeCheck(_) {
 };
 
 new Msgcode({ el: $('#msg'), onBeforeSend: beforeCheck });
-
+} catch(e) { alert(e) }
 $('.js-ok').on('click', function (_) {
            if (tab.getVal() === 0) {
                       if (!phone.validate()) {
@@ -41,4 +41,4 @@ $('.js-ok').on('click', function (_) {
                       return n.getVal();
            }).join(','));
 });
-} catch(e) { alert(e) }
+
