@@ -5296,13 +5296,13 @@ h1 + small, h2 + small, h3 + small, h4 + small, h5 + small {
   line-height: 1.5;
 }
 
-.row::after {
+.row::after, .icon-line::after {
   content: '';
   display: table;
   clear: both;
 }
 
-.grid, .small-window-btn1, .small-window-btn2 {
+.grid, .no-block-left, .no-block-right, .no-block-center, .small-window-btn1, .small-window-btn2 {
   float: left;
 }
 
@@ -6573,6 +6573,40 @@ button[disabled], button[disabled]:hover, button[disabled]:active {
   border-bottom: 1px solid #ddd;
 }
 
+.gray-line--3rem {
+  display: inline-block;
+  width: 3rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.no-block {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.icon-line {
+  display: inline-block;
+  margin: 1rem 0;
+}
+
+.no-block-left, .no-block-right {
+  padding: 0 1rem;
+  box-sizing: border-box;
+  line-height: 3rem;
+  vertical-align: middle;
+}
+
+.no-block-center {
+  font-size: 3rem;
+  line-hright: 3rem;
+  color: #ddd;
+}
+
+.no-block-text {
+  color: #aaa;
+  margin: 1rem 0;
+}
+
 .popup {
   position: fixed;
   top: 0;
@@ -6602,7 +6636,6 @@ button[disabled], button[disabled]:hover, button[disabled]:active {
   border-top-left-radius: 0.5rem;
   height: 5rem;
   line-height: 5rem;
-  font-size: 1.2rem;
 }
 
 .small-window-btn1 {
