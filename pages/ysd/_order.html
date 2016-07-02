@@ -323,17 +323,13 @@
 {% macro noBlock(text, icon, left=grayLine(), right=grayLine()) %}
 <div class="no-block">
   <div class="icon-line">
-    <!--<div class="no-block-left-box">-->
     <div class="no-block-left">
       {{left}}
     </div>
-    <!--</div>-->
     <div class="no-block-center">{{icon}}</div>
-    <!--<div class="no-block-right-box">-->
     <div class="no-block-right">
       {{right}}
     </div>
-    <!--</div>-->
   </div>
   <div class="no-block-text">
     {{text}}

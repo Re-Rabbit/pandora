@@ -7,25 +7,11 @@
 
 {% extends "templates/application.html" %}
 {% from "ysd/_order.html" import
-invoice,statistical, orderBlockHeaderDate,
-orderBlockFooter, orderItem, orderBlock,
 icon, noBlock
 %}
 {% from "ysd/_button.html" import buttonBorder %}
 {% from "ysd/_popup.html" import popupSmall %}
 
-{% set header=orderBlockHeaderDate("标准产品", "2016-03-20 10:10", "待评价")%}
-{% set item=orderItem("一撕得7号箱", "100", "600", "整箱发货", "100.00", "6", "666.66", pic="../images/box-12.png") %}
-{% set btn1=buttonBorder("查看物流", "add") %}
-{% set btn2=buttonBorder("再次购买", "add") %}
-{% set btn3=buttonBorder("评价", "submit", true) %}
-{% set btn4=buttonBorder("确认收货", "submit", true) %}
-{% set btn5=buttonBorder("催单", "submit", true) %}
-{% set btn6=buttonBorder("立即支付", "submit", true) %}
-{% set footer1=orderBlockFooter(num="2", price="100.00", price1="50.00", buttons=[btn1, btn2, btn3])%}
-{% set footer2=orderBlockFooter(num="2", price="100.00", price1="50.00", buttons=[btn5])%}
-{% set footer3=orderBlockFooter(num="2", price="100.00", price1="50.00", buttons=[btn1, btn4])%}
-{% set footer4=orderBlockFooter(num="2", price="100.00", price1="50.00", buttons=[btn6])%}
 
 {% block content %}
 

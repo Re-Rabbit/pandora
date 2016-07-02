@@ -29,34 +29,33 @@
     width: 3rem;
     border-bottom: 1px solid $color-gray-ll;
 }
+@mixin one-line-height($h) {
+    line-height: $h;
+    height: $h;
+}
 .no-block {
-    margin-top: 5rem;
+    padding-top: 5rem;
     text-align: center;
 }
 .icon-line {
     display: inline-block;
     @extend .row;
-    margin: 1rem 0;
+    @extend .list-pad-y-1;
 }
-//.no-block-left-box, .no-block-right-box {
-//    @extend .grid;
-//    position: relative;
-//    top: 0;
-//}
 .no-block-left, .no-block-right {
     @extend .grid;
-    padding: 0 1rem;
     box-sizing: border-box;
-    line-height: 3rem;
-    vertical-align: middle;
+    @include one-line-height(3rem);
 }
 .no-block-center {
     @extend .grid;
+    box-sizing: border-box;
+    padding: 0 1rem;
     font-size: 3rem;
-    line-hright: 3rem;
+    @include one-line-height(3rem);
     color: $color-gray-ll;
 }
 .no-block-text {
     color: $color-gray-l;
-    margin: 1rem 0;
+    @extend .list-pad-y-1;
 }
