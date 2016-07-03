@@ -1,4 +1,9 @@
 {
     presets: ['es2015'],
-    ignore: ['node_modules/nunjucks/*']
+    ignore: [
+      'node_modules/nunjucks/*',
+      'pages/ysd/core.min.js',
+      'pages/ysd/jquery.min.js',
+      'pages/ysd/polyfill.min.js'
+    ]
 }
