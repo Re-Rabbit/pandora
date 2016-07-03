@@ -1,7 +1,5 @@
 'use strict';
 
-try{
-
 var tab = new Tab({ el: $('.js-tab') });
 var phone = new Validator({ el: $('[name=phone]'), regex: /^1\d{10}$/ });
 var phone1 = new Validator({ el: $('[name=phone1]'), regex: /^1\d{10}$/ });
@@ -15,7 +13,7 @@ var beforeCheck = function beforeCheck(_) {
 };
 
 new Msgcode({ el: $('#msg'), onBeforeSend: beforeCheck });
-} catch(e) { alert(e) }
+
 $('.js-ok').on('click', function (_) {
            if (tab.getVal() === 0) {
                       if (!phone.validate()) {
@@ -41,4 +39,3 @@ $('.js-ok').on('click', function (_) {
                       return n.getVal();
            }).join(','));
 });
-

@@ -6580,31 +6580,31 @@ button[disabled], button[disabled]:hover, button[disabled]:active {
 }
 
 .no-block {
-  margin-top: 5rem;
+  padding-top: 5rem;
   text-align: center;
 }
 
 .icon-line {
   display: inline-block;
-  margin: 1rem 0;
 }
 
 .no-block-left, .no-block-right {
-  padding: 0 1rem;
   box-sizing: border-box;
   line-height: 3rem;
-  vertical-align: middle;
+  height: 3rem;
 }
 
 .no-block-center {
+  box-sizing: border-box;
+  padding: 0 1rem;
   font-size: 3rem;
-  line-hright: 3rem;
+  line-height: 3rem;
+  height: 3rem;
   color: #ddd;
 }
 
 .no-block-text {
   color: #aaa;
-  margin: 1rem 0;
 }
 
 .popup {
@@ -6964,7 +6964,7 @@ button[disabled], button[disabled]:hover, button[disabled]:active {
   padding: 0.5rem 0;
 }
 
-.list-pad-y-1, .order-header {
+.list-pad-y-1, .order-header, .icon-line, .no-block-text {
   box-sizing: border-box;
   padding: 1rem 0;
 }
