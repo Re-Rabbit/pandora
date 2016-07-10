@@ -671,3 +671,98 @@ $footer-height: 3rem;
 	border-bottom-left-radius: $global-border-radius;
     }
 }
+
+
+.select-container {
+    @include fill(b, true);
+    z-index: 999;
+    height: 7 * 25px;
+    background-color: #ddd;
+    transform: translate3d(0, 0, 0);
+    overflow: hidden;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 25px;
+        margin-top: -12.5px;
+        background-color: rgba($color-black, $alpha-l);
+        z-index: 1;
+    }
+}
+.select-header {
+    @include fill(b, true);
+    @include border-box-padding(0.5rem);
+    background: #eee;
+    position: absolute;
+    bottom: 8 * 25 - 25px;
+    z-index: 10;
+}
+.select {
+    height: 100%;
+    &__item {
+        text-align: center;
+        height: 25px;
+        line-height: 25px;
+        color: $color-gray;
+
+        &.active {
+            //background-color: #aaa;
+            // transform: perspective(200px) rotateX(15deg);
+        }
+    }
+}
+
+.js-curr {
+    color: #000;
+    transform: scale3d(1.5, 1.5, 1);
+}
+
+.js-prev {
+    &-1 {
+        color: #222;
+        transform: perspective(200px) rotateX(30deg);
+    }
+    &-2 {
+        color: #444;
+        transform: perspective(200px) rotateX(35deg);
+    }
+    &-3 {
+        color: #666;
+        transform: perspective(200px) rotateX(40deg);
+    }
+    &-4 {
+        color: #888;
+        transform: perspective(200px) rotateX(45deg);
+    }
+    &-5 {
+        color: #aaa;
+        transform: perspective(200px) rotateX(50deg);
+    }
+}
+
+.js-next {
+    &-1 {
+        color: #222;
+        transform: perspective(200px) rotateX(-30deg);
+    }
+    &-2 {
+        color: #444;
+        transform: perspective(200px) rotateX(-35deg);
+    }
+    &-3 {
+        color: #666;
+        transform: perspective(200px) rotateX(-40deg);
+    }
+    &-4 {
+        color: #888;
+        transform: perspective(200px) rotateX(-45deg);
+    }
+    &-5 {
+        color: #aaa;
+        transform: perspective(200px) rotateX(-50deg);
+    }
+}
