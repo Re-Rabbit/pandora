@@ -14,16 +14,44 @@
   <div class="card">
     <div class="list-pad-x-1">
       <div class="list-pad-y-1">
-	<div class="text-primary">地址标签名称</div>
+	      <div class="text-primary">地址标签名称</div>
       </div>
     </div>
   </div>
-  
+
   <div class="card">
     {{field("收货人姓名", name="name")}}
     {{field("联系电话", name="phone")}}
     {{field("省、市、区", name="city")}}
+
     {{area("详细地址", name="addr")}}
+  </div>
+
+
+  <div class="select-box">
+      <div class="select-header text-right">
+          <span class="js-select-checked text-primary">完成</span>
+      </div>
+      <div class="select-container">
+          <div class="select js-city-1">
+              <div class="select__item">北京市</div>
+              <div class="select__item">上海市</div>
+              <div class="select__item">3</div>
+              <div class="select__item">4</div>
+              <div class="select__item">5</div>
+              <div class="select__item">6</div>
+              <div class="select__item">7</div>
+              <div class="select__item">8</div>
+              <div class="select__item">9</div>
+              <div class="select__item">10</div>
+              <div class="select__item">11</div>
+              <div class="select__item">12</div>
+              <div class="select__item">13</div>
+              <div class="select__item">14</div>
+              <div class="select__item">15</div>
+              <div class="select__item">16</div>
+          </div>
+      </div>
   </div>
 
   <div class="bottom-btn">
@@ -34,6 +62,7 @@
 
 {% block scripts %}
 <script src="jquery.min.js"></script>
+<script src="draggabilly.pkgd.min.js"></script>
 <script src="validate.js"></script>
 <script src="area.js"></script>
 <script src="address-add.js"></script>
