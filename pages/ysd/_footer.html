@@ -27,7 +27,13 @@
 {% macro footerCar(price="", num="0", muilt=false) %}
 <footer>
   <div class="footer row">
-    <div class="grid width--8 footer__block footer__block--left text-right list-pad-x-1">
+    <div class="grid width--3 footer__block footer__block--left list-pad-1">
+      <label for="{{name}}" class="radio">
+	<input name="{{name}}" class="js-checked-all1" id="{{name}}" type="checkbox" value="" />
+	<span>全选</span>
+      </label>
+    </div>
+    <div class="grid width--5 footer__block footer__block--left text-right list-pad-x-1">
       {% if muilt %}
       <div class="list-pad-y-0d5">
         <div class="list-mar-0d5">

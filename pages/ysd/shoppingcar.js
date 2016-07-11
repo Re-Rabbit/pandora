@@ -42,6 +42,13 @@ const goodsDefaultTpl = goods => `
 <div class="list-row list-pad js-goods" data-id="${goods.id}">
   <section class="list-control">
     <div class="row">
+      <div class="grid width--1 card-left">
+	<div class="order-radio">
+          <label for="" class="radio">
+	  <input name="" class="js-checked" type="checkbox" value=""/>
+          </label>
+	</div>
+      </div>
       <div class="grid width--3 card-left">
 	<div class="card-photo">
 	  <section class="photo">
@@ -49,7 +56,7 @@ const goodsDefaultTpl = goods => `
 	  </section>
 	</div>
       </div>
-      <div class="grid width--5 card-right">
+      <div class="grid width--4 card-right">
 	<header class="muilt-line-title">
 	  ${goods.name}
 	</header>
@@ -133,7 +140,10 @@ const blockDefaultTpl = block => `
 <div class="card js-block" data-id="${block.id}">
   <header class="card-header">
     <div class="order-header">
-      <span class="text-gray">${block.label}</span>
+      <label for="" class="radio">
+	<input name="" class="js-checked-all" type="checkbox" value=""/>
+	<span class="text-gray">${block.label}</span>
+      </label>
     </div>
   </header>
   <section class="card-middle">
