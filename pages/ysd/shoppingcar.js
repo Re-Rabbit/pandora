@@ -4,37 +4,37 @@ let data = [{
     id: '1',
     label: '标准产品',
     goods: [{
-	      id: '11',
-	      name: '一撕得7号箱',
-	      price: 200,
-	      spec: '100',
-	      count: 10,
-	      pic: "../images/box-12.png"
+	id: '11',
+	name: '一撕得7号箱',
+	price: 200,
+	spec: '100',
+	count: 10,
+	pic: "../images/box-12.png"
     },{
-	      id: '12',
-	      name: '一撕得8号箱',
-	      price: 400,
-	      spec: '100',
-	      count: 18,
-	      pic: "../images/box-12.png"
+	id: '12',
+	name: '一撕得8号箱',
+	price: 400,
+	spec: '100',
+	count: 18,
+	pic: "../images/box-12.png"
     }]
 },{
     id: '2',
     label: '劣质产品',
     goods: [{
-	      id: '21',
-	      name: '一撕得9号箱',
-	      price: 200,
-	      spec: '100',
-	      count: 10,
-	      pic: "../images/box-12.png"
+	id: '21',
+	name: '一撕得9号箱',
+	price: 200,
+	spec: '100',
+	count: 10,
+	pic: "../images/box-12.png"
     },{
-	      id: '22',
-	      name: '一撕得10号箱',
-	      price: 400,
-	      spec: '100',
-	      count: 18,
-	      pic: "../images/box-12.png"
+	id: '22',
+	name: '一撕得10号箱',
+	price: 400,
+	spec: '100',
+	count: 18,
+	pic: "../images/box-12.png"
     }]
 }]
 
@@ -197,7 +197,7 @@ function render() {
     let dom = data.map(state === 2 ? blockDefaultTpl : blockEditTpl).join('')
     $('.js-container').html(dom)
     $('.js-counter').toArray().forEach(n => {
-	      return new Counter({ el: $(n), val: $(n).data('count') })
+	return new Counter({ el: $(n), val: $(n).data('count'), min: 1 })
     })
 }
 
@@ -209,7 +209,7 @@ $('.js-container').on('changed', '.js-counter', function(_, c) {
     let goods = getGoods(pid, id)
     goods.count = c
     let sum = block.goods.reduce((acc, c) => {
-	      return acc + parseInt(c.price) * parseInt(c.count)
+	return acc + parseInt(c.price) * parseInt(c.count)
     }, 0)
     block.sum = sum
     $pid.find('.js-sum').text(sum)
@@ -218,14 +218,14 @@ $('.js-container').on('changed', '.js-counter', function(_, c) {
 
 $('.js-footer').on('recalc', _ => {
     $('.js-money').text(
-	      data.reduce((acc, c) => {
-	          return acc + c.goods.reduce((a1, c1) => {
-		            return a1 + parseInt(c1.count) * parseInt(c1.price)
-	          }, 0)
-	      }, 0)
+	data.reduce((acc, c) => {
+	    return acc + c.goods.reduce((a1, c1) => {
+		return a1 + parseInt(c1.count) * parseInt(c1.price)
+	    }, 0)
+	}, 0)
     )
     $('.js-len').text(
-	      data.length
+	data.length
     )
 })
 
@@ -237,8 +237,8 @@ $('.js-container').on('change', '.js-checked-all', function() {
 
 $('.js-container').on('checked-all', (_, pid, ids, isChecked) => {
     ids.forEach(n => {
-	      getGoods(pid, n).checked = isChecked
-	      $(`.js-goods[data-id=${n}]`).find('.js-checked').prop('checked', isChecked)
+	getGoods(pid, n).checked = isChecked
+	$(`.js-goods[data-id=${n}]`).find('.js-checked').prop('checked', isChecked)
     })
     $('.js-container').trigger('maybe-remove')
 })
@@ -286,11 +286,11 @@ function setState(stat) {
     $('.js-container').trigger('state')
 
     if(state === 1) {
-	      $('.js-btn').text('完成')
+	$('.js-btn').text('完成')
     }
 
     if(state === 2) {
-	      $('.js-btn').text('编辑全部')
+	$('.js-btn').text('编辑全部')
     }
 }
 
